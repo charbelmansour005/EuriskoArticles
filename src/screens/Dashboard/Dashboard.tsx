@@ -119,7 +119,7 @@ const Dashboard = ({
           backgroundColor: themeColors.darkgray,
           ...styles.maxWidth,
         }}>
-        <DashHeader />
+        <DashHeader search={search} setSearch={setSearch} />
         <FlatList
           showsVerticalScrollIndicator={false}
           data={search ? searchedArticles : articlesList}

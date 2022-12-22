@@ -1,18 +1,27 @@
 import React from 'react';
-import {View, StyleSheet, Text} from 'react-native';
+import {View, StyleSheet} from 'react-native';
+import DashSearchBar from './DashSearchBar';
 import {themeColors} from '../helpers/themeColors';
 
-const DashHeader = (): JSX.Element => {
+type SearchProps = {
+  search: string;
+  setSearch: (arg?: any) => void;
+};
+
+const DashboardHeader = ({...props}: SearchProps): JSX.Element => {
   return (
     <View style={styles.headerContainer}>
-      <View style={styles.headerTitleContainer}>
-        <Text>Header - test</Text>
-      </View>
+      <View style={styles.headerTitleContainer}></View>
+      <DashSearchBar
+        search={props.search}
+        onChangeText={val => props.setSearch(val)}
+        onPressClear={() => props.setSearch('')}
+      />
     </View>
   );
 };
 
-export default DashHeader;
+export default DashboardHeader;
 
 const styles = StyleSheet.create({
   headerContainer: {

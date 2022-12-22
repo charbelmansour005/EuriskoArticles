@@ -1,5 +1,5 @@
 import {View, Text, StyleSheet, Linking} from 'react-native';
-import {Card, ActivityIndicator} from 'react-native-paper';
+import {Card} from 'react-native-paper';
 import {themeColors} from '../helpers/themeColors';
 
 type ArticleCardBaseProps = {
@@ -19,7 +19,6 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
       onLongPress={() => Linking.openURL(props.url)}
       style={styles.parent}>
       <View style={styles.cardContainer}>
-        <Text style={{color: 'black'}}>Hiii</Text>
         <Text style={styles.cardTitle} numberOfLines={1}>
           {props.headline?.trim()}
         </Text>
