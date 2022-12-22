@@ -39,13 +39,13 @@ const Login = (): JSX.Element => {
       .then(async (response: any) => {
         await AsyncStorage.setItem('@accessToken', response.accessToken);
         dispatch(storeCurrentUser({accessToken: response.accessToken}));
-        console.warn('Logged in'); //works
+        // console.warn('Logged in'); 
       })
       .catch(error => {
         setLoading(false);
         Alert.alert(
           'There was an issue',
-          `${error.data.message}.`, //works
+          `${error.data.message}.`, 
           [
             {
               text: 'Okay',

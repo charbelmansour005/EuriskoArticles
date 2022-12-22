@@ -6,4 +6,8 @@ export const spinnerColors: string[] = [
   themeColors.red,
   themeColors.skyblue,
   themeColors.purple,
+  themeColors.darkOrange,
+  themeColors.orange,
+  themeColors.lightgreen,
+  themeColors.green,
 ];

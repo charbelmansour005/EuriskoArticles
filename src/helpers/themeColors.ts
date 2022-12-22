@@ -7,6 +7,18 @@ type themeColorsTypes = {
   darkblue: string;
   lightpink: string;
   red: string;
+  transparentRed: string;
+  transparentBlue: string;
+  transparentGray: string;
+  darkgreen: string;
+  lightgreen: string;
+  pitchblack: string;
+  lightgray: string;
+  green: string;
+  white: string;
+  orange: string;
+  darkOrange: string;
+  darkgray: string;
 };
 
 export const themeColors: themeColorsTypes = {
@@ -18,4 +30,16 @@ export const themeColors: themeColorsTypes = {
   darkblue: `#0066ff`,
   lightpink: `#FFB6C1`,
   red: `#FF0000`,
+  transparentRed: `#ffebe6`,
+  transparentBlue: `#e6eeff`,
+  transparentGray: `#f2f2f2`,
+  darkgreen: `#29a329`,
+  lightgreen: `#adebad`,
+  pitchblack: `#0a0a0f`,
+  lightgray: `lightgray`,
+  green: `green`,
+  white: `white`,
+  orange: `orange`,
+  darkOrange: `darkorange`,
+  darkgray: `#565656`,
 };
