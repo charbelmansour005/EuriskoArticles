@@ -21,6 +21,7 @@ type ArticleCardBaseProps = {
   leadParagraph?: string;
   author?: string;
 };
+
 type ArticleCardAllProps = ArticleCardBaseProps & {
   url?: string | undefined | any;
   section?: string | null;
@@ -260,12 +261,14 @@ const styles = StyleSheet.create({
     color: themeColors.salmon,
     padding: 1,
     fontWeight: 'bold',
+    fontFamily: 'Roboto',
   },
   cardAuthor: {
     fontWeight: '400',
     fontSize: 12,
     color: themeColors.darkgray,
     marginTop: 9,
+    fontFamily: 'Roboto',
   },
   cardDescription: {
     marginTop: 10,

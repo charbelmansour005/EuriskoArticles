@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useAppSelector} from '../app/rtkHooks';
 import Login from '../screens/Login/Login';
 import Dashboard from '../screens/Dashboard/Dashboard';
+import {MyTabs} from './MyTabs';
 
 export const Navigation = (): JSX.Element => {
   const Stack = createNativeStackNavigator();
@@ -23,7 +24,7 @@ export const Navigation = (): JSX.Element => {
           </>
         ) : (
           <>
-            <Stack.Screen name="Dashboard" component={Dashboard} />
+            <Stack.Screen name="MyTabs" component={MyTabs} />
           </>
         )}
       </Stack.Navigator>
