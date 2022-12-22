@@ -19,6 +19,7 @@ import DashArticleCard from '../../components/DashArticleCard';
 import {themeColors} from '../../helpers/themeColors';
 import {DashboardProps} from './types';
 import {ActivityIndicator} from 'react-native-paper';
+import DashHeader from '../../components/DashHeader';
 
 const Dashboard = ({
   searchBaseValue = ``,
@@ -118,6 +119,7 @@ const Dashboard = ({
           backgroundColor: themeColors.darkgray,
           ...styles.maxWidth,
         }}>
+        <DashHeader />
         <FlatList
           showsVerticalScrollIndicator={false}
           data={search ? searchedArticles : articlesList}
