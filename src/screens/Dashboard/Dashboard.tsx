@@ -20,6 +20,7 @@ import {themeColors} from '../../helpers/themeColors';
 import {DashboardProps} from './types';
 import {ActivityIndicator} from 'react-native-paper';
 import DashHeader from '../../components/DashHeader';
+import DashboardTopLoader from '../../components/DashTopLoader';
 
 const Dashboard = ({
   searchBaseValue = ``,
@@ -111,7 +112,7 @@ const Dashboard = ({
   };
 
   return loading && !articleError ? (
-    <Text style={{color: 'black'}}>Loading...</Text>
+    <DashboardTopLoader />
   ) : (
     <SafeAreaView>
       <View
