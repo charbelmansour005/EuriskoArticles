@@ -142,7 +142,7 @@ const Dashboard = ({
             />
           )}
           ListFooterComponent={
-            !dataFound ? (
+            !dataFound && !search ? (
               <ActivityIndicator
                 size="small"
                 color={themeColors.red}
@@ -150,15 +150,6 @@ const Dashboard = ({
               />
             ) : null
           }
-          // ListFooterComponent={
-          //   !dataFound && !search ? (
-          //     <ActivityIndicator
-          //       size="small"
-          //       color={themeColors.red}
-          //       style={{marginVertical: 10}}
-          //     />
-          //   ) : null
-          // }
         />
       </View>
     </SafeAreaView>
