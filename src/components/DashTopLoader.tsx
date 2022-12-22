@@ -7,28 +7,9 @@ type Props = {};
 
 const DashboardTopLoader = (props: Props): JSX.Element => {
   return (
-    <View
-      style={{
-        alignContent: 'center',
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginTop: 10,
-      }}>
-      <View
-        style={{
-          padding: 10,
-          backgroundColor: 'gray',
-          width: 220,
-          borderRadius: 20,
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'center',
-          alignContent: 'center',
-          alignItems: 'center',
-        }}>
-        <Text style={{color: 'white', fontWeight: 'bold'}}>
-          Loading the latest news...
-        </Text>
+    <View style={styles.loaderContainer}>
+      <View style={styles.loader}>
+        <Text style={styles.loaderText}>Loading the latest news...</Text>
         <ActivityIndicator
           size="small"
           color={themeColors.white}
@@ -41,4 +22,23 @@ const DashboardTopLoader = (props: Props): JSX.Element => {
 
 export default DashboardTopLoader;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  loaderContainer: {
+    alignContent: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  loader: {
+    padding: 10,
+    backgroundColor: 'gray',
+    width: 220,
+    borderRadius: 20,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignContent: 'center',
+    alignItems: 'center',
+  },
+  loaderText: {color: 'white', fontWeight: 'bold'},
+});
