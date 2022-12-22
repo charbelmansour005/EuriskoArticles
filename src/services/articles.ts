@@ -20,7 +20,6 @@ export const getArticles = async (page: number) =>
     } catch (error) {
       if (error instanceof AxiosError) {
         reject(error.response);
-        throw new Error(error.message); // ??
       }
     }
   });

@@ -33,7 +33,6 @@ const styles = StyleSheet.create({
     padding: 8,
     width: 'auto',
     maxWidth: '100%',
-    // borderRadius: 5,
     marginTop: 25,
   },
   rowflex: {
