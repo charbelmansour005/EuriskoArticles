@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   Alert,
   Text,
+  RefreshControl,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {
@@ -100,6 +101,14 @@ const Dashboard = ({
     }
   };
 
+  const handleOnRefresh = (): void => {
+    setArticlesList([]);
+    setDataFound(false);
+    setPage(0);
+    setIsLoading(false);
+    loadArticles();
+  };
+
   return loading && !articleError ? (
     <Text style={{color: 'black'}}>Loading...</Text>
   ) : (
@@ -113,6 +122,16 @@ const Dashboard = ({
           showsVerticalScrollIndicator={false}
           data={search ? searchedArticles : articlesList}
           keyExtractor={item => `${item._id}+${Math.random() * 8798789}`}
+          refreshControl={
+            <RefreshControl
+              enabled={!search}
+              refreshing={loading}
+              onRefresh={async () => {
+                handleOnRefresh();
+              }}
+              tintColor="red"
+            />
+          }
           onEndReachedThreshold={0}
           onEndReached={async ({distanceFromEnd}) => {
             if (distanceFromEnd < 0) {
