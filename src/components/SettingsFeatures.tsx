@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     padding: 4,
     borderRadius: 3,
     width: '100%',
-    backgroundColor: themeColors.salmon,
+    backgroundColor: themeColors.darkgray,
   },
   rippleText: {
     textAlign: 'center',

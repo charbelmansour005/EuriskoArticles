@@ -135,7 +135,7 @@ const Settings = ({}: Props): JSX.Element => {
             isVisible={isVisible}
           />
           <Button onPress={showModal}>
-            <Text style={{color: themeColors.salmon}}>
+            <Text style={{color: themeColors.pitchblack}}>
               Latest Update Features
             </Text>
           </Button>

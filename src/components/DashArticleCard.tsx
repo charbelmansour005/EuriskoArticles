@@ -165,7 +165,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 16,
-    color: themeColors.salmon,
+    color: themeColors.pitchblack,
     padding: 1,
     fontWeight: 'bold',
     fontFamily: 'Roboto',

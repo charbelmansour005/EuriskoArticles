@@ -93,14 +93,14 @@ const styles = StyleSheet.create({
     fontSize: 15,
     borderTopWidth: 1,
     borderColor: themeColors.lightgray,
-    textAlign: 'left',
+    textAlign: 'center',
   },
   modalArticleElements: {
     padding: 10,
     fontSize: 15,
-    borderBottomWidth: 1,
+    borderTopWidth: 1,
     borderColor: themeColors.lightgray,
-    textAlign: 'left',
+    textAlign: 'center',
   },
   modalArticleParagraph: {
     color: 'black',

@@ -6,7 +6,7 @@ const LoginHeader = (): JSX.Element => {
   return (
     <>
       <Image style={styles.LogoCentered} source={Logo} />
-      <Text style={styles.WelcomeMessage}>Welcome back.</Text>
+      <Text style={styles.WelcomeMessage}>Welcome back</Text>
     </>
   );
 };
