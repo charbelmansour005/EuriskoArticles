@@ -18,15 +18,13 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
           <LottieView
             style={{width: '80%', aspectRatio: 1}}
-            source={require('../../../assets/lottie/131384-bell-of-happiness.json')}
+            source={require('../../../assets/lottie/129574-ginger-bread-socks-christmas.json')}
             autoPlay={true}
             loop={true}
           />
         </View>
 
-        <Text style={styles.WelcomeMessage}>
-          Providing you the jolliest news
-        </Text>
+        <Text style={styles.WelcomeMessage}>Providing you the latest news</Text>
         <Text style={{color: themeColors.pitchblack, textAlign: 'center'}}>
           Let's start
         </Text>

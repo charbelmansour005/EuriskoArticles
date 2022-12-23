@@ -130,7 +130,7 @@ const Login = (): JSX.Element => {
                     loading,
                 )}
               />
-              <LoginBtnSeperator />
+              {loading ? null : <LoginBtnSeperator />}
               {loading ? (
                 <View
                   style={{
@@ -138,7 +138,7 @@ const Login = (): JSX.Element => {
                     justifyContent: 'center',
                   }}>
                   <LottieView
-                    style={{width: '50%', aspectRatio: 1}}
+                    style={{width: '30%', aspectRatio: 1}}
                     source={require('../../../assets/lottie/131216-loading.json')}
                     autoPlay={true}
                     loop={true}

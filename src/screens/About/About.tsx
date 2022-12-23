@@ -1,10 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native';
+import {TouchableRipple} from 'react-native-paper';
 import React from 'react';
 import LottieView from 'lottie-react-native';
+import {themeColors} from '../../helpers/themeColors';
 
 type Props = {};
 
-const About = (props: Props): JSX.Element => {
+const About = ({navigation}: any): JSX.Element => {
   return (
     <View>
       <View style={{justifyContent: 'center', alignItems: 'center'}}>
@@ -16,7 +18,15 @@ const About = (props: Props): JSX.Element => {
         />
       </View>
       <View>
-        <Text>This app was created with react native</Text>
+        <Text style={{color: 'black', textAlign: 'center', fontWeight: 'bold'}}>
+          This app was developed using React Native
+        </Text>
+        <View
+          style={{
+            justifyContent: 'center',
+            alignItems: 'center',
+            marginTop: 20,
+          }}></View>
       </View>
     </View>
   );
@@ -24,4 +34,19 @@ const About = (props: Props): JSX.Element => {
 
 export default About;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  rippleButton: {
+    padding: 5,
+    backgroundColor: themeColors.darkgray,
+    borderRadius: 5,
+    width: '30%',
+    borderWidth: 1,
+    borderColor: themeColors.darkgray,
+  },
+  rippleText: {
+    textAlign: 'center',
+    letterSpacing: 0,
+    color: 'white',
+    fontWeight: 'bold',
+  },
+});
