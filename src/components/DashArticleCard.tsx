@@ -120,7 +120,7 @@ const ArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
           <Text
             style={
               props.leadParagraph ===
-              'To see this article, please hold the card'
+              'To see this article, please hold your finger here'
                 ? styles.cardTextDescEmpty
                 : styles.cardTextDesc
             }

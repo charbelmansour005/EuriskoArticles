@@ -2,8 +2,8 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useAppSelector} from '../app/rtkHooks';
 import Login from '../screens/Login/Login';
-import Dashboard from '../screens/Dashboard/Dashboard';
 import {MyTabs} from './MyTabs';
+import About from '../screens/About/About';
 
 export const Navigation = (): JSX.Element => {
   const Stack = createNativeStackNavigator();
@@ -25,6 +25,7 @@ export const Navigation = (): JSX.Element => {
         ) : (
           <>
             <Stack.Screen name="MyTabs" component={MyTabs} />
+            <Stack.Screen name="About" component={About} />
           </>
         )}
       </Stack.Navigator>

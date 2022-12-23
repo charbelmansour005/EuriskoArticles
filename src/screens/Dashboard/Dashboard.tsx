@@ -155,7 +155,7 @@ const Dashboard = ({
                 item?.lead_paragraph.includes('{') ||
                 item?.lead_paragraph.includes('}') ||
                 !item?.lead_paragraph
-                  ? 'To see this article, please hold the card'
+                  ? 'To see this article, please hold your finger here'
                   : item?.lead_paragraph
               }
               url={item?.web_url ? item?.web_url : null}
