@@ -100,7 +100,7 @@ const Login = (): JSX.Element => {
                 style={styles.UserInput}
                 placeholder="Username"
                 outlineColor={themeColors.lightgray}
-                activeOutlineColor={themeColors.skyblue}
+                activeOutlineColor={themeColors.green}
               />
               <View>
                 {errors.password && touched.password && (
@@ -117,7 +117,7 @@ const Login = (): JSX.Element => {
                 secureTextEntry={true}
                 placeholder="Password"
                 outlineColor={themeColors.lightgray}
-                activeOutlineColor={themeColors.skyblue}
+                activeOutlineColor={themeColors.green}
               />
               <Text style={styles.ForgotPassword}>Forgot your password?</Text>
               <Pressable

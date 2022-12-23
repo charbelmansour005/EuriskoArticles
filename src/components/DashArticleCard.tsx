@@ -88,23 +88,22 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
 
   return (
     <LinearGradient
-      colors={[
-        'lightgreen',
-        'white',
-        'lightgreen',
-        'forestgreen',
-        'white',
-        'lightgreen',
-      ]}>
+      colors={['forestgreen', 'gray', 'lightgreen', 'forestgreen']}>
       <Card
         mode="elevated"
         onPress={handleShowModal}
         onLongPress={() => Linking.openURL(props.url)}
         style={styles.parent}>
         <View style={styles.cardContainer}>
-          <Text style={styles.cardTitle} numberOfLines={1}>
-            {props.headline?.trim()}
-          </Text>
+          <View style={{display: 'flex', flexDirection: 'row'}}>
+            <Text style={styles.cardTitle} numberOfLines={1}>
+              {props.headline?.trim()}
+            </Text>
+            <Image
+              source={require('../../assets/plant.jpg')}
+              style={{height: 20, width: 20}}
+            />
+          </View>
           <View style={{display: 'flex', flexDirection: 'row'}}>
             <Image source={{uri: authorImage}} style={styles.authorImages} />
             <Text style={styles.cardAuthor} numberOfLines={1}>
@@ -177,7 +176,7 @@ const styles = StyleSheet.create({
     width: '99%',
   },
   cardTitle: {
-    fontSize: 16,
+    fontSize: 15,
     color: themeColors.pitchblack,
     padding: 1,
     fontWeight: 'bold',
