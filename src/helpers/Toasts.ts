@@ -13,5 +13,3 @@ export const Durations: Duration = {
   MEDIUM: 4000,
   LONG: 7000,
 };
-
-// example using zod
