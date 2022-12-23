@@ -9,7 +9,7 @@ const LoadingSpinner = (): JSX.Element => {
     <ActivityIndicator
       size="small"
       color={chosenSpinnerColor}
-      style={{marginVertical: 40}}
+      style={{marginVertical: 20}}
     />
   );
 };

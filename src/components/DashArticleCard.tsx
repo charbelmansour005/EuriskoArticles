@@ -101,8 +101,8 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
             <Image
               source={require('../../assets/plant.jpg')}
               style={{
-                height: 30,
-                width: 30,
+                height: 20,
+                width: 20,
                 right: 0,
                 top: 0,
                 position: 'absolute',

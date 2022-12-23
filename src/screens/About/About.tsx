@@ -2,6 +2,7 @@ import {FlatList, StyleSheet, Text, View, ScrollView} from 'react-native';
 import React from 'react';
 import LottieView from 'lottie-react-native';
 import {themeColors} from '../../helpers/themeColors';
+import LinearGradient from 'react-native-linear-gradient';
 
 const About = (): JSX.Element => {
   const data = [
@@ -19,7 +20,9 @@ const About = (): JSX.Element => {
   ];
 
   return (
-    <View>
+    <LinearGradient
+      colors={['white', 'skyblue', 'skyblue', 'white', 'white']}
+      style={{height: '100%', width: '100%'}}>
       <View style={styles.animationContainer}>
         <LottieView
           style={{width: '80%', aspectRatio: 1}}
@@ -40,21 +43,13 @@ const About = (): JSX.Element => {
           </Text>
         ))}
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 
 export default About;
 
 const styles = StyleSheet.create({
-  rippleButton: {
-    padding: 5,
-    backgroundColor: themeColors.darkgray,
-    borderRadius: 5,
-    width: '30%',
-    borderWidth: 1,
-    borderColor: themeColors.darkgray,
-  },
   rippleText: {
     textAlign: 'center',
     letterSpacing: 0,
@@ -63,17 +58,16 @@ const styles = StyleSheet.create({
   },
   container: {
     padding: 22,
-    borderColor: 'black',
+    borderColor: 'transparent',
     borderWidth: 1,
     marginHorizontal: 20,
     borderRadius: 20,
-    backgroundColor: themeColors.transparentGray,
+    backgroundColor: 'white',
   },
   item: {
-    color: themeColors.skyblue,
+    color: themeColors.darkgray,
     textAlign: 'center',
     marginVertical: 5,
-    fontWeight: 'bold',
   },
   title: {
     color: 'black',

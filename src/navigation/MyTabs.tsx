@@ -97,6 +97,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     height: 50,
     // allowing some article text to be shown
-    opacity: 0.8,
+    opacity: 0.9,
   },
 });
