@@ -15,6 +15,7 @@ import {themeColors} from '../helpers/themeColors';
 import Logo from '../../assets/eurisko.jpg';
 import {Authors, AuthorImages} from '../helpers/authors';
 import {rippleColors} from '../helpers/rippleColors';
+import DashArticleModal from './DashArticleModal';
 
 type ArticleCardBaseProps = {
   headline?: string;
@@ -126,51 +127,14 @@ const ArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
           <Portal>
             <Modal visible={Boolean(isVisible)} onDismiss={hideModal}>
               <ScrollView>
-                <View style={styles.modalArticleView}>
-                  <View style={styles.logoContainer}>
-                    <Image source={Logo} style={styles.logoModal} />
-                    <TouchableRipple
-                      onPress={hideModal}
-                      rippleColor={themeColors.salmon}
-                      style={styles.modalButton}>
-                      <Text style={{color: 'black', fontWeight: 'bold'}}>
-                        {`Return to Dashboard`}
-                      </Text>
-                    </TouchableRipple>
-                  </View>
-                  <Text
-                    selectable={true}
-                    style={{letterSpacing: 1, ...styles.modalArticleHeadline}}>
-                    {props.headline}
-                  </Text>
-                  <Text
-                    selectable={true}
-                    style={{
-                      color: themeColors.pitchblack,
-                      ...styles.modalArticleElements,
-                    }}>
-                    {props.author}
-                  </Text>
-                  <Text
-                    style={{
-                      color: themeColors.pitchblack,
-                      ...styles.modalArticleElements,
-                    }}>
-                    {props.section}
-                  </Text>
-                  <Text
-                    onPress={() => Linking.openURL(props.url)}
-                    style={{
-                      color: themeColors.salmon,
-                      fontWeight: 'bold',
-                      ...styles.modalArticleElements,
-                    }}>
-                    View on Website
-                  </Text>
-                  <Text selectable={true} style={styles.modalArticleParagraph}>
-                    {props.leadParagraph}
-                  </Text>
-                </View>
+                <DashArticleModal
+                  headline={props.headline}
+                  author={props.author}
+                  section={props.section}
+                  url={props.url}
+                  leadParagraph={props.leadParagraph}
+                  hideModal={hideModal}
+                />
               </ScrollView>
             </Modal>
           </Portal>
@@ -188,54 +152,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  modalButton: {
-    padding: 10,
-    alignItems: 'center',
-    marginVertical: 20,
-    borderRadius: 5,
-  },
-  logoModal: {
-    height: 120,
-    width: 110,
-    borderRadius: 3,
-    borderWidth: 4,
-    borderColor: 'black',
-  },
   authorImages: {height: 25, width: 25, margin: 5, borderRadius: 20},
-  modalArticleHeadline: {
-    fontWeight: 'bold',
-    color: themeColors.salmon,
-    padding: 10,
-    fontSize: 15,
-    borderTopWidth: 1,
-    borderColor: themeColors.lightgray,
-    textAlign: 'left',
-  },
-  modalArticleParagraph: {
-    color: 'black',
-    padding: 20,
-    borderColor: themeColors.lightgray,
-    borderBottomWidth: 1,
-    borderRadius: 0,
-    fontSize: 15,
-    lineHeight: 25,
-    fontWeight: 'bold',
-  },
-  modalArticleElements: {
-    padding: 10,
-    fontSize: 15,
-    borderBottomWidth: 1,
-    borderColor: themeColors.lightgray,
-    textAlign: 'left',
-  },
-  modalArticleView: {
-    top: 0,
-    bottom: 0,
-    left: 0,
-    right: 0,
-    position: 'relative',
-    marginVertical: '20%',
-  },
   parent: {
     marginVertical: 0.5,
     backgroundColor: 'white',

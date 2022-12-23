@@ -95,6 +95,7 @@ const Settings = ({}: Props): JSX.Element => {
       placement: 'top',
     });
   };
+
   return (
     <ScrollView>
       <Text style={styles.BoldSmall}>
