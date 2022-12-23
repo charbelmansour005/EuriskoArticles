@@ -44,7 +44,7 @@ type AuthorImage = z.infer<typeof AuthorImagesSchema>;
 
 export const AuthorImages: AuthorImage = {
   Katherine_Pic: `https://i.ibb.co/1mzcbKG/katherine.jpg`,
-  Frank_Pic: `https://i.ibb.co/vYdSjq2/frank.png`,
+  Frank_Pic: `https://i.ibb.co/YN6RfgQ/frank.jpg`,
   Jennifer_Pic: `https://i.ibb.co/kgd3Jv8/jennifer.png`,
   Floyd_Pic: `https://i.ibb.co/8Ddx9PQ/floyd.jpg`,
   NY_Pic: `https://i.ibb.co/thGVgxv/unknown.jpg`,
