@@ -1,9 +1,9 @@
-import {StyleSheet, View, ScrollView, Alert, Linking} from 'react-native';
+import {StyleSheet, View, ScrollView, Alert} from 'react-native';
 import {Text} from 'react-native-paper';
 import {rippleColors} from '../../helpers/rippleColors';
 import {useAppSelector, useAppDispatch} from '../../app/rtkHooks';
 import {toggleLanguage} from '../../features/language/languageSlice';
-import {Switch, Snackbar} from 'react-native-paper';
+import {Snackbar} from 'react-native-paper';
 import React, {useState} from 'react';
 import {themeColors} from '../../helpers/themeColors';
 import {storeCurrentUser} from '../../features/user/userSlice';
@@ -11,20 +11,19 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Button, Provider} from 'react-native-paper';
 import {useToast} from 'react-native-toast-notifications';
 import {Durations} from '../../helpers/Toasts';
-// import {LangFeature} from './types';
 import {useNavigation} from '@react-navigation/native';
-import SettingsButtons from '../../components/SettingsButtons';
-import SettingsFeatures from '../../components/SettingsFeatures';
-import Copyright from '../../components/Copyright';
-import SettingsLangSwitch from '../../components/SettingsLangSwitch';
+import {
+  SettingsButtons,
+  SettingsFeatures,
+  Copyright,
+  SettingsLangSwitch,
+} from '../../components/index';
 
 type Nav = {
   navigate: (value: string) => void;
 };
 
-type Props = {};
-
-const Settings = ({}: Props): JSX.Element => {
+const Settings = (): JSX.Element => {
   const {navigate} = useNavigation<Nav>();
   const toast = useToast();
   const [snackbarVisible, setSnackbarVisible] = useState<boolean>(false);
