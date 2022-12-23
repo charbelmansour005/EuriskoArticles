@@ -1,4 +1,4 @@
-import {StyleSheet, View, ScrollView, Alert} from 'react-native';
+import {StyleSheet, View, ScrollView, Alert, Linking} from 'react-native';
 import {Text} from 'react-native-paper';
 import {rippleColors} from '../../helpers/rippleColors';
 import {useAppSelector, useAppDispatch} from '../../app/rtkHooks';
@@ -95,7 +95,6 @@ const Settings = ({}: Props): JSX.Element => {
       placement: 'top',
     });
   };
-
   return (
     <ScrollView>
       <Text style={styles.BoldSmall}>
