@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import {
-  Button,
   View,
   Alert,
   StyleSheet,
@@ -10,17 +9,18 @@ import {
 } from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {Formik} from 'formik';
-import LoginHeader from '../../components/LoginHeader';
 import * as yup from 'yup';
 import {loginUser} from '../../services/login';
 import {useAppDispatch} from '../../app/rtkHooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {storeCurrentUser} from '../../features/user/userSlice';
-import LoadingSpinner from '../../components/LoadingSpinner';
-import LoginGoogleButton from '../../components/LoginGoogleButton';
 import {themeColors} from '../../helpers/themeColors';
-import LoginBtnSeperator from '../../components/LoginBtnSepetator';
 import LottieView from 'lottie-react-native';
+import {
+  LoginHeader,
+  LoginGoogleButton,
+  LoginBtnSeperator,
+} from '../../components/index';
 
 const Login = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -136,7 +136,7 @@ const Login = (): JSX.Element => {
                 }}
                 style={styles.TouchableBtnLogin}>
                 <Text style={styles.TouchableTextLogin}>
-                  {loading ? 'WORKING :)' : 'SUBMIT'}
+                  {loading ? 'Working...' : 'SUBMIT'}
                 </Text>
               </Pressable>
               {loading ? null : <LoginBtnSeperator />}

@@ -1,4 +1,4 @@
-import {StyleSheet, Text, Image, Dimensions} from 'react-native';
+import {StyleSheet, Text, Image, Dimensions, Animated} from 'react-native';
 import React from 'react';
 import Logo from '../../assets/eurisko.jpg';
 
