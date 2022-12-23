@@ -13,6 +13,8 @@ import {themeColors} from '../helpers/themeColors';
 import {Authors, AuthorImages} from '../helpers/authors';
 import {rippleColors} from '../helpers/rippleColors';
 import DashArticleModal from './DashArticleModal';
+//LG
+import LinearGradient from 'react-native-linear-gradient';
 
 type ArticleCardBaseProps = {
   headline?: string;
@@ -25,7 +27,7 @@ type ArticleCardAllProps = ArticleCardBaseProps & {
   section?: string | null;
 };
 
-const ArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
+const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
   const [modalLoading, setModalLoading] = useState<boolean>(false);
   const [authorImage, setAuthorImage] = useState<string>(
@@ -85,63 +87,73 @@ const ArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
   const chosenRippleColor: string = randomRippleColor;
 
   return (
-    <Card
-      mode="elevated"
-      onPress={handleShowModal}
-      onLongPress={() => Linking.openURL(props.url)}
-      style={styles.parent}>
-      <View style={styles.cardContainer}>
-        <Text style={styles.cardTitle} numberOfLines={1}>
-          {props.headline?.trim()}
-        </Text>
-        <View style={{display: 'flex', flexDirection: 'row'}}>
-          <Image source={{uri: authorImage}} style={styles.authorImages} />
-          <Text style={styles.cardAuthor} numberOfLines={1}>
-            {props.author?.trim()}
+    <LinearGradient
+      colors={[
+        'lightgreen',
+        'white',
+        'lightgreen',
+        'forestgreen',
+        'white',
+        'lightgreen',
+      ]}>
+      <Card
+        mode="elevated"
+        onPress={handleShowModal}
+        onLongPress={() => Linking.openURL(props.url)}
+        style={styles.parent}>
+        <View style={styles.cardContainer}>
+          <Text style={styles.cardTitle} numberOfLines={1}>
+            {props.headline?.trim()}
           </Text>
-          {modalLoading && (
-            <ActivityIndicator
-              style={{marginLeft: 10}}
-              size="small"
-              color={chosenRippleColor}
-            />
-          )}
+          <View style={{display: 'flex', flexDirection: 'row'}}>
+            <Image source={{uri: authorImage}} style={styles.authorImages} />
+            <Text style={styles.cardAuthor} numberOfLines={1}>
+              {props.author?.trim()}
+            </Text>
+            {modalLoading && (
+              <ActivityIndicator
+                style={{marginLeft: 10}}
+                size="small"
+                color={chosenRippleColor}
+              />
+            )}
+          </View>
+          <View style={styles.cardDescription}>
+            <Text
+              style={
+                props.leadParagraph ===
+                'To see this article, please hold your finger here'
+                  ? styles.cardTextDescEmpty
+                  : styles.cardTextDesc
+              }
+              lineBreakMode="tail"
+              numberOfLines={3}>
+              {props.leadParagraph?.trim()}
+            </Text>
+          </View>
+          <Provider>
+            <Portal>
+              <Modal visible={Boolean(isVisible)} onDismiss={hideModal}>
+                <ScrollView>
+                  <DashArticleModal
+                    headline={props.headline}
+                    author={props.author}
+                    section={props.section}
+                    url={props.url}
+                    leadParagraph={props.leadParagraph}
+                    hideModal={hideModal}
+                  />
+                </ScrollView>
+              </Modal>
+            </Portal>
+          </Provider>
         </View>
-        <View style={styles.cardDescription}>
-          <Text
-            style={
-              props.leadParagraph ===
-              'To see this article, please hold your finger here'
-                ? styles.cardTextDescEmpty
-                : styles.cardTextDesc
-            }
-            lineBreakMode="tail"
-            numberOfLines={3}>
-            {props.leadParagraph?.trim()}
-          </Text>
-        </View>
-        <Provider>
-          <Portal>
-            <Modal visible={Boolean(isVisible)} onDismiss={hideModal}>
-              <ScrollView>
-                <DashArticleModal
-                  headline={props.headline}
-                  author={props.author}
-                  section={props.section}
-                  url={props.url}
-                  leadParagraph={props.leadParagraph}
-                  hideModal={hideModal}
-                />
-              </ScrollView>
-            </Modal>
-          </Portal>
-        </Provider>
-      </View>
-    </Card>
+      </Card>
+    </LinearGradient>
   );
 };
 
-export default ArticleCard;
+export default DashArticleCard;
 
 const styles = StyleSheet.create({
   logoContainer: {
@@ -151,10 +163,11 @@ const styles = StyleSheet.create({
   },
   authorImages: {height: 25, width: 25, margin: 5, borderRadius: 20},
   parent: {
-    marginVertical: 0.5,
+    marginVertical: 5,
+    marginHorizontal: 10,
     backgroundColor: 'white',
     height: 160,
-    borderRadius: 0,
+    borderRadius: 10,
   },
   cardContainer: {
     borderRadius: 2,
@@ -193,5 +206,12 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     textDecorationStyle: 'solid',
     textDecorationLine: 'underline',
+  },
+  linearGradient: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 5,
+    height: 200,
+    width: 350,
   },
 });
