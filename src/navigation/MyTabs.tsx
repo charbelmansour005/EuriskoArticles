@@ -1,19 +1,12 @@
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View, StyleSheet, Image} from 'react-native';
-import {useNavigation} from '@react-navigation/native';
 import {themeColors} from '../helpers/themeColors';
 import React from 'react';
-import Dashboard from '../screens/Dashboard/Dashboard';
-import Settings from '../screens/Settings/Settings';
+import {Dashboard, Settings} from '../screens/index';
 
 const Tab = createBottomTabNavigator();
 
-type Nav = {
-  navigate: (value: string) => void;
-};
-
 export const MyTabs = (): JSX.Element => {
-  const {navigate} = useNavigation<Nav>();
   return (
     <Tab.Navigator
       screenOptions={{
