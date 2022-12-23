@@ -89,14 +89,14 @@ const styles = StyleSheet.create({
   },
   tabbarMain: {
     position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
+    bottom: 20,
+    left: 25,
+    right: 25,
     elevation: 0,
     backgroundColor: '#ffffff',
-    borderRadius: 0,
+    borderRadius: 10,
     height: 50,
     // allowing some article text to be shown
-    opacity: 0.5,
+    opacity: 0.8,
   },
 });

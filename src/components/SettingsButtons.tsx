@@ -53,11 +53,11 @@ const styles = StyleSheet.create({
   },
   rippleButton: {
     padding: 5,
-    backgroundColor: themeColors.salmon,
-    borderRadius: 0,
+    backgroundColor: themeColors.darkgray,
+    borderRadius: 5,
     width: '30%',
     borderWidth: 1,
-    borderColor: themeColors.salmon,
+    borderColor: themeColors.darkgray,
   },
   rippleButtonModal: {
     padding: 4,

@@ -20,6 +20,7 @@ import {DashboardProps} from './types';
 import {ActivityIndicator} from 'react-native-paper';
 import DashHeader from '../../components/DashHeader';
 import DashboardTopLoader from '../../components/DashTopLoader';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const Dashboard = ({
   searchBaseValue = ``,
@@ -165,13 +166,7 @@ const Dashboard = ({
             />
           )}
           ListFooterComponent={
-            !dataFound && !search ? (
-              <ActivityIndicator
-                size="small"
-                color={themeColors.red}
-                style={{marginVertical: 10}}
-              />
-            ) : null
+            !dataFound && !search ? <LoadingSpinner /> : null
           }
         />
       </View>
