@@ -19,7 +19,7 @@ const About = (): JSX.Element => {
 
   return (
     <View>
-      <View style={{justifyContent: 'center', alignItems: 'center'}}>
+      <View style={styles.animationContainer}>
         <LottieView
           style={{width: '80%', aspectRatio: 1}}
           source={require('../../../assets/lottie/296-react-logo.json')}
@@ -28,26 +28,13 @@ const About = (): JSX.Element => {
         />
       </View>
       <View>
-        <Text style={{color: 'black', textAlign: 'center', fontWeight: 'bold'}}>
+        <Text style={styles.title}>
           This app was developed using React Native
         </Text>
-        <View
-          style={{
-            justifyContent: 'center',
-            alignItems: 'center',
-            marginTop: 20,
-          }}></View>
       </View>
       <View style={styles.container}>
         {data?.map(item => (
-          <Text
-            style={{
-              color: themeColors.skyblue,
-              textAlign: 'center',
-              marginVertical: 5,
-              fontWeight: 'bold',
-            }}
-            key={Math.random()}>
+          <Text style={styles.item} key={Math.random()}>
             {item.key}
           </Text>
         ))}
@@ -82,9 +69,11 @@ const styles = StyleSheet.create({
     backgroundColor: themeColors.transparentGray,
   },
   item: {
-    padding: 10,
-    fontSize: 18,
-    height: 44,
     color: themeColors.skyblue,
+    textAlign: 'center',
+    marginVertical: 5,
+    fontWeight: 'bold',
   },
+  title: {color: 'black', textAlign: 'center', fontWeight: 'bold'},
+  animationContainer: {justifyContent: 'center', alignItems: 'center'},
 });
