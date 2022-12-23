@@ -117,6 +117,7 @@ const Login = (): JSX.Element => {
                 outlineColor={themeColors.grey}
                 activeOutlineColor={themeColors.skyblue}
               />
+              <Text style={styles.ForgotPassword}>Forgot your password?</Text>
               <Button
                 onPress={handleSubmit}
                 title="Submit"
@@ -171,5 +172,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     height: '100%',
     width: '100%',
+  },
+  ForgotPassword: {
+    marginTop: 7,
+    marginBottom: 20,
+    color: '#000066',
+    marginLeft: '49%',
+    fontSize: 12,
   },
 });
