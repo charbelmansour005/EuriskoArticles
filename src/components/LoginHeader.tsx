@@ -6,7 +6,6 @@ const LoginHeader = (): JSX.Element => {
   return (
     <>
       <Image style={styles.LogoCentered} source={Logo} />
-      <Text style={styles.WelcomeMessage}>Welcome back!</Text>
     </>
   );
 };
@@ -18,16 +17,11 @@ const height = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
   LogoCentered: {
-    width: width > 350 ? 80 : 60,
-    height: height > 350 ? 94 : 60,
+    width: width > 350 ? 90 : 70,
+    height: height > 350 ? 104 : 70,
     borderRadius: 5,
-    borderWidth: 4,
+    borderWidth: 0,
     borderColor: 'black',
-  },
-  WelcomeMessage: {
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: 'black',
-    marginVertical: 8,
+    marginBottom: '10%',
   },
 });

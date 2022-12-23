@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     height: 120,
     width: 110,
     borderRadius: 3,
-    borderWidth: 4,
+    borderWidth: 0,
     borderColor: 'black',
   },
   modalArticleHeadline: {

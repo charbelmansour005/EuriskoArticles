@@ -6,6 +6,7 @@ import {
   StyleSheet,
   Text,
   KeyboardAvoidingView,
+  Pressable,
 } from 'react-native';
 import {TextInput} from 'react-native-paper';
 import {Formik} from 'formik';
@@ -98,7 +99,7 @@ const Login = (): JSX.Element => {
                 error={Boolean(errors.username && touched.username)}
                 style={styles.UserInput}
                 placeholder="Username"
-                outlineColor={themeColors.grey}
+                outlineColor={themeColors.lightgray}
                 activeOutlineColor={themeColors.skyblue}
               />
               <View>
@@ -115,13 +116,11 @@ const Login = (): JSX.Element => {
                 style={styles.UserInputPass}
                 secureTextEntry={true}
                 placeholder="Password"
-                outlineColor={themeColors.grey}
+                outlineColor={themeColors.lightgray}
                 activeOutlineColor={themeColors.skyblue}
               />
               <Text style={styles.ForgotPassword}>Forgot your password?</Text>
-              <Button
-                onPress={handleSubmit}
-                title="Submit"
+              <Pressable
                 disabled={Boolean(
                   !values.username ||
                     !values.password ||
@@ -129,7 +128,15 @@ const Login = (): JSX.Element => {
                     errors.password ||
                     loading,
                 )}
-              />
+                onPress={handleSubmit}
+                android_disableSound={true}
+                android_ripple={{
+                  color: themeColors.red,
+                  borderless: false,
+                }}
+                style={styles.TouchableBtnLogin}>
+                <Text style={styles.TouchableTextLogin}>SUBMIT</Text>
+              </Pressable>
               {loading ? null : <LoginBtnSeperator />}
               {loading ? (
                 <View
@@ -158,6 +165,23 @@ const Login = (): JSX.Element => {
 export default Login;
 
 const styles = StyleSheet.create({
+  TouchableBtnLogin: {
+    marginTop: 20,
+    backgroundColor: 'transparent',
+    padding: 13,
+    width: '80%',
+    maxWidth: '80%',
+    borderColor: 'lightgray',
+    borderWidth: 1,
+    borderRadius: 5,
+  },
+  TouchableTextLogin: {
+    color: 'black',
+    fontWeight: 'bold',
+    fontSize: 15,
+    textAlign: 'center',
+    letterSpacing: 1,
+  },
   loginHeader: {
     justifyContent: 'center',
     alignItems: 'center',

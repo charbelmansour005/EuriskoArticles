@@ -15,6 +15,7 @@ const About = (): JSX.Element => {
     {key: 'formik'},
     {key: 'yup'},
     {key: 'zod'},
+    {key: '...'},
   ];
 
   return (
@@ -74,6 +75,10 @@ const styles = StyleSheet.create({
     marginVertical: 5,
     fontWeight: 'bold',
   },
-  title: {color: 'black', textAlign: 'center', fontWeight: 'bold'},
+  title: {
+    color: 'black',
+    textAlign: 'center',
+    marginVertical: 10,
+  },
   animationContainer: {justifyContent: 'center', alignItems: 'center'},
 });
