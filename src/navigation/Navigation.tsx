@@ -1,9 +1,8 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useAppSelector} from '../app/rtkHooks';
-import Login from '../screens/Login/Login';
 import {MyTabs} from './MyTabs';
-import About from '../screens/About/About';
+import {About, Login} from '../screens/index';
 
 export const Navigation = (): JSX.Element => {
   const Stack = createNativeStackNavigator();
