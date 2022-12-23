@@ -14,13 +14,14 @@ import {
 import {Article} from '../../features/article/types';
 import {useAppDispatch} from '../../app/rtkHooks';
 import {getArticles} from '../../services/articles';
-import DashArticleCard from '../../components/DashArticleCard';
 import {themeColors} from '../../helpers/themeColors';
 import {DashboardProps} from './types';
-import {ActivityIndicator} from 'react-native-paper';
-import DashHeader from '../../components/DashHeader';
-import DashboardTopLoader from '../../components/DashTopLoader';
-import LoadingSpinner from '../../components/LoadingSpinner';
+import {
+  DashHeader,
+  DashTopLoader,
+  LoadingSpinner,
+  DashArticleCard,
+} from '../../components/index';
 
 const Dashboard = ({
   searchBaseValue = ``,
@@ -114,12 +115,12 @@ const Dashboard = ({
   };
 
   return loading && !articleError ? (
-    <DashboardTopLoader />
+    <DashTopLoader />
   ) : (
     <SafeAreaView>
       <View
         style={{
-          backgroundColor: themeColors.lightgray,
+          backgroundColor: themeColors.transparentGray,
           ...styles.maxWidth,
         }}>
         <DashHeader search={search} setSearch={setSearch} />
