@@ -4,7 +4,7 @@ import {Provider} from 'react-redux';
 import {themeColors} from './src/helpers/themeColors';
 import {ToastProvider} from 'react-native-toast-notifications';
 import React from 'react';
-// implement this: https://www.i18next.com/overview/getting-started
+
 type Props = {};
 
 const App = () => {

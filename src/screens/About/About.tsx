@@ -3,9 +3,7 @@ import React from 'react';
 import LottieView from 'lottie-react-native';
 import {themeColors} from '../../helpers/themeColors';
 
-type Props = {};
-
-const About = ({navigation}: any): JSX.Element => {
+const About = (): JSX.Element => {
   const data = [
     {key: 'react-native-toast-notifications'},
     {key: '@react-navigation/native-stack'},
