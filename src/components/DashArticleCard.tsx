@@ -7,12 +7,9 @@ import {
   ScrollView,
   Image,
 } from 'react-native';
-import {useEffect} from 'react';
-import {Card, TouchableRipple, ActivityIndicator} from 'react-native-paper';
-import {useState} from 'react';
-import {Portal, Provider} from 'react-native-paper';
+import {Card, ActivityIndicator, Portal, Provider} from 'react-native-paper';
+import {useEffect, useState} from 'react';
 import {themeColors} from '../helpers/themeColors';
-import Logo from '../../assets/eurisko.jpg';
 import {Authors, AuthorImages} from '../helpers/authors';
 import {rippleColors} from '../helpers/rippleColors';
 import DashArticleModal from './DashArticleModal';
