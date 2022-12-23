@@ -24,7 +24,7 @@ type themeColorsTypes = {
 export const themeColors: themeColorsTypes = {
   grey: '#748c94',
   purple: `#cc99ff`,
-  salmon: `#E8421F`,
+  salmon: `#ff1a1a`,
   skyblue: `#0099ff`,
   lightskyblue: `#99ddff`,
   darkblue: `#0066ff`,
