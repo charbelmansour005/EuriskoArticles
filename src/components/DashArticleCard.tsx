@@ -38,7 +38,7 @@ const ArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
     setModalLoading(true);
 
     setTimeout(() => {
-      setIsVisible(true);
+      setIsVisible(true); // only to show some minimal feedback
       setModalLoading(false);
     }, 100);
   };
@@ -109,13 +109,6 @@ const ArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
             />
           )}
         </View>
-        {/* might use */}
-        {/* <View
-          style={{
-            height: 1,
-            backgroundColor: themeColors.transparentGray,
-            width: '50%',
-          }}></View> */}
         <View style={styles.cardDescription}>
           <Text
             style={
