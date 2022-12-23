@@ -12,7 +12,7 @@ import {Formik} from 'formik';
 import LoginHeader from '../../components/LoginHeader';
 import * as yup from 'yup';
 import {loginUser} from '../../services/login';
-import {useAppDispatch, useAppSelector} from '../../app/rtkHooks';
+import {useAppDispatch} from '../../app/rtkHooks';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {storeCurrentUser} from '../../features/user/userSlice';
 import LoadingSpinner from '../../components/LoadingSpinner';
@@ -39,13 +39,12 @@ const Login = (): JSX.Element => {
       .then(async (response: any) => {
         await AsyncStorage.setItem('@accessToken', response.accessToken);
         dispatch(storeCurrentUser({accessToken: response.accessToken}));
-        // console.warn('Logged in'); 
       })
       .catch(error => {
         setLoading(false);
         Alert.alert(
           'There was an issue',
-          `${error.data.message}.`, 
+          `${error.data.message}.`,
           [
             {
               text: 'Okay',
