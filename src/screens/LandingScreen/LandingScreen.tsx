@@ -16,15 +16,26 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
     <KeyboardAvoidingView style={styles.LandingMain}>
       <View style={styles.LoginContainer}>
         <Image style={styles.LogoCentered} source={Logo} />
-        <Text>Providing you the latest news</Text>
+        <Text style={styles.WelcomeMessage}>Providing you the latest news</Text>
         <Text style={{color: themeColors.pitchblack, textAlign: 'center'}}>
           Let's start
         </Text>
-        <Pressable onPress={() => navigation.navigate('Login')}>
+        <Pressable
+          onPress={() => navigation.navigate('Login')}
+          android_disableSound={true}
+          android_ripple={{
+            color: themeColors.red,
+            borderless: false,
+          }}
+          style={styles.TouchableBtnLogin}>
           <Text style={styles.TouchableTextLogin}>LOGIN</Text>
         </Pressable>
-        <Pressable onPress={() => navigation.navigate('Login')}>
-          <Text>SIGN UP</Text>
+        <Pressable
+          onPress={() => navigation.navigate('Login')}
+          android_disableSound={true}
+          android_ripple={{color: themeColors.lightskyblue, borderless: false}}
+          style={styles.TouchableBtnSignUp}>
+          <Text style={styles.TouchableTextSignUp}>SIGN UP</Text>
         </Pressable>
       </View>
     </KeyboardAvoidingView>
@@ -45,6 +56,12 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
   },
+  WelcomeMessage: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    color: 'black',
+    marginTop: 20,
+  },
   LogoCentered: {
     width: width > 350 ? 80 : 60,
     height: height > 350 ? 94 : 60,
@@ -56,6 +73,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginBottom: '30%',
+  },
+  TouchableBtnSignUp: {
+    marginTop: 15,
+    backgroundColor: 'black',
+    padding: 13,
+    width: '80%',
+    maxWidth: '80%',
+  },
+  TouchableTextSignUp: {
+    color: 'white',
+    fontWeight: 'bold',
+    fontSize: 15,
+    textAlign: 'center',
+    letterSpacing: 1,
+  },
+  TouchableBtnLogin: {
+    marginTop: 20,
+    backgroundColor: 'transparent',
+    padding: 13,
+    width: '80%',
+    maxWidth: '80%',
+    borderColor: 'lightgray',
+    borderWidth: 1,
   },
   TouchableTextLogin: {
     color: 'black',
