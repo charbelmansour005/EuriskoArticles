@@ -20,7 +20,7 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
         <Image source={Logo} style={styles.logoModal} />
         <TouchableRipple
           onPress={props.hideModal}
-          rippleColor={themeColors.salmon}
+          rippleColor={themeColors.darkgreen}
           style={styles.modalButton}>
           <Text style={{color: 'black', fontWeight: 'bold'}}>
             {`Return to Dashboard`}
@@ -50,7 +50,7 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
       <Text
         onPress={() => Linking.openURL(props.url)}
         style={{
-          color: themeColors.salmon,
+          color: themeColors.darkgreen,
           fontWeight: 'bold',
           ...styles.modalArticleElements,
         }}>
@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   modalArticleHeadline: {
     fontWeight: 'bold',
-    color: themeColors.salmon,
+    color: themeColors.darkgreen,
     padding: 10,
     fontSize: 15,
     borderTopWidth: 1,

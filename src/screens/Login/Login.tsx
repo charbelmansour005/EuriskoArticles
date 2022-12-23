@@ -135,7 +135,9 @@ const Login = (): JSX.Element => {
                   borderless: false,
                 }}
                 style={styles.TouchableBtnLogin}>
-                <Text style={styles.TouchableTextLogin}>SUBMIT</Text>
+                <Text style={styles.TouchableTextLogin}>
+                  {loading ? 'WORKING :)' : 'SUBMIT'}
+                </Text>
               </Pressable>
               {loading ? null : <LoginBtnSeperator />}
               {loading ? (

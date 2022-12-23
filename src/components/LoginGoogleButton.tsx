@@ -17,7 +17,7 @@ const LoginGoogleButton = (): JSX.Element => {
       </Pressable>
       <View style={{marginTop: 20, ...styles.rowflex}}>
         <Text style={{color: '#131938'}}> Don't have an account?</Text>
-        <Text style={{color: '#131938', fontWeight: 'bold'}}>Sign up</Text>
+        <Text style={{color: '#131938', fontWeight: 'bold'}}>{` Sign up`}</Text>
       </View>
     </>
   );

@@ -18,13 +18,12 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
         <View style={{justifyContent: 'center', alignItems: 'center'}}>
           <LottieView
             style={{width: '80%', aspectRatio: 1}}
-            source={require('../../../assets/lottie/129574-ginger-bread-socks-christmas.json')}
+            source={require('../../../assets/lottie/99357-news.json')}
             autoPlay={true}
             loop={true}
           />
         </View>
-
-        <Text style={styles.WelcomeMessage}>Providing you the latest news</Text>
+        <Text style={styles.WelcomeMessage}>Providing the latest news</Text>
         <Text style={{color: themeColors.pitchblack, textAlign: 'center'}}>
           Let's start
         </Text>
@@ -32,7 +31,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
           onPress={() => navigation.navigate('Login')}
           android_disableSound={true}
           android_ripple={{
-            color: themeColors.red,
+            color: themeColors.darkgreen,
             borderless: false,
           }}
           style={styles.TouchableBtnLogin}>

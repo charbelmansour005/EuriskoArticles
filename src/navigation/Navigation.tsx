@@ -18,12 +18,16 @@ export const Navigation = (): JSX.Element => {
             <Stack.Screen
               name="LandingScreen"
               component={LandingScreen}
-              options={{headerShown: false}}
+              options={{headerShown: false, gestureDirection: 'horizontal'}}
             />
             <Stack.Screen
               name="Login"
               component={Login}
-              options={{headerShown: false}}
+              options={{
+                headerShown: false,
+                gestureDirection: 'horizontal',
+                animation: 'slide_from_right',
+              }}
             />
           </>
         ) : (
