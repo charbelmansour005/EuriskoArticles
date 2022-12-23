@@ -51,7 +51,9 @@ const Dashboard = ({
         if (response.response.docs.length < 10) {
           setDataFound(true);
         }
+        // keeping the previously fetched articles & concatenating the new ones
         setArticlesList(prev => prev.concat(response.response.docs));
+        // storing the response
         dispatch(storeArticles(response.response.docs));
       })
       .catch(error => {
@@ -116,7 +118,7 @@ const Dashboard = ({
     <SafeAreaView>
       <View
         style={{
-          backgroundColor: themeColors.darkgray,
+          backgroundColor: themeColors.lightgray,
           ...styles.maxWidth,
         }}>
         <DashHeader search={search} setSearch={setSearch} />
