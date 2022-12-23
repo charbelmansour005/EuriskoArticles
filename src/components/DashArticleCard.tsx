@@ -87,8 +87,7 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
   const chosenRippleColor: string = randomRippleColor;
 
   return (
-    <LinearGradient
-      colors={['forestgreen', 'gray', 'lightgreen', 'forestgreen']}>
+    <LinearGradient colors={['magenta', 'purple', 'skyblue', 'magenta']}>
       <Card
         mode="elevated"
         onPress={handleShowModal}
@@ -101,7 +100,13 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
             </Text>
             <Image
               source={require('../../assets/plant.jpg')}
-              style={{height: 20, width: 20}}
+              style={{
+                height: 30,
+                width: 30,
+                right: 0,
+                top: 0,
+                position: 'absolute',
+              }}
             />
           </View>
           <View style={{display: 'flex', flexDirection: 'row'}}>
