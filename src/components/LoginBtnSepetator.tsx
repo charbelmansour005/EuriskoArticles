@@ -1,16 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-type Props = {};
-
-const LoginBtnSeperator = (props: Props): JSX.Element => {
+const LoginBtnSeperator = (): JSX.Element => {
   return (
-    <View style={{marginTop: 25, ...styles.rowflex}}>
-      <View style={{height: 1.2, backgroundColor: 'black', width: 100}} />
+    <View style={styles.rowflex}>
+      <View style={styles.lineDesign} />
       <View>
-        <Text style={{width: 50, textAlign: 'center', color: 'black'}}>Or</Text>
+        <Text style={styles.middleText}>Or</Text>
       </View>
-      <View style={{height: 1.2, backgroundColor: 'black', width: 100}} />
+      <View style={styles.lineDesign} />
     </View>
   );
 };
@@ -22,5 +20,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-around',
+    marginTop: 25,
   },
+  lineDesign: {height: 1.2, backgroundColor: 'black', width: 100},
+  middleText: {width: 50, textAlign: 'center', color: 'black'},
 });
