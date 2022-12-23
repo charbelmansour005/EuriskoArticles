@@ -17,6 +17,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {storeCurrentUser} from '../../features/user/userSlice';
 import LoadingSpinner from '../../components/LoadingSpinner';
 import LoginGoogleButton from '../../components/LoginGoogleButton';
+import {themeColors} from '../../helpers/themeColors';
 import LoginBtnSeperator from '../../components/LoginBtnSepetator';
 
 const Login = (): JSX.Element => {
@@ -96,6 +97,8 @@ const Login = (): JSX.Element => {
                 error={Boolean(errors.username && touched.username)}
                 style={styles.UserInput}
                 placeholder="Username"
+                outlineColor={themeColors.grey}
+                activeOutlineColor={themeColors.skyblue}
               />
               <View>
                 {errors.password && touched.password && (
@@ -111,6 +114,8 @@ const Login = (): JSX.Element => {
                 style={styles.UserInputPass}
                 secureTextEntry={true}
                 placeholder="Password"
+                outlineColor={themeColors.grey}
+                activeOutlineColor={themeColors.skyblue}
               />
               <Button
                 onPress={handleSubmit}
