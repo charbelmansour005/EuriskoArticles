@@ -8,15 +8,25 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import {Text} from 'react-native-paper';
-import Logo from '../../../assets/eurisko.jpg';
 import {themeColors} from '../../helpers/themeColors';
+import LottieView from 'lottie-react-native';
 
 const LandingScreen = ({navigation}: any): JSX.Element => {
   return (
     <KeyboardAvoidingView style={styles.LandingMain}>
       <View style={styles.LoginContainer}>
-        <Image style={styles.LogoCentered} source={Logo} />
-        <Text style={styles.WelcomeMessage}>Providing you the latest news</Text>
+        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+          <LottieView
+            style={{width: '80%', aspectRatio: 1}}
+            source={require('../../../assets/lottie/131384-bell-of-happiness.json')}
+            autoPlay={true}
+            loop={true}
+          />
+        </View>
+
+        <Text style={styles.WelcomeMessage}>
+          Providing you the jolliest news
+        </Text>
         <Text style={{color: themeColors.pitchblack, textAlign: 'center'}}>
           Let's start
         </Text>

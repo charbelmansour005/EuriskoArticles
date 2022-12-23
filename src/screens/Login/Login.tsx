@@ -19,6 +19,7 @@ import LoadingSpinner from '../../components/LoadingSpinner';
 import LoginGoogleButton from '../../components/LoginGoogleButton';
 import {themeColors} from '../../helpers/themeColors';
 import LoginBtnSeperator from '../../components/LoginBtnSepetator';
+import LottieView from 'lottie-react-native';
 
 const Login = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false);
@@ -130,12 +131,26 @@ const Login = (): JSX.Element => {
                 )}
               />
               <LoginBtnSeperator />
-              <LoginGoogleButton />
+              {loading ? (
+                <View
+                  style={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                  }}>
+                  <LottieView
+                    style={{width: '50%', aspectRatio: 1}}
+                    source={require('../../../assets/lottie/131216-loading.json')}
+                    autoPlay={true}
+                    loop={true}
+                  />
+                </View>
+              ) : (
+                <LoginGoogleButton />
+              )}
             </View>
           </View>
         )}
       </Formik>
-      {loading && <LoadingSpinner />}
     </KeyboardAvoidingView>
   );
 };
