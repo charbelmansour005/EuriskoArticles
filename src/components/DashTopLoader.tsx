@@ -3,7 +3,7 @@ import {ActivityIndicator} from 'react-native-paper';
 import {themeColors} from '../helpers/themeColors';
 import React from 'react';
 
-const DashboardTopLoader = (): JSX.Element => {
+const DashTopLoader = (): JSX.Element => {
   return (
     <View style={styles.loaderContainer}>
       <View style={styles.loader}>
@@ -18,7 +18,7 @@ const DashboardTopLoader = (): JSX.Element => {
   );
 };
 
-export default DashboardTopLoader;
+export default DashTopLoader;
 
 const styles = StyleSheet.create({
   loaderContainer: {

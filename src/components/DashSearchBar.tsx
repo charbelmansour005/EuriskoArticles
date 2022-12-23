@@ -17,7 +17,7 @@ type SearchBarProps = SearchBarFunctionProps & {
   search: string;
 };
 
-const SearchBar = ({...props}: SearchBarProps): JSX.Element => {
+const DashSearchBar = ({...props}: SearchBarProps): JSX.Element => {
   return (
     <View style={styles.container}>
       <Image
@@ -40,7 +40,7 @@ const SearchBar = ({...props}: SearchBarProps): JSX.Element => {
   );
 };
 
-export default SearchBar;
+export default DashSearchBar;
 
 const styles = StyleSheet.create({
   container: {

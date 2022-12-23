@@ -8,7 +8,7 @@ type SearchProps = {
   setSearch: (arg?: any) => void;
 };
 
-const DashboardHeader = ({...props}: SearchProps): JSX.Element => {
+const DashHeader = ({...props}: SearchProps): JSX.Element => {
   return (
     <View style={styles.headerContainer}>
       <View style={styles.headerTitleContainer}></View>
@@ -21,7 +21,7 @@ const DashboardHeader = ({...props}: SearchProps): JSX.Element => {
   );
 };
 
-export default DashboardHeader;
+export default DashHeader;
 
 const styles = StyleSheet.create({
   headerContainer: {
