@@ -34,6 +34,7 @@ const styles = StyleSheet.create({
     width: 'auto',
     maxWidth: '100%',
     marginTop: 25,
+    borderRadius: 5,
   },
   rowflex: {
     flexDirection: 'row',

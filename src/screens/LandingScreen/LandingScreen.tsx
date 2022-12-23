@@ -80,6 +80,7 @@ const styles = StyleSheet.create({
     padding: 13,
     width: '80%',
     maxWidth: '80%',
+    borderRadius: 5,
   },
   TouchableTextSignUp: {
     color: 'white',
@@ -96,6 +97,7 @@ const styles = StyleSheet.create({
     maxWidth: '80%',
     borderColor: 'lightgray',
     borderWidth: 1,
+    borderRadius: 5,
   },
   TouchableTextLogin: {
     color: 'black',
