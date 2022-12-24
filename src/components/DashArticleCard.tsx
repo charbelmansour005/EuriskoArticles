@@ -173,11 +173,11 @@ const styles = StyleSheet.create({
   },
   authorImages: {height: 25, width: 25, margin: 5, borderRadius: 20},
   parent: {
-    marginVertical: 15,
+    marginVertical: 5,
     marginHorizontal: 10,
     backgroundColor: 'white',
     height: 160,
-    borderRadius: 15,
+    borderRadius: 5,
   },
   cardContainer: {
     borderRadius: 2,

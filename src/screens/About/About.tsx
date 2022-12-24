@@ -7,7 +7,7 @@ import LinearGradient from 'react-native-linear-gradient';
 const About = (): JSX.Element => {
   return (
     <LinearGradient
-      colors={['black', 'white', 'skyblue', 'skyblue', 'white', 'white']}
+      colors={['skyblue', 'white', 'skyblue', 'skyblue', 'white', 'white']}
       style={{height: '100%', width: '100%'}}>
       <View style={styles.animationContainer}>
         <LottieView
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   title: {
-    color: 'black',
+    color: 'white',
     textAlign: 'center',
     marginVertical: 10,
   },

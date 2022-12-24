@@ -33,7 +33,13 @@ export const Navigation = (): JSX.Element => {
         ) : (
           <>
             <Stack.Screen name="MyTabs" component={MyTabs} />
-            <Stack.Screen name="About" component={About} />
+            <Stack.Screen
+              name="About"
+              component={About}
+              options={{
+                animation: 'fade_from_bottom',
+              }}
+            />
           </>
         )}
       </Stack.Navigator>

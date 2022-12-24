@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: '30%',
     borderWidth: 1,
-    borderColor: themeColors.darkgray,
+    borderColor: themeColors.white,
   },
   rippleButtonModal: {
     padding: 4,
