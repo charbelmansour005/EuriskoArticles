@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, Text, View, ScrollView} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import LottieView from 'lottie-react-native';
 import {themeColors} from '../../helpers/themeColors';
@@ -21,7 +21,7 @@ const About = (): JSX.Element => {
 
   return (
     <LinearGradient
-      colors={['white', 'skyblue', 'skyblue', 'white', 'white']}
+      colors={['black', 'white', 'skyblue', 'skyblue', 'white', 'white']}
       style={{height: '100%', width: '100%'}}>
       <View style={styles.animationContainer}>
         <LottieView

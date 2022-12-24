@@ -13,8 +13,10 @@ import {
 } from '../../features/article/articlesSlice';
 import {Article} from '../../features/article/types';
 import {useAppDispatch} from '../../app/rtkHooks';
+import {Durations} from '../../helpers/toasts';
 import {getArticles} from '../../services/articles';
 import {themeColors} from '../../helpers/themeColors';
+import {useToast} from 'react-native-toast-notifications';
 import {DashboardProps} from './types';
 import {
   DashHeader,
@@ -43,6 +45,20 @@ const Dashboard = ({
   const [searchedArticles, setSearchedArticles] = useState<Article[]>(
     searchedArticlesBaseValue,
   );
+  const toast = useToast();
+
+  const welcomeToast = (): void => {
+    toast.show('To view an article, press on one, or long press for website', {
+      type: 'normal',
+      duration: Durations.MEDIUM,
+      animationType: 'zoom-in',
+      placement: 'center',
+    });
+  };
+
+  useEffect(() => {
+    welcomeToast();
+  }, []);
 
   const loadArticles = async (): Promise<void> => {
     if (page == 0) {

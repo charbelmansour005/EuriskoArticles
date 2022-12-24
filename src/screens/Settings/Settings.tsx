@@ -104,7 +104,7 @@ const Settings = (): JSX.Element => {
       <View>
         <Snackbar
           style={{
-            backgroundColor: themeColors.salmon,
+            backgroundColor: themeColors.green,
           }}
           theme={{colors: {inversePrimary: themeColors.white}}}
           visible={snackbarVisible}
