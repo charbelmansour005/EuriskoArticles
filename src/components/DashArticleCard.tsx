@@ -13,7 +13,6 @@ import {themeColors} from '../helpers/themeColors';
 import {Authors, AuthorImages} from '../helpers/authors';
 import {rippleColors} from '../helpers/rippleColors';
 import DashArticleModal from './DashArticleModal';
-//LG
 import LinearGradient from 'react-native-linear-gradient';
 
 type ArticleCardBaseProps = {
@@ -216,12 +215,5 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     textDecorationStyle: 'solid',
     textDecorationLine: 'underline',
-  },
-  linearGradient: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 5,
-    height: 200,
-    width: 350,
   },
 });

@@ -7,7 +7,7 @@ import {Fragment} from 'react';
 
 export const Navigation = (): JSX.Element => {
   const Stack = createNativeStackNavigator();
-  const user = useAppSelector(state => state?.user);
+  const user = useAppSelector(state => state.user);
 
   return (
     <NavigationContainer>
