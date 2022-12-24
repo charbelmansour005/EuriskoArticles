@@ -59,12 +59,6 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: themeColors.white,
   },
-  rippleButtonModal: {
-    padding: 4,
-    borderRadius: 3,
-    width: '100%',
-    backgroundColor: themeColors.salmon,
-  },
   rippleText: {
     textAlign: 'center',
     letterSpacing: 0,
