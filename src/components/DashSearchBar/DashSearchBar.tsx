@@ -6,25 +6,17 @@ import {
   Image,
   Pressable,
 } from 'react-native';
-import {useAppSelector} from '../app/rtkHooks';
-import {themeColors} from '../helpers/themeColors';
+import {useAppSelector} from '../../app/rtkHooks';
+import {themeColors} from '../../helpers/themeColors';
 import React from 'react';
-
-type SearchBarFunctionProps = {
-  onChangeText: (arg?: any) => void;
-  onPressClear: () => void;
-};
-
-type SearchBarProps = SearchBarFunctionProps & {
-  search: string;
-};
+import {SearchBarProps} from './types';
 
 const DashSearchBar = ({...props}: SearchBarProps): JSX.Element => {
   const language = useAppSelector(state => state.language);
   return (
     <View style={styles.container}>
       <Image
-        source={require('../../assets/srh.png')}
+        source={require('../../../assets/srh.png')}
         style={styles.searchIcon}
       />
       <TextInput

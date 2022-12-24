@@ -9,22 +9,12 @@ import {
 } from 'react-native';
 import {Card, ActivityIndicator, Portal, Provider} from 'react-native-paper';
 import {useEffect, useState} from 'react';
-import {themeColors} from '../helpers/themeColors';
-import {Authors, AuthorImages} from '../helpers/authors';
-import {rippleColors} from '../helpers/rippleColors';
-import DashArticleModal from './DashArticleModal';
+import {themeColors} from '../../helpers/themeColors';
+import {Authors, AuthorImages} from '../../helpers/authors';
+import {rippleColors} from '../../helpers/rippleColors';
+import DashArticleModal from '../DashArticleModal/DashArticleModal';
 import LinearGradient from 'react-native-linear-gradient';
-
-type ArticleCardBaseProps = {
-  headline?: string;
-  leadParagraph?: string;
-  author?: string;
-};
-
-type ArticleCardAllProps = ArticleCardBaseProps & {
-  url?: string | undefined | any;
-  section?: string | null;
-};
+import {ArticleCardAllProps} from './types';
 
 const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
   const [isVisible, setIsVisible] = useState<boolean>(false);
@@ -98,7 +88,7 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
               {props.headline?.trim()}
             </Text>
             <Image
-              source={require('../../assets/plant.jpg')}
+              source={require('../../../assets/plant.jpg')}
               style={{
                 height: 20,
                 width: 20,

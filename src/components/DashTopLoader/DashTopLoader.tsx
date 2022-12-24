@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View} from 'react-native';
 import {ActivityIndicator} from 'react-native-paper';
-import {themeColors} from '../helpers/themeColors';
+import {themeColors} from '../../helpers/themeColors';
 import React from 'react';
 
 const DashTopLoader = (): JSX.Element => {

@@ -1,16 +1,8 @@
 import {StyleSheet, Text, View, Modal} from 'react-native';
 import {Portal, TouchableRipple} from 'react-native-paper';
-import {themeColors} from '../helpers/themeColors';
+import {themeColors} from '../../helpers/themeColors';
 import React from 'react';
-
-interface FunctionProps {
-  hideModal: () => void;
-  testToast: () => void;
-}
-interface Props extends FunctionProps {
-  chosenRippleColor?: string;
-  isVisible?: boolean;
-}
+import {Props} from './types';
 
 const SettingsFeatures = ({...props}: Props): JSX.Element => {
   return (

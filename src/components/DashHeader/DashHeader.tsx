@@ -1,12 +1,8 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import DashSearchBar from './DashSearchBar';
-import {themeColors} from '../helpers/themeColors';
-
-type SearchProps = {
-  search: string;
-  setSearch: (arg?: any) => void;
-};
+import DashSearchBar from '../DashSearchBar/DashSearchBar';
+import {themeColors} from '../../helpers/themeColors';
+import {SearchProps} from './types';
 
 const DashHeader = ({...props}: SearchProps): JSX.Element => {
   return (

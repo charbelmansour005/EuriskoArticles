@@ -1,16 +1,8 @@
 import {View, Text, StyleSheet} from 'react-native';
 import {TouchableRipple} from 'react-native-paper';
-import {themeColors} from '../helpers/themeColors';
+import {themeColors} from '../../helpers/themeColors';
 import React from 'react';
-
-type FunctionProps = {
-  askLogout: () => void;
-  navigate: (args?: any) => void;
-};
-type Props = FunctionProps & {
-  chosenRippleColor?: string;
-  language?: any;
-};
+import {Props} from './types';
 
 const SettingsButtons = ({...props}: Props): JSX.Element => {
   return (

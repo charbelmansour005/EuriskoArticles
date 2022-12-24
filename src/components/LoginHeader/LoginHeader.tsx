@@ -1,6 +1,6 @@
 import {StyleSheet, Image, Dimensions} from 'react-native';
 import React from 'react';
-import Logo from '../../assets/eurisko.jpg';
+import Logo from '../../../assets/eurisko.jpg';
 
 const LoginHeader = (): JSX.Element => {
   return <Image style={styles.LogoCentered} source={Logo} />;

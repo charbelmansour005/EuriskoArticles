@@ -1,8 +1,8 @@
-import GoogleLogo from '../../assets/google.png';
+import GoogleLogo from '../../../assets/google.png';
 import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
-import {themeColors} from '../helpers/themeColors';
+import {themeColors} from '../../helpers/themeColors';
 import React from 'react';
-import {useAppSelector} from '../app/rtkHooks';
+import {useAppSelector} from '../../app/rtkHooks';
 import {Fragment} from 'react';
 
 const LoginGoogleButton = (): JSX.Element => {

@@ -1,5 +1,5 @@
 import {View, Text} from 'react-native';
-import {themeColors} from '../helpers/themeColors';
+import {themeColors} from '../../helpers/themeColors';
 import React from 'react';
 
 const Copyright = (): JSX.Element => {
