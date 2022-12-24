@@ -10,8 +10,10 @@ import {
 import {Text} from 'react-native-paper';
 import {themeColors} from '../../helpers/themeColors';
 import LottieView from 'lottie-react-native';
+import {useAppSelector} from '../../app/rtkHooks';
 
 const LandingScreen = ({navigation}: any): JSX.Element => {
+  const language = useAppSelector(state => state.language);
   return (
     <KeyboardAvoidingView style={styles.LandingMain}>
       <View style={styles.LoginContainer}>
@@ -23,9 +25,13 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
             loop={true}
           />
         </View>
-        <Text style={styles.WelcomeMessage}>Providing the latest news</Text>
+        <Text style={styles.WelcomeMessage}>
+          {language.english
+            ? `Providing the latest news`
+            : `Votre meilleure source d'information`}
+        </Text>
         <Text style={{color: themeColors.pitchblack, textAlign: 'center'}}>
-          Let's start
+          {language.english ? `Let's start` : `Commencez`}
         </Text>
         <Pressable
           onPress={() => navigation.navigate('Login')}
@@ -35,14 +41,18 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
             borderless: false,
           }}
           style={styles.TouchableBtnLogin}>
-          <Text style={styles.TouchableTextLogin}>LOGIN</Text>
+          <Text style={styles.TouchableTextLogin}>
+            {language.english ? `LOGIN` : `CONNECTEZ`}
+          </Text>
         </Pressable>
         <Pressable
           onPress={() => navigation.navigate('Login')}
           android_disableSound={true}
           android_ripple={{color: themeColors.lightskyblue, borderless: false}}
           style={styles.TouchableBtnSignUp}>
-          <Text style={styles.TouchableTextSignUp}>SIGN UP</Text>
+          <Text style={styles.TouchableTextSignUp}>
+            {language.english ? `SIGN UP` : `S'ABONNER`}
+          </Text>
         </Pressable>
       </View>
     </KeyboardAvoidingView>
