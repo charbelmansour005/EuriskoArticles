@@ -5,12 +5,10 @@ import {themeColors} from './src/helpers/themeColors';
 import {ToastProvider} from 'react-native-toast-notifications';
 import React from 'react';
 
-type Props = {};
-
 const App = () => {
   return (
     <Provider store={store}>
-      <ToastProvider normalColor={themeColors.skyblue}>
+      <ToastProvider normalColor={themeColors.green}>
         <Navigation />
       </ToastProvider>
     </Provider>

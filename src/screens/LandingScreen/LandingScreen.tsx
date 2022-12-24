@@ -11,9 +11,20 @@ import {Text} from 'react-native-paper';
 import {themeColors} from '../../helpers/themeColors';
 import LottieView from 'lottie-react-native';
 import {useAppSelector} from '../../app/rtkHooks';
+import {useToast} from 'react-native-toast-notifications';
+import {Durations} from '../../helpers/toasts';
 
 const LandingScreen = ({navigation}: any): JSX.Element => {
+  const toast = useToast();
   const language = useAppSelector(state => state.language);
+  const signUpToast = (): void => {
+    toast.show('Sign up is currently unavailable', {
+      type: 'normal',
+      duration: Durations.MEDIUM,
+      animationType: 'slide-in',
+      placement: 'bottom',
+    });
+  };
   return (
     <KeyboardAvoidingView style={styles.LandingMain}>
       <View style={styles.LoginContainer}>
@@ -46,7 +57,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
           </Text>
         </Pressable>
         <Pressable
-          onPress={() => navigation.navigate('Login')}
+          onPress={() => signUpToast()}
           android_disableSound={true}
           android_ripple={{color: themeColors.lightskyblue, borderless: false}}
           style={styles.TouchableBtnSignUp}>
