@@ -7,6 +7,7 @@ import {
   Pressable,
 } from 'react-native';
 import {useAppSelector} from '../app/rtkHooks';
+import {themeColors} from '../helpers/themeColors';
 import React from 'react';
 
 type SearchBarFunctionProps = {
@@ -37,7 +38,9 @@ const DashSearchBar = ({...props}: SearchBarProps): JSX.Element => {
       />
       {props.search ? (
         <Pressable style={{marginRight: 10}} onPress={props.onPressClear}>
-          <Text style={styles.clearButton}>Clear</Text>
+          <Text style={styles.clearButton}>
+            {language.english ? `Clear` : `Annuler`}
+          </Text>
         </Pressable>
       ) : null}
     </View>
@@ -48,8 +51,8 @@ export default DashSearchBar;
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    backgroundColor: 'white',
+    width: '95%',
+    backgroundColor: themeColors.white,
     borderRadius: 0,
     alignSelf: 'center',
     alignItems: 'center',
@@ -58,13 +61,18 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     opacity: 1,
   },
-  searchInput: {backgroundColor: 'white', width: '80%', color: 'black'},
+  searchInput: {
+    backgroundColor: themeColors.white,
+    width: '80%',
+    color: themeColors.pitchblack,
+  },
   clearButton: {
-    color: 'black',
+    color: themeColors.white,
     fontWeight: 'bold',
-    backgroundColor: 'silver',
-    paddingHorizontal: 4,
+    backgroundColor: themeColors.green,
     borderRadius: 5,
+    marginRight: 5,
+    padding: 2,
   },
   searchIcon: {
     height: 16,

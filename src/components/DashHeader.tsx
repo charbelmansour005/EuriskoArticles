@@ -25,7 +25,7 @@ export default DashHeader;
 
 const styles = StyleSheet.create({
   headerContainer: {
-    backgroundColor: themeColors.orange,
+    backgroundColor: themeColors.white,
     paddingHorizontal: 0,
     paddingBottom: 0,
   },
