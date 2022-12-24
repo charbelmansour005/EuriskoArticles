@@ -66,6 +66,7 @@ const Dashboard = ({
     }
     getArticles(page)
       .then(async (response: any) => {
+        // avoid showing the loading indicator when there is no new data
         if (response.response.docs.length < 10) {
           setDataFound(true);
         }
@@ -81,6 +82,7 @@ const Dashboard = ({
           `${error.data.message}.`,
           [
             {
+              // no function passed = cancel behavior
               text: 'Okay',
               style: 'default',
             },
@@ -94,6 +96,20 @@ const Dashboard = ({
   useEffect(() => {
     loadArticles();
   }, [page]);
+
+  const handleOnEndReached = (): void => {
+    if (!search) {
+      setPage(page + 1);
+    }
+  };
+
+  const handleOnRefresh = (): void => {
+    setArticlesList([]); // stopping the same data from being refetched
+    setDataFound(false); // displaying the loading indicator correctly
+    setPage(0); // resetting the page to show latest data (if any)
+    setIsLoading(false); // stopping any previous loading state
+    loadArticles(); // refetching
+  };
 
   const searchArticles = (): void => {
     if (search) {
@@ -116,20 +132,6 @@ const Dashboard = ({
     searchArticles();
   }, [search]);
 
-  const handleOnEndReached = (): void => {
-    if (!search) {
-      setPage(page + 1);
-    }
-  };
-
-  const handleOnRefresh = (): void => {
-    setArticlesList([]);
-    setDataFound(false);
-    setPage(0);
-    setIsLoading(false);
-    loadArticles();
-  };
-
   return loading && !articleError ? (
     <DashTopLoader />
   ) : (
@@ -139,14 +141,25 @@ const Dashboard = ({
           backgroundColor: themeColors.transparentGray,
           ...styles.maxWidth,
         }}>
+        {/* handling the search in the header */}
         <DashHeader search={search} setSearch={setSearch} />
         <FlatList
-          showsVerticalScrollIndicator={false}
-          data={search ? searchedArticles : articlesList}
+          /**
+           * @keyExtractor using only item._id generates an error
+           * @Math must use instead of uuid
+           */
           keyExtractor={item => `${item._id}+${Math.random() * 8798789}`}
+          /**
+           * @data conditionally setting the data: if the user searches, display the filtered data.
+           */
+          data={search ? searchedArticles : articlesList}
+          /**
+           * @showsVerticalScrollIndicator -> false: gaining reading space
+           */
+          showsVerticalScrollIndicator={false}
           refreshControl={
             <RefreshControl
-              enabled={!search}
+              enabled={!search} // can't fetch new data if searching
               refreshing={loading}
               onRefresh={async () => {
                 handleOnRefresh();
@@ -154,13 +167,21 @@ const Dashboard = ({
               tintColor="red"
             />
           }
-          onEndReachedThreshold={0}
+          /**
+           * @onEndReachedThreshold
+           * specifying when new data gets loaded
+           * 0.5 -> the list will update when the user is halfway down the current dataset
+           */
+          onEndReachedThreshold={0.5}
           onEndReached={async ({distanceFromEnd}) => {
             if (distanceFromEnd < 0) {
               return;
             }
             handleOnEndReached();
           }}
+          /**
+           * @renderItem destructuring data that will be used as props
+           */
           renderItem={({item}) => (
             <DashArticleCard
               headline={

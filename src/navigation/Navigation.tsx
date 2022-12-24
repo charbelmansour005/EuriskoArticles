@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useAppSelector} from '../app/rtkHooks';
 import {MyTabs} from './MyTabs';
 import {About, Login, LandingScreen} from '../screens/index';
+import {Fragment} from 'react';
 
 export const Navigation = (): JSX.Element => {
   const Stack = createNativeStackNavigator();
@@ -14,7 +15,7 @@ export const Navigation = (): JSX.Element => {
         initialRouteName="LandingScreen"
         screenOptions={{headerShown: false}}>
         {user.user?.accessToken == null ? (
-          <>
+          <Fragment>
             <Stack.Screen
               name="LandingScreen"
               component={LandingScreen}
@@ -29,18 +30,18 @@ export const Navigation = (): JSX.Element => {
                 animation: 'slide_from_right',
               }}
             />
-          </>
+          </Fragment>
         ) : (
-          <>
+          <Fragment>
             <Stack.Screen name="MyTabs" component={MyTabs} />
             <Stack.Screen
               name="About"
               component={About}
               options={{
-                animation: 'fade_from_bottom',
+                animation: 'slide_from_right',
               }}
             />
-          </>
+          </Fragment>
         )}
       </Stack.Navigator>
     </NavigationContainer>

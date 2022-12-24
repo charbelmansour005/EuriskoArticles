@@ -1,13 +1,9 @@
-import {StyleSheet, Text, Image, Dimensions, Animated} from 'react-native';
+import {StyleSheet, Image, Dimensions} from 'react-native';
 import React from 'react';
 import Logo from '../../assets/eurisko.jpg';
 
 const LoginHeader = (): JSX.Element => {
-  return (
-    <>
-      <Image style={styles.LogoCentered} source={Logo} />
-    </>
-  );
+  return <Image style={styles.LogoCentered} source={Logo} />;
 };
 
 export default LoginHeader;

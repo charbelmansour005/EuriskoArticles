@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import {Switch} from 'react-native-paper';
 import {useAppSelector} from '../app/rtkHooks';
-import React from 'react';
+import React,{Fragment} from 'react';
 
 type Props = {
   onToggleSwitch: () => void;
@@ -21,7 +21,7 @@ const SettingsLangSwitch = ({...props}: Props): JSX.Element => {
       "Changer la langue n'affectera que celle de l'application et non la langue dans laquelle les articles sont affichés, le changement sera à l'échelle du système.",
   };
   return (
-    <>
+    <Fragment>
       <View style={styles.paperContainerFlex}>
         <Text style={styles.BoldSmallNoMargin}>
           {language.english ? `French` : `Francais`}
@@ -47,7 +47,7 @@ const SettingsLangSwitch = ({...props}: Props): JSX.Element => {
           </Text>
         )}
       </View>
-    </>
+    </Fragment>
   );
 };
 

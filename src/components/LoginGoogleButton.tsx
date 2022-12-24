@@ -3,11 +3,12 @@ import {StyleSheet, Text, View, Image, Pressable} from 'react-native';
 import {themeColors} from '../helpers/themeColors';
 import React from 'react';
 import {useAppSelector} from '../app/rtkHooks';
+import {Fragment} from 'react';
 
 const LoginGoogleButton = (): JSX.Element => {
   const language = useAppSelector(state => state.language);
   return (
-    <>
+    <Fragment>
       <Pressable
         android_disableSound={true}
         android_ripple={{color: themeColors.salmon, borderless: false}}
@@ -21,12 +22,17 @@ const LoginGoogleButton = (): JSX.Element => {
         </View>
       </Pressable>
       <View style={{marginTop: 20, ...styles.rowflex}}>
-        <Text style={{color: '#131938'}}> {language.english
+        <Text style={{color: '#131938'}}>
+          {' '}
+          {language.english
             ? `Don't have an account?`
-            : `Vous n'avez pas de compte ? `}</Text>
-        <Text style={{color: '#131938', fontWeight: 'bold'}}>{language.english ? ` Sign up` : ` Inscrivez-vous`}</Text>
+            : `Vous n'avez pas de compte ? `}
+        </Text>
+        <Text style={{color: '#131938', fontWeight: 'bold'}}>
+          {language.english ? ` Sign up` : ` Inscrivez-vous`}
+        </Text>
       </View>
-    </>
+    </Fragment>
   );
 };
 
