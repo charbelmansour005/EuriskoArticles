@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   GoogleBtn: {
     backgroundColor: 'transparent',
     borderWidth: 1,
-    borderColor: themeColors.grey,
+    borderColor: 'lightgray',
     padding: 8,
     width: 'auto',
     maxWidth: '100%',
