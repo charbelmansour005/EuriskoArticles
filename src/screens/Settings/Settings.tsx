@@ -10,7 +10,7 @@ import {storeCurrentUser} from '../../features/user/userSlice';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {Button, Provider} from 'react-native-paper';
 import {useToast} from 'react-native-toast-notifications';
-import {Durations} from '../../helpers/Toasts';
+import {Durations} from '../../helpers/toasts';
 import {useNavigation} from '@react-navigation/native';
 import {
   SettingsButtons,
