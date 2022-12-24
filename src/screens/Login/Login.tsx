@@ -16,6 +16,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import {storeCurrentUser} from '../../features/user/userSlice';
 import {themeColors} from '../../helpers/themeColors';
 import LottieView from 'lottie-react-native';
+import {useAppSelector} from '../../app/rtkHooks';
 import {
   LoginHeader,
   LoginGoogleButton,
@@ -23,6 +24,7 @@ import {
 } from '../../components/index';
 
 const Login = (): JSX.Element => {
+  const language = useAppSelector(state => state.language);
   const [loading, setLoading] = useState<boolean>(false);
   const dispatch = useAppDispatch();
 
@@ -98,7 +100,9 @@ const Login = (): JSX.Element => {
                 mode="outlined"
                 error={Boolean(errors.username && touched.username)}
                 style={styles.UserInput}
-                placeholder="Username"
+                placeholder={
+                  language.english ? `Username` : `Nom d'utilisateur`
+                }
                 outlineColor={themeColors.lightgray}
                 activeOutlineColor={themeColors.lightgreen}
               />
@@ -115,11 +119,16 @@ const Login = (): JSX.Element => {
                 error={Boolean(errors.password && touched.password)}
                 style={styles.UserInputPass}
                 secureTextEntry={true}
-                placeholder="Password"
+                placeholder={language.english ? `Password` : `Mot de passe`}
                 outlineColor={themeColors.lightgray}
                 activeOutlineColor={themeColors.lightgreen}
               />
-              <Text style={styles.ForgotPassword}>Forgot your password?</Text>
+              <Text style={styles.ForgotPassword}>
+                {' '}
+                {language.english
+                  ? `Forgot your password?`
+                  : `Mot de passe oublié?`}
+              </Text>
               <Pressable
                 disabled={Boolean(
                   !values.username ||
@@ -136,7 +145,7 @@ const Login = (): JSX.Element => {
                 }}
                 style={styles.TouchableBtnLogin}>
                 <Text style={styles.TouchableTextLogin}>
-                  {loading ? 'Working...' : 'SUBMIT'}
+                  {language.english ? `SUBMIT` : `CONNEXION`}
                 </Text>
               </Pressable>
               {loading ? null : <LoginBtnSeperator />}

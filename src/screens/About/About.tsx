@@ -5,20 +5,6 @@ import {themeColors} from '../../helpers/themeColors';
 import LinearGradient from 'react-native-linear-gradient';
 
 const About = (): JSX.Element => {
-  const data = [
-    {key: 'react-native-toast-notifications'},
-    {key: '@react-navigation/native-stack'},
-    {key: '@react-navigation/bottom-tabs'},
-    {key: 'react-native-screens'},
-    {key: '@reduxjs/toolkit'},
-    {key: 'react-native-paper'},
-    {key: 'lottie-react-native'},
-    {key: 'formik'},
-    {key: 'yup'},
-    {key: 'zod'},
-    {key: '...'},
-  ];
-
   return (
     <LinearGradient
       colors={['black', 'white', 'skyblue', 'skyblue', 'white', 'white']}
@@ -35,13 +21,6 @@ const About = (): JSX.Element => {
         <Text style={styles.title}>
           This app was developed using React Native
         </Text>
-      </View>
-      <View style={styles.container}>
-        {data?.map(item => (
-          <Text style={styles.item} key={Math.random()}>
-            {item.key}
-          </Text>
-        ))}
       </View>
     </LinearGradient>
   );
@@ -63,11 +42,6 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 20,
     backgroundColor: 'white',
-  },
-  item: {
-    color: themeColors.darkgray,
-    textAlign: 'center',
-    marginVertical: 5,
   },
   title: {
     color: 'black',

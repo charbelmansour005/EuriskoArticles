@@ -28,7 +28,7 @@ const SettingsButtons = ({...props}: Props): JSX.Element => {
         onPress={() => props.navigate('About')}
         rippleColor={props.chosenRippleColor}>
         <Text style={styles.rippleText}>
-          {props.language.english ? `About` : `Nous`}
+          {props.language.english ? `About` : `Technologie`}
         </Text>
       </TouchableRipple>
     </View>
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   },
   rippleButton: {
     padding: 5,
-    backgroundColor: themeColors.darkgray,
+    backgroundColor: 'seagreen',
     borderRadius: 5,
     width: '30%',
     borderWidth: 1,

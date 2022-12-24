@@ -12,6 +12,7 @@ import {Button, Provider} from 'react-native-paper';
 import {useToast} from 'react-native-toast-notifications';
 import {Durations} from '../../helpers/toasts';
 import {useNavigation} from '@react-navigation/native';
+import LinearGradient from 'react-native-linear-gradient';
 import {
   SettingsButtons,
   SettingsFeatures,
@@ -96,52 +97,56 @@ const Settings = (): JSX.Element => {
   };
 
   return (
-    <ScrollView>
-      <Text style={styles.BoldSmall}>
-        {language.english ? `System Language` : `Langue du Système`}
-      </Text>
-      <SettingsLangSwitch onToggleSwitch={onToggleSwitch} />
-      <View>
-        <Snackbar
-          style={{
-            backgroundColor: themeColors.green,
-          }}
-          theme={{colors: {inversePrimary: themeColors.white}}}
-          visible={snackbarVisible}
-          duration={Durations.SHORT}
-          onDismiss={onDismissSnackBar}
-          action={{
-            label: snackLabel,
-            onPress: () => {
-              dispatch(toggleLanguage());
-            },
-          }}>
-          {snackText}
-        </Snackbar>
-      </View>
-      <SettingsButtons
-        askLogout={askLogout}
-        chosenRippleColor={chosenRippleColor}
-        navigate={navigate}
-        language={language}
-      />
-      <View style={{marginTop: 20}}>
-        <Provider>
-          <SettingsFeatures
-            hideModal={hideModal}
-            testToast={testToast}
-            chosenRippleColor={chosenRippleColor}
-            isVisible={isVisible}
-          />
-          <Button onPress={showModal}>
-            <Text style={{color: themeColors.pitchblack}}>
-              Latest Update Features
-            </Text>
-          </Button>
-        </Provider>
-        <Copyright />
-      </View>
-    </ScrollView>
+    <LinearGradient
+      colors={['white', 'white', 'white', 'forestgreen']}
+      style={{width: '100%', height: '100%'}}>
+      <ScrollView>
+        <Text style={styles.BoldSmall}>
+          {language.english ? `System Language` : `Langue du Système`}
+        </Text>
+        <SettingsLangSwitch onToggleSwitch={onToggleSwitch} />
+        <View>
+          <Snackbar
+            style={{
+              backgroundColor: themeColors.green,
+            }}
+            theme={{colors: {inversePrimary: themeColors.white}}}
+            visible={snackbarVisible}
+            duration={Durations.SHORT}
+            onDismiss={onDismissSnackBar}
+            action={{
+              label: snackLabel,
+              onPress: () => {
+                dispatch(toggleLanguage());
+              },
+            }}>
+            {snackText}
+          </Snackbar>
+        </View>
+        <SettingsButtons
+          askLogout={askLogout}
+          chosenRippleColor={chosenRippleColor}
+          navigate={navigate}
+          language={language}
+        />
+        <View style={{marginTop: 20}}>
+          <Provider>
+            <SettingsFeatures
+              hideModal={hideModal}
+              testToast={testToast}
+              chosenRippleColor={chosenRippleColor}
+              isVisible={isVisible}
+            />
+            <Button onPress={showModal}>
+              <Text style={{color: themeColors.pitchblack}}>
+                Latest Update Features
+              </Text>
+            </Button>
+          </Provider>
+          <Copyright />
+        </View>
+      </ScrollView>
+    </LinearGradient>
   );
 };
 

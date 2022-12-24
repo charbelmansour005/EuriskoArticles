@@ -6,6 +6,7 @@ import {
   Image,
   Pressable,
 } from 'react-native';
+import {useAppSelector} from '../app/rtkHooks';
 import React from 'react';
 
 type SearchBarFunctionProps = {
@@ -18,6 +19,7 @@ type SearchBarProps = SearchBarFunctionProps & {
 };
 
 const DashSearchBar = ({...props}: SearchBarProps): JSX.Element => {
+  const language = useAppSelector(state => state.language);
   return (
     <View style={styles.container}>
       <Image
@@ -25,7 +27,9 @@ const DashSearchBar = ({...props}: SearchBarProps): JSX.Element => {
         style={styles.searchIcon}
       />
       <TextInput
-        placeholder="Search Articles"
+        placeholder={
+          language.english ? `Search Articles` : `Chercher des Articles`
+        }
         placeholderTextColor="gray"
         onChangeText={props.onChangeText}
         value={props.search}

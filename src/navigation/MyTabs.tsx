@@ -89,12 +89,13 @@ const styles = StyleSheet.create({
   },
   tabbarMain: {
     position: 'absolute',
-    bottom: 20,
-    left: 25,
-    right: 25,
+    bottom: 0,
+    left: 0,
+    right: 0,
     elevation: 0,
     backgroundColor: '#ffffff',
-    borderRadius: 10,
+    borderTopRightRadius: 10,
+    borderTopLeftRadius: 10,
     height: 50,
     // allowing some article text to be shown
     opacity: 0.9,
