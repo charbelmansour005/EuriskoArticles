@@ -24,7 +24,7 @@ export const MyTabs = (): JSX.Element => {
           tabBarIcon: ({focused}) => (
             <View style={styles.tabbarView}>
               <Image
-                source={require('../../assets/ny.png')}
+                source={require('../../assets/house.png')}
                 resizeMode="contain"
                 style={{
                   tintColor: focused
@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     opacity: 1,
   },
   tabbarImgNY: {
-    width: 20,
+    width: 22,
     height: 22,
     opacity: 1,
   },
