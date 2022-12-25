@@ -32,3 +32,6 @@ Cool perks:
     <li>User can search articles, results show quickly</li>
   </ul>
 
+notes
+--
+this project was not tested on iOS (due to some hardware limitations), but a <strong>fully</strong> working APK was sent along with the github challenge link
