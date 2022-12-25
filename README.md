@@ -1,5 +1,9 @@
 # EuriskoArticles
 
+Overview
+--
+Typescript x react native cli 
+
 How to run the project:
 ---
 by order:
