@@ -1,5 +1,14 @@
 # EuriskoArticles
 
+How to run the project:
+---
+by order:
+<ul>
+  <li>download the project</li>
+    <li>run: npm install</li>
+    <li>run: npx react-native run-android</li>
+  </ul>
+
 Project description:
 ---
 This mobile app allows a user to firstly login, then read through articles provided by the NY POST.
@@ -20,3 +29,4 @@ Perks:
   <li>Linear gradient colors for better UI Experience</li>
   <li>Cool animations that bring life to the UI</li>
   </ul>
+
