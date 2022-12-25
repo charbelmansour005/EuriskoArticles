@@ -29,6 +29,6 @@ Cool perks:
   <li>Linear gradient colors for better UI Experience</li>
   <li>Cool animations that bring life to the UI</li>
     <li>News list optimized for faster loading speed</li>
-    <li>User can search articles, results returned quickly</li>
+    <li>User can search articles, results show quickly</li>
   </ul>
 
