@@ -2,7 +2,7 @@
 
 Overview
 --
-Typescript x react native cli 
+react native cli x typescript
 
 How to run the project:
 ---
@@ -27,7 +27,7 @@ Screens:
   <li>About screen</li>
 </ul>
 
-Cool perks:
+Product perks:
 <ul>
   <li>Message toasts</li>
   <li>Linear gradient colors for better UI Experience</li>
