@@ -2,7 +2,7 @@
 
 Overview
 --
-react native cli x typescript
+this project was completed using react native cli x typescript
 
 How to run the project:
 ---
@@ -34,6 +34,7 @@ Product perks:
   <li>Cool animations that bring life to the UI</li>
     <li>News list optimized for faster loading speed</li>
     <li>User can search articles, results show quickly</li>
+  <li>Bottom bar navigation</li>
   </ul>
 
 notes
