@@ -13,3 +13,10 @@ Screens:
   <li>Dashboard screen</li>
   <li>About screen</li>
 </ul>
+
+Perks:
+<ul>
+  <li>Message toasts</li>
+  <li>Linear garidnet colors for better UI Experience</li>
+  <li>Cool animations that bring life to the UI</li>
+  </ul>
