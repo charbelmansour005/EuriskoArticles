@@ -23,7 +23,7 @@ Screens:
   <li>About screen</li>
 </ul>
 
-Perks:
+Cool perks:
 <ul>
   <li>Message toasts</li>
   <li>Linear gradient colors for better UI Experience</li>
