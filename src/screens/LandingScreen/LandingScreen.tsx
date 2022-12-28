@@ -3,20 +3,17 @@ import {
   Dimensions,
   Pressable,
   View,
-  Image,
   StyleSheet,
   KeyboardAvoidingView,
 } from 'react-native'
 import {Text} from 'react-native-paper'
 import {themeColors} from '../../helpers/themeColors'
 import LottieView from 'lottie-react-native'
-import {useAppSelector} from '../../app/rtkHooks'
 import {useToast} from 'react-native-toast-notifications'
 import {Durations} from '../../helpers/toasts'
 
 const LandingScreen = ({navigation}: any): JSX.Element => {
   const toast = useToast()
-  const language = useAppSelector(state => state?.language)
   const signUpToast = (): void => {
     toast.show('Sign up is currently unavailable', {
       type: 'normal',
@@ -36,13 +33,9 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
             loop={true}
           />
         </View>
-        <Text style={styles.WelcomeMessage}>
-          {language.english
-            ? `Providing the latest news`
-            : `Votre meilleure source d'information`}
-        </Text>
+        <Text style={styles.WelcomeMessage}>Providing the latest news</Text>
         <Text style={{color: themeColors.pitchblack, textAlign: 'center'}}>
-          {language.english ? `Let's start` : `Commencez`}
+          Let's start
         </Text>
         <Pressable
           onPress={() => navigation.navigate('Login')}
@@ -52,9 +45,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
             borderless: false,
           }}
           style={styles.TouchableBtnLogin}>
-          <Text style={styles.TouchableTextLogin}>
-            {language.english ? `LOGIN` : `CONNECTEZ`}
-          </Text>
+          <Text style={styles.TouchableTextLogin}>LOGIN</Text>
         </Pressable>
         <Pressable
           onPress={() => signUpToast()}
@@ -62,7 +53,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
           android_ripple={{color: themeColors.lightskyblue, borderless: false}}
           style={styles.TouchableBtnSignUp}>
           <Text style={styles.TouchableTextSignUp}>
-            {language.english ? `SIGN UP` : `S'ABONNER`}
+            SIGN UP
           </Text>
         </Pressable>
       </View>

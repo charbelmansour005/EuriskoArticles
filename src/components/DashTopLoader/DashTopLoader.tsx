@@ -1,7 +1,7 @@
-import {StyleSheet, Text, View} from 'react-native';
-import {ActivityIndicator} from 'react-native-paper';
-import {themeColors} from '../../helpers/themeColors';
-import React from 'react';
+import {StyleSheet, Text, View} from 'react-native'
+import {ActivityIndicator} from 'react-native-paper'
+import {themeColors} from '../../helpers/themeColors'
+import React from 'react'
 
 const DashTopLoader = (): JSX.Element => {
   return (
@@ -15,10 +15,10 @@ const DashTopLoader = (): JSX.Element => {
         />
       </View>
     </View>
-  );
-};
+  )
+}
 
-export default DashTopLoader;
+export default DashTopLoader
 
 const styles = StyleSheet.create({
   loaderContainer: {
@@ -39,4 +39,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   loaderText: {color: 'white', fontWeight: 'bold'},
-});
+})
