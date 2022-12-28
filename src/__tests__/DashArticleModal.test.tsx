@@ -47,3 +47,18 @@ test('modal paragraph prop text shows', async () => {
   const instance = renderer.create(<DashArticleModal />).root
   expect(instance.findByProps({testID: 'leadParagraph'})).toBeTruthy()
 })
+
+/**
+ * @toBeTruthy
+ * @Fail
+ * expect(false).toBeTruthy() // fail
+ * expect(null).toBeTruthy() // fail
+ * expect(undefined).toBeTruthy() // fail
+ * expect(NaN).toBeTruthy() // fail
+ * expect("").toBeTruthy() // fail
+ * expect(0).toBeTruthy() // fail
+ * @Pass
+ * expect("string").toBeTruthy() // pass
+ * expect(1).toBeTruthy() // pass
+ * expect({}).toBeTruthy() // pass
+ */

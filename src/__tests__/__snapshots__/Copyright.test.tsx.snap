@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Copyright component Component should display copyright 1`] = `
+exports[`Component should display correctly 1`] = `
 <Text
   style={
     Object {
@@ -9,6 +9,7 @@ exports[`Copyright component Component should display copyright 1`] = `
       "textAlign": "center",
     }
   }
+  testID="copyright"
 >
   Copyright © 
    Eurisko Mobility 

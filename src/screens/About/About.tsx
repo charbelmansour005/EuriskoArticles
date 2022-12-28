@@ -4,7 +4,7 @@ import LottieView from 'lottie-react-native'
 
 const About = (): JSX.Element => {
   return (
-    <View style={{height: '100%', width: '100%'}}>
+    <View style={{height: '100%', width: '100%'}} testID="parent">
       <View style={styles.animationContainer}>
         <LottieView
           testID="lottieAnimation"
