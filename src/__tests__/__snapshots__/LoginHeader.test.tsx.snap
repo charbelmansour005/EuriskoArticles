@@ -1,5 +1,25 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`LoginHeader Component renders correctly 1`] = `
+<Image
+  source={
+    Object {
+      "testUri": "../../../assets/eurisko.jpg",
+    }
+  }
+  style={
+    Object {
+      "borderColor": "black",
+      "borderRadius": 5,
+      "borderWidth": 0,
+      "height": 104,
+      "marginBottom": "10%",
+      "width": 90,
+    }
+  }
+/>
+`;
+
 exports[`renders correctly 1`] = `
 <Image
   source={

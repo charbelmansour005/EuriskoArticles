@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `
+exports[`Copyright component Component should display copyright 1`] = `
 <Text
   style={
     Object {
