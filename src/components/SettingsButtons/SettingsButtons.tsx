@@ -6,7 +6,7 @@ import {Props} from './types'
 
 const SettingsButtons = ({...props}: Props): JSX.Element => {
   return (
-    <View style={styles.settingsBtns}>
+    <View style={styles.settingsBtns} testID="parent">
       <TouchableRipple
         testID="logoutButton"
         style={styles.rippleButton}

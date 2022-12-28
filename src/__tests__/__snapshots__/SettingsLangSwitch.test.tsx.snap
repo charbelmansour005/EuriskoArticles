@@ -1,81 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`SettingsLangSwitch Component renders correctly 1`] = `
-Array [
-  <View
-    style={
-      Object {
-        "alignContent": "center",
-        "alignItems": "center",
-        "backgroundColor": "white",
-        "borderColor": "lightgray",
-        "borderRadius": 10,
-        "borderWidth": 1,
-        "display": "flex",
-        "flexDirection": "row",
-        "justifyContent": "space-around",
-        "margin": 10,
-        "padding": 10,
-      }
-    }
-  >
-    <Text
-      style={
-        Object {
-          "color": "black",
-          "fontSize": 13,
-          "fontWeight": "bold",
-        }
-      }
-    >
-      Francais
-    </Text>
-    <RCTSwitch
-      accessibilityRole="switch"
-      onChange={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      onTintColor="silver"
-      style={
-        Object {
-          "height": 31,
-          "width": 51,
-        }
-      }
-      tintColor="silver"
-      value={false}
-    />
-    <Text
-      style={
-        Object {
-          "color": "black",
-          "fontSize": 13,
-          "fontWeight": "bold",
-        }
-      }
-    >
-       
-      Anglais
-    </Text>
-  </View>,
-  <View>
-    <Text
-      style={
-        Object {
-          "color": "black",
-          "fontSize": 13,
-          "lineHeight": 20,
-          "marginBottom": 20,
-          "marginLeft": 20,
-        }
-      }
-    >
-      Changer la langue n'affectera que celle de l'application et non la langue dans laquelle les articles sont affichés, le changement sera à l'échelle du système.
-    </Text>
-  </View>,
-]
-`;
-
 exports[`renders correctly 1`] = `
 Array [
   <View
@@ -94,6 +18,7 @@ Array [
         "padding": 10,
       }
     }
+    testID="parent"
   >
     <Text
       style={
@@ -103,6 +28,7 @@ Array [
           "fontWeight": "bold",
         }
       }
+      testID="languageOptionFrench"
     >
       Francais
     </Text>
@@ -118,6 +44,7 @@ Array [
           "width": 51,
         }
       }
+      testID="switch"
       tintColor="silver"
       value={false}
     />
@@ -129,12 +56,15 @@ Array [
           "fontWeight": "bold",
         }
       }
+      testID="languageOptionEnglish"
     >
        
       Anglais
     </Text>
   </View>,
-  <View>
+  <View
+    testID="languageExplanation"
+  >
     <Text
       style={
         Object {

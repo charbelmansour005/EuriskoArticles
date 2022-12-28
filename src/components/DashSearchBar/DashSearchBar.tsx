@@ -5,12 +5,14 @@ import {SearchBarProps} from './types'
 
 const DashSearchBar = ({...props}: SearchBarProps): JSX.Element => {
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID="parent">
       <Image
+        testID="image"
         source={require('../../../assets/srh.png')}
         style={styles.searchIcon}
       />
       <TextInput
+        testID="input"
         placeholder={
           props?.language?.english ? `Search Articles` : `Chercher des Articles`
         }

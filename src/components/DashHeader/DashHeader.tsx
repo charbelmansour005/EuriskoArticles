@@ -6,8 +6,8 @@ import {SearchProps} from './types'
 
 const DashHeader = ({...props}: SearchProps): JSX.Element => {
   return (
-    <View style={styles.headerContainer}>
-      <View style={styles.headerTitleContainer}></View>
+    <View style={styles.headerContainer} testID="parent">
+      {/* <View style={styles.headerTitleContainer}></View> */}
       <DashSearchBar
         search={props.search}
         onChangeText={val => props.setSearch(val)}

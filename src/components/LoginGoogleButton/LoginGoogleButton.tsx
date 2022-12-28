@@ -10,17 +10,30 @@ const LoginGoogleButton = () => {
   return (
     <Fragment>
       <Pressable
+        testID="googlePressable"
         android_disableSound={true}
         android_ripple={{color: themeColors.salmon, borderless: false}}
         style={styles.GoogleBtn}>
         <View style={styles.rowflex}>
-          <Image source={GoogleLogo} style={{width: 30, height: 30}} />
-          <Text style={styles.GoogleText}>Sign in with Google</Text>
+          <Image
+            source={GoogleLogo}
+            style={{width: 30, height: 30}}
+            testID="googleImage"
+          />
+          <Text style={styles.GoogleText} testID="googleText">
+            Sign in with Google
+          </Text>
         </View>
       </Pressable>
       <View style={{marginTop: 20, ...styles.rowflex}}>
-        <Text style={{color: '#131938'}}>Don't have an account?</Text>
-        <Text style={{color: '#131938', fontWeight: 'bold'}}>Sign up</Text>
+        <Text style={{color: '#131938'}} testID="googleNoAcc">
+          Don't have an account?
+        </Text>
+        <Text
+          style={{color: '#131938', fontWeight: 'bold'}}
+          testID="googleSignUp">
+          Sign up
+        </Text>
       </View>
     </Fragment>
   )

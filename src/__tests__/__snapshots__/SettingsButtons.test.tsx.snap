@@ -17,6 +17,7 @@ exports[`renders correctly 1`] = `
       "padding": 10,
     }
   }
+  testID="parent"
 >
   <View
     accessibilityState={

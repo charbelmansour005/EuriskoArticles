@@ -1,15 +1,15 @@
-import {StyleSheet, Image, Dimensions} from 'react-native';
-import React from 'react';
-import Logo from '../../../assets/eurisko.jpg';
+import {StyleSheet, Image, Dimensions} from 'react-native'
+import React from 'react'
+import Logo from '../../../assets/eurisko.jpg'
 
 const LoginHeader = (): JSX.Element => {
-  return <Image style={styles.LogoCentered} source={Logo} />;
-};
+  return <Image testID="image" style={styles.LogoCentered} source={Logo} />
+}
 
-export default LoginHeader;
+export default LoginHeader
 
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width
+const height = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
   LogoCentered: {
@@ -20,4 +20,4 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     marginBottom: '10%',
   },
-});
+})

@@ -15,21 +15,22 @@ const SettingsLangSwitch = ({...props}: Props): JSX.Element => {
 
   return (
     <Fragment>
-      <View style={styles.paperContainerFlex}>
-        <Text style={styles.BoldSmallNoMargin}>
+      <View style={styles.paperContainerFlex} testID="parent">
+        <Text style={styles.BoldSmallNoMargin} testID="languageOptionFrench">
           {props?.language?.english ? `French` : `Francais`}
         </Text>
         <Switch
           color="silver"
           value={props?.language?.english}
           onValueChange={props?.onToggleSwitch}
+          testID="switch"
         />
-        <Text style={styles.BoldSmallNoMargin}>
+        <Text style={styles.BoldSmallNoMargin} testID="languageOptionEnglish">
           {' '}
           {props?.language?.english ? `English` : `Anglais`}
         </Text>
       </View>
-      <View>
+      <View testID="languageExplanation">
         {props?.language?.english ? (
           <Text style={styles.languageExplanation}>
             {LangFeature.englishDefinition}
