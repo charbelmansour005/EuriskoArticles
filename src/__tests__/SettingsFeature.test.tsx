@@ -1,6 +1,6 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import SettingsFeatures from '../src/components/SettingsFeatures/SettingsFeatures';
+import SettingsFeatures from '../components/SettingsFeatures/SettingsFeatures'
 
 test('renders correctly', async () => {
   const tree = renderer
