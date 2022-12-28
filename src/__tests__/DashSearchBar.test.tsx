@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import DashSearchBar from '../components/DashSearchBar/DashSearchBar'
-
+// passed
 test('Component should display search input', async () => {
   const tree = renderer
     .create(

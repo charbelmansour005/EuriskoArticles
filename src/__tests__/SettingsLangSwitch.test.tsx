@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import SettingsLangSwitch from '../components/SettingsLangSwitch/SettingsLangSwitch'
-
+// passed
 test('renders correctly', async () => {
   const tree = renderer
     .create(
