@@ -7,6 +7,11 @@ test('renders correctly', async () => {
   expect(tree).toMatchSnapshot()
 })
 
+test('about screen parent view shows', async () => {
+  const instance = renderer.create(<About />).root
+  expect(instance.findByProps({testID: 'parent'})).toBeTruthy()
+})
+
 test('react native lottie animation shows', async () => {
   const instance = renderer.create(<About />).root
   expect(instance.findByProps({testID: 'lottieAnimation'})).toBeTruthy()
@@ -15,9 +20,4 @@ test('react native lottie animation shows', async () => {
 test('about screen title shows', async () => {
   const instance = renderer.create(<About />).root
   expect(instance.findByProps({testID: 'aboutTitle'})).toBeTruthy()
-})
-
-test('about screen parent view shows', async () => {
-  const instance = renderer.create(<About />).root
-  expect(instance.findByProps({testID: 'parent'})).toBeTruthy()
 })

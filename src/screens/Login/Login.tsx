@@ -65,7 +65,7 @@ const Login = (): JSX.Element => {
   }
 
   return (
-    <KeyboardAvoidingView style={styles.LoginMain}>
+    <KeyboardAvoidingView style={styles.LoginMain} testID="parent">
       <Formik
         validationSchema={validationShema}
         initialValues={{username: '', password: ''}}
