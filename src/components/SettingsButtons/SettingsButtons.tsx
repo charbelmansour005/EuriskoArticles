@@ -1,13 +1,14 @@
-import {View, Text, StyleSheet} from 'react-native';
-import {TouchableRipple} from 'react-native-paper';
-import {themeColors} from '../../helpers/themeColors';
-import React from 'react';
-import {Props} from './types';
+import {View, Text, StyleSheet} from 'react-native'
+import {TouchableRipple} from 'react-native-paper'
+import {themeColors} from '../../helpers/themeColors'
+import React from 'react'
+import {Props} from './types'
 
 const SettingsButtons = ({...props}: Props): JSX.Element => {
   return (
     <View style={styles.settingsBtns}>
       <TouchableRipple
+        testID="logoutButton"
         style={styles.rippleButton}
         onPress={props?.askLogout}
         rippleColor={props?.chosenRippleColor}>
@@ -16,6 +17,7 @@ const SettingsButtons = ({...props}: Props): JSX.Element => {
         </Text>
       </TouchableRipple>
       <TouchableRipple
+        testID="aboutButton"
         style={styles.rippleButton}
         onPress={() => props?.navigate('About')}
         rippleColor={props?.chosenRippleColor}>
@@ -24,10 +26,10 @@ const SettingsButtons = ({...props}: Props): JSX.Element => {
         </Text>
       </TouchableRipple>
     </View>
-  );
-};
+  )
+}
 
-export default SettingsButtons;
+export default SettingsButtons
 
 const styles = StyleSheet.create({
   settingsBtns: {
@@ -57,4 +59,4 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: 'bold',
   },
-});
+})

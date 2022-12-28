@@ -6,5 +6,6 @@ describe('DashArticleModal Component', () => {
   test('Component should display props', async () => {
     const tree = renderer.create(<DashArticleModal />).toJSON()
     expect(tree).toMatchSnapshot()
+    expect(tree).toBeTruthy()
   })
 })

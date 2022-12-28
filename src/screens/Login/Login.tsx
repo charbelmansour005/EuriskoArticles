@@ -94,6 +94,7 @@ const Login = (): JSX.Element => {
             </View>
             <View style={{alignItems: 'center', justifyContent: 'center'}}>
               <TextInput
+                testID="myUsername"
                 onChangeText={handleChange('username')}
                 onBlur={handleBlur('username')}
                 value={values.username}
@@ -110,6 +111,7 @@ const Login = (): JSX.Element => {
                 )}
               </View>
               <TextInput
+                testID="myPassword"
                 onChangeText={handleChange('password')}
                 onBlur={handleBlur('password')}
                 value={values.password}
@@ -123,6 +125,7 @@ const Login = (): JSX.Element => {
               />
               <Text style={styles.ForgotPassword}> Forgot your password?</Text>
               <Pressable
+                testID="myButton"
                 disabled={Boolean(
                   !values.username ||
                     !values.password ||
