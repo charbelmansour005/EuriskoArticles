@@ -1,25 +1,27 @@
 # EuriskoArticles
 
-Overview
---
+## Overview
+
 this project was completed using react native cli x typescript
 
-How to run the project:
----
+## How to run the project:
+
 by order:
+
 <ul>
   <li>download the project</li>
     <li>run: npm install</li>
     <li>run: npx react-native run-android</li>
   </ul>
 
-Project description:
----
+## Project description:
+
 This mobile app allows a user to firstly login, then read through articles provided by the NY POST.
 
-Product features:
----
+## Product features:
+
 Screens:
+
 <ul>
 <li>Landing screen</li>
   <li>Login screen</li>
@@ -28,6 +30,7 @@ Screens:
 </ul>
 
 Product perks:
+
 <ul>
   <li>Message toasts</li>
   <li>Linear gradient colors for better UI Experience</li>
@@ -37,6 +40,10 @@ Product perks:
   <li>Bottom bar navigation</li>
   </ul>
 
-notes
---
+## notes
+
 this project was not tested on iOS (due to some hardware limitations), but a <strong>fully</strong> working APK was sent along with the github challenge link
+
+## tests
+
+10 component tests passed, run ' npm test ' to check results
