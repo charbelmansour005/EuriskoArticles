@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "space-around",
+      "marginTop": 25,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "backgroundColor": "black",
+        "height": 1.2,
+        "width": "35%",
+      }
+    }
+  />
+  <View>
+    <Text
+      style={
+        Object {
+          "color": "black",
+          "textAlign": "center",
+          "width": 50,
+        }
+      }
+    >
+      Or
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "backgroundColor": "black",
+        "height": 1.2,
+        "width": "35%",
+      }
+    }
+  />
+</View>
+`;

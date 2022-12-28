@@ -1,36 +1,36 @@
-import {StyleSheet, Text, View} from 'react-native';
-import {Switch} from 'react-native-paper';
-import {useAppSelector} from '../../app/rtkHooks';
-import React, {Fragment} from 'react';
-import {Props, LangFeature} from './types';
+import {StyleSheet, Text, View} from 'react-native'
+import {Switch} from 'react-native-paper'
+// import {useAppSelector} from '../../app/rtkHooks';
+import React, {Fragment} from 'react'
+import {Props, LangFeature} from './types'
 
 const SettingsLangSwitch = ({...props}: Props): JSX.Element => {
-  const language = useAppSelector(state => state.language);
+  // const language = useAppSelector(state => state.language);
   const LangFeature: LangFeature = {
     englishDefinition:
       'Changing the language will only affect that of the application and not the language which the articles are displayed in, the change will be system wide.',
     frenchDefinition:
       "Changer la langue n'affectera que celle de l'application et non la langue dans laquelle les articles sont affichés, le changement sera à l'échelle du système.",
-  };
+  }
 
   return (
     <Fragment>
       <View style={styles.paperContainerFlex}>
         <Text style={styles.BoldSmallNoMargin}>
-          {language.english ? `French` : `Francais`}
+          {props?.language?.english ? `French` : `Francais`}
         </Text>
         <Switch
           color="silver"
-          value={language.english}
-          onValueChange={props.onToggleSwitch}
+          value={props?.language?.english}
+          onValueChange={props?.onToggleSwitch}
         />
         <Text style={styles.BoldSmallNoMargin}>
           {' '}
-          {language.english ? `English` : `Anglais`}
+          {props?.language?.english ? `English` : `Anglais`}
         </Text>
       </View>
       <View>
-        {language.english ? (
+        {props?.language?.english ? (
           <Text style={styles.languageExplanation}>
             {LangFeature.englishDefinition}
           </Text>
@@ -41,10 +41,10 @@ const SettingsLangSwitch = ({...props}: Props): JSX.Element => {
         )}
       </View>
     </Fragment>
-  );
-};
+  )
+}
 
-export default SettingsLangSwitch;
+export default SettingsLangSwitch
 
 const styles = StyleSheet.create({
   BoldSmallNoMargin: {
@@ -72,4 +72,4 @@ const styles = StyleSheet.create({
     lineHeight: 20,
     color: 'black',
   },
-});
+})

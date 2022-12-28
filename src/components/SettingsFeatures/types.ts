@@ -1,8 +1,8 @@
 export interface FunctionProps {
-  hideModal: () => void;
-  testToast: () => void;
+  hideModal?: () => void
+  testToast?: () => void
 }
 export interface Props extends FunctionProps {
-  chosenRippleColor?: string;
-  isVisible?: boolean;
+  chosenRippleColor?: string
+  isVisible?: boolean
 }

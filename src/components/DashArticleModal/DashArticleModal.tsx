@@ -1,9 +1,9 @@
-import {StyleSheet, Text, View, Linking, Image} from 'react-native';
-import React from 'react';
-import Logo from '../../../assets/eurisko.jpg';
-import {themeColors} from '../../helpers/themeColors';
-import {TouchableRipple} from 'react-native-paper';
-import {ArticleCardModalProps} from './types';
+import {StyleSheet, Text, View, Linking, Image} from 'react-native'
+import React from 'react'
+import Logo from '../../../assets/eurisko.jpg'
+import {themeColors} from '../../helpers/themeColors'
+import {TouchableRipple} from 'react-native-paper'
+import {ArticleCardModalProps} from './types'
 
 const DashArticleModal = ({...props}: ArticleCardModalProps) => {
   return (
@@ -11,7 +11,7 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
       <View style={styles.logoContainer}>
         <Image source={Logo} style={styles.logoModal} />
         <TouchableRipple
-          onPress={props.hideModal}
+          onPress={props?.hideModal}
           rippleColor={themeColors.darkgreen}
           style={styles.modalButton}>
           <Text style={{color: 'black', fontWeight: 'bold'}}>
@@ -22,7 +22,7 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
       <Text
         selectable={true}
         style={{letterSpacing: 1, ...styles.modalArticleHeadline}}>
-        {props.headline}
+        {props?.headline}
       </Text>
       <Text
         selectable={true}
@@ -37,10 +37,10 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
           color: themeColors.pitchblack,
           ...styles.modalArticleElements,
         }}>
-        {props.section}
+        {props?.section}
       </Text>
       <Text
-        onPress={() => Linking.openURL(props.url)}
+        onPress={() => Linking.openURL(props?.url)}
         style={{
           color: themeColors.darkgreen,
           fontWeight: 'bold',
@@ -49,13 +49,13 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
         View on Website
       </Text>
       <Text selectable={true} style={styles.modalArticleParagraph}>
-        {props.leadParagraph}
+        {props?.leadParagraph}
       </Text>
     </View>
-  );
-};
+  )
+}
 
-export default DashArticleModal;
+export default DashArticleModal
 
 const styles = StyleSheet.create({
   modalArticleView: {
@@ -110,4 +110,4 @@ const styles = StyleSheet.create({
     marginVertical: 20,
     borderRadius: 5,
   },
-});
+})

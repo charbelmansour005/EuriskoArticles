@@ -1,18 +1,9 @@
-import {
-  View,
-  TextInput,
-  StyleSheet,
-  Text,
-  Image,
-  Pressable,
-} from 'react-native';
-import {useAppSelector} from '../../app/rtkHooks';
-import {themeColors} from '../../helpers/themeColors';
-import React from 'react';
-import {SearchBarProps} from './types';
+import {View, TextInput, StyleSheet, Text, Image, Pressable} from 'react-native'
+import {themeColors} from '../../helpers/themeColors'
+import React from 'react'
+import {SearchBarProps} from './types'
 
 const DashSearchBar = ({...props}: SearchBarProps): JSX.Element => {
-  const language = useAppSelector(state => state.language);
   return (
     <View style={styles.container}>
       <Image
@@ -21,25 +12,25 @@ const DashSearchBar = ({...props}: SearchBarProps): JSX.Element => {
       />
       <TextInput
         placeholder={
-          language.english ? `Search Articles` : `Chercher des Articles`
+          props?.language?.english ? `Search Articles` : `Chercher des Articles`
         }
         placeholderTextColor="gray"
-        onChangeText={props.onChangeText}
-        value={props.search}
+        onChangeText={props?.onChangeText}
+        value={props?.search}
         style={styles.searchInput}
       />
-      {props.search ? (
-        <Pressable style={{marginRight: 10}} onPress={props.onPressClear}>
+      {props?.search ? (
+        <Pressable style={{marginRight: 10}} onPress={props?.onPressClear}>
           <Text style={styles.clearButton}>
-            {language.english ? `Clear` : `Annuler`}
+            {props?.language.english ? `Clear` : `Annuler`}
           </Text>
         </Pressable>
       ) : null}
     </View>
-  );
-};
+  )
+}
 
-export default DashSearchBar;
+export default DashSearchBar
 
 const styles = StyleSheet.create({
   container: {
@@ -72,4 +63,4 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
   },
-});
+})

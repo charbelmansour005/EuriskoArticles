@@ -1,13 +1,13 @@
-import {StyleSheet, Text, View, Modal} from 'react-native';
-import {Portal, TouchableRipple} from 'react-native-paper';
-import {themeColors} from '../../helpers/themeColors';
-import React from 'react';
-import {Props} from './types';
+import {StyleSheet, Text, View, Modal} from 'react-native'
+import {Portal, TouchableRipple} from 'react-native-paper'
+import {themeColors} from '../../helpers/themeColors'
+import React from 'react'
+import {Props} from './types'
 
 const SettingsFeatures = ({...props}: Props): JSX.Element => {
   return (
     <Portal>
-      <Modal visible={props.isVisible} onDismiss={props.hideModal}>
+      <Modal visible={props?.isVisible} onDismiss={props?.hideModal}>
         <View style={styles.featuresInfo}>
           <Text
             style={{
@@ -25,13 +25,13 @@ const SettingsFeatures = ({...props}: Props): JSX.Element => {
           </Text>
           <Text
             style={{
-              color: props.chosenRippleColor,
+              color: props?.chosenRippleColor,
               ...styles.featureText,
             }}>
             Dynamic colors
           </Text>
           <Text
-            onPress={props.testToast}
+            onPress={props?.testToast}
             style={{
               color: 'gray',
               ...styles.featureText,
@@ -42,17 +42,17 @@ const SettingsFeatures = ({...props}: Props): JSX.Element => {
         <View style={styles.closeModalButtonContainer}>
           <TouchableRipple
             style={styles.rippleButtonModal}
-            onPress={props.hideModal}
-            rippleColor={props.chosenRippleColor}>
+            onPress={props?.hideModal}
+            rippleColor={props?.chosenRippleColor}>
             <Text style={styles.rippleText}>Okay</Text>
           </TouchableRipple>
         </View>
       </Modal>
     </Portal>
-  );
-};
+  )
+}
 
-export default SettingsFeatures;
+export default SettingsFeatures
 
 const styles = StyleSheet.create({
   closeModalButtonContainer: {
@@ -86,4 +86,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontWeight: 'bold',
   },
-});
+})

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   Dimensions,
   Pressable,
@@ -6,25 +6,25 @@ import {
   Image,
   StyleSheet,
   KeyboardAvoidingView,
-} from 'react-native';
-import {Text} from 'react-native-paper';
-import {themeColors} from '../../helpers/themeColors';
-import LottieView from 'lottie-react-native';
-import {useAppSelector} from '../../app/rtkHooks';
-import {useToast} from 'react-native-toast-notifications';
-import {Durations} from '../../helpers/toasts';
+} from 'react-native'
+import {Text} from 'react-native-paper'
+import {themeColors} from '../../helpers/themeColors'
+import LottieView from 'lottie-react-native'
+import {useAppSelector} from '../../app/rtkHooks'
+import {useToast} from 'react-native-toast-notifications'
+import {Durations} from '../../helpers/toasts'
 
 const LandingScreen = ({navigation}: any): JSX.Element => {
-  const toast = useToast();
-  const language = useAppSelector(state => state.language);
+  const toast = useToast()
+  const language = useAppSelector(state => state?.language)
   const signUpToast = (): void => {
     toast.show('Sign up is currently unavailable', {
       type: 'normal',
       duration: Durations.MEDIUM,
       animationType: 'slide-in',
       placement: 'bottom',
-    });
-  };
+    })
+  }
   return (
     <KeyboardAvoidingView style={styles.LandingMain}>
       <View style={styles.LoginContainer}>
@@ -67,13 +67,13 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
         </Pressable>
       </View>
     </KeyboardAvoidingView>
-  );
-};
+  )
+}
 
-export default LandingScreen;
+export default LandingScreen
 
-const width = Dimensions.get('window').width;
-const height = Dimensions.get('window').height;
+const width = Dimensions.get('window').width
+const height = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
   LandingMain: {
@@ -134,4 +134,4 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     letterSpacing: 1,
   },
-});
+})

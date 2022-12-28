@@ -1,14 +1,12 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
-import LottieView from 'lottie-react-native';
-import {themeColors} from '../../helpers/themeColors';
-import LinearGradient from 'react-native-linear-gradient';
+import {StyleSheet, Text, View} from 'react-native'
+import React from 'react'
+import LottieView from 'lottie-react-native'
+import {themeColors} from '../../helpers/themeColors'
+// import LinearGradient from 'react-native-linear-gradient';
 
 const About = (): JSX.Element => {
   return (
-    <LinearGradient
-      colors={['skyblue', 'white', 'skyblue', 'skyblue', 'white', 'white']}
-      style={{height: '100%', width: '100%'}}>
+    <View style={{height: '100%', width: '100%'}}>
       <View style={styles.animationContainer}>
         <LottieView
           style={{width: '80%', aspectRatio: 1}}
@@ -22,11 +20,11 @@ const About = (): JSX.Element => {
           This app was developed using React Native
         </Text>
       </View>
-    </LinearGradient>
-  );
-};
+    </View>
+  )
+}
 
-export default About;
+export default About
 
 const styles = StyleSheet.create({
   rippleText: {
@@ -44,9 +42,9 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
   title: {
-    color: 'white',
+    color: 'black',
     textAlign: 'center',
     marginVertical: 10,
   },
   animationContainer: {justifyContent: 'center', alignItems: 'center'},
-});
+})

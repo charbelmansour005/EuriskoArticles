@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+Array [
+  <View
+    accessible={true}
+    collapsable={false}
+    focusable={true}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "transparent",
+        "borderColor": "lightgray",
+        "borderRadius": 5,
+        "borderWidth": 1,
+        "marginTop": 25,
+        "maxWidth": "100%",
+        "padding": 8,
+        "width": "auto",
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flexDirection": "row",
+        }
+      }
+    >
+      <Image
+        source={
+          Object {
+            "testUri": "../../../assets/google.png",
+          }
+        }
+        style={
+          Object {
+            "height": 30,
+            "width": 30,
+          }
+        }
+      />
+      <Text
+        style={
+          Object {
+            "color": "black",
+            "fontSize": 15,
+            "fontWeight": "bold",
+            "letterSpacing": 1,
+            "marginLeft": 14,
+            "textAlign": "center",
+          }
+        }
+      >
+        Sign in with Google
+      </Text>
+    </View>
+  </View>,
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "marginTop": 20,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#131938",
+        }
+      }
+    >
+      Don't have an account?
+    </Text>
+    <Text
+      style={
+        Object {
+          "color": "#131938",
+          "fontWeight": "bold",
+        }
+      }
+    >
+      Sign up
+    </Text>
+  </View>,
+]
+`;

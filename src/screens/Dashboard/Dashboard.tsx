@@ -5,25 +5,26 @@ import {
   SafeAreaView,
   Alert,
   RefreshControl,
-} from 'react-native';
-import React, {useEffect, useState} from 'react';
+} from 'react-native'
+import React, {useEffect, useState} from 'react'
 import {
   storeArticles,
   storeFilteredArticles,
-} from '../../features/article/articlesSlice';
-import {Article} from '../../features/article/types';
-import {useAppDispatch} from '../../app/rtkHooks';
-import {Durations} from '../../helpers/toasts';
-import {getArticles} from '../../services/articles';
-import {themeColors} from '../../helpers/themeColors';
-import {useToast} from 'react-native-toast-notifications';
-import {DashboardProps} from './types';
+} from '../../features/article/articlesSlice'
+import {Article} from '../../features/article/types'
+import {useAppDispatch} from '../../app/rtkHooks'
+import {Durations} from '../../helpers/toasts'
+import {getArticles} from '../../services/articles'
+import {themeColors} from '../../helpers/themeColors'
+import {useToast} from 'react-native-toast-notifications'
+import { useAppSelector } from '../../app/rtkHooks'
+import {DashboardProps} from './types'
 import {
   DashHeader,
   DashTopLoader,
   LoadingSpinner,
   DashArticleCard,
-} from '../../components/index';
+} from '../../components/index'
 
 const Dashboard = ({
   searchBaseValue = ``,
@@ -33,19 +34,20 @@ const Dashboard = ({
   searchedArticlesBaseValue = [],
   dataFoundBaseValue = false,
 }: DashboardProps): JSX.Element => {
-  const dispatch = useAppDispatch();
-  const [search, setSearch] = useState(searchBaseValue);
-  const [page, setPage] = useState(pageBaseValue);
-  const [loading, setIsLoading] = useState(loadingBaseValue);
-  const [articleError, setArticleError] = useState<boolean>(false);
-  const [dataFound, setDataFound] = useState(dataFoundBaseValue);
+  const language = useAppSelector(state => state?.language)
+  const dispatch = useAppDispatch()
+  const [search, setSearch] = useState(searchBaseValue)
+  const [page, setPage] = useState(pageBaseValue)
+  const [loading, setIsLoading] = useState(loadingBaseValue)
+  const [articleError, setArticleError] = useState<boolean>(false)
+  const [dataFound, setDataFound] = useState(dataFoundBaseValue)
   const [articlesList, setArticlesList] = useState<Article[]>(
     articlesListBaseValue,
-  );
+  )
   const [searchedArticles, setSearchedArticles] = useState<Article[]>(
     searchedArticlesBaseValue,
-  );
-  const toast = useToast();
+  )
+  const toast = useToast()
 
   const welcomeToast = (): void => {
     toast.show('To view an article, press on one, or long press for website', {
@@ -53,30 +55,30 @@ const Dashboard = ({
       duration: Durations.MEDIUM,
       animationType: 'zoom-in',
       placement: 'center',
-    });
-  };
+    })
+  }
 
   useEffect(() => {
-    welcomeToast();
-  }, []);
+    welcomeToast()
+  }, [])
 
   const loadArticles = async (): Promise<void> => {
     if (page == 0) {
-      setIsLoading(true);
+      setIsLoading(true)
     }
     getArticles(page)
       .then(async (response: any) => {
         // avoid showing the loading indicator when there is no new data
         if (response.response.docs.length < 10) {
-          setDataFound(true);
+          setDataFound(true)
         }
         // keeping the previously fetched articles & concatenating the new ones
-        setArticlesList(prev => prev.concat(response.response.docs));
+        setArticlesList(prev => prev.concat(response.response.docs))
         // storing the response
-        dispatch(storeArticles(response.response.docs));
+        dispatch(storeArticles(response.response.docs))
       })
       .catch(error => {
-        setArticleError(true);
+        setArticleError(true)
         Alert.alert(
           'There was an issue',
           `${error.data.message}.`,
@@ -88,49 +90,49 @@ const Dashboard = ({
             },
           ],
           {cancelable: true},
-        );
+        )
       })
-      .finally(() => setIsLoading(false));
-  };
+      .finally(() => setIsLoading(false))
+  }
 
   useEffect(() => {
-    loadArticles();
-  }, [page]);
+    loadArticles()
+  }, [page])
 
   const handleOnEndReached = (): void => {
     if (!search) {
-      setPage(page + 1);
+      setPage(page + 1)
     }
-  };
+  }
 
   const handleOnRefresh = (): void => {
-    setArticlesList([]); // stopping the same data from being refetched
-    setDataFound(false); // displaying the loading indicator correctly
-    setPage(0); // resetting the page to show latest data (if any)
-    setIsLoading(false); // stopping any previous loading state
-    loadArticles(); // refetching
-  };
+    setArticlesList([]) // stopping the same data from being refetched
+    setDataFound(false) // displaying the loading indicator correctly
+    setPage(0) // resetting the page to show latest data (if any)
+    setIsLoading(false) // stopping any previous loading state
+    loadArticles() // refetching
+  }
 
   const searchArticles = (): void => {
     if (search) {
       var searchRegex = new RegExp(
         search.replace(/[.,\/#!?$%^&*;:{}=\-_`~()\\]/g, '') + '(\\s|$)',
         'i',
-      );
+      )
       setSearchedArticles(
         articlesList.filter(
           item =>
             item.headline.main.match(searchRegex) ||
             item.lead_paragraph.match(searchRegex),
         ),
-      );
-      dispatch(storeFilteredArticles(searchedArticles));
+      )
+      dispatch(storeFilteredArticles(searchedArticles))
     }
-  };
+  }
 
   useEffect(() => {
-    searchArticles();
-  }, [search]);
+    searchArticles()
+  }, [search])
 
   return loading && !articleError ? (
     <DashTopLoader />
@@ -142,7 +144,7 @@ const Dashboard = ({
           ...styles.maxWidth,
         }}>
         {/* handling the search in the header */}
-        <DashHeader search={search} setSearch={setSearch} />
+        <DashHeader search={search} setSearch={setSearch} language={language} />
         <FlatList
           /**
            * @keyExtractor using only item._id generates an error
@@ -162,7 +164,7 @@ const Dashboard = ({
               enabled={!search} // can't fetch new data if searching
               refreshing={loading}
               onRefresh={async () => {
-                handleOnRefresh();
+                handleOnRefresh()
               }}
               tintColor="red"
             />
@@ -175,9 +177,9 @@ const Dashboard = ({
           onEndReachedThreshold={0.5}
           onEndReached={async ({distanceFromEnd}) => {
             if (distanceFromEnd < 0) {
-              return;
+              return
             }
-            handleOnEndReached();
+            handleOnEndReached()
           }}
           /**
            * @renderItem destructuring data that will be used as props
@@ -209,14 +211,14 @@ const Dashboard = ({
         />
       </View>
     </SafeAreaView>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   maxWidth: {
     height: '100%',
     width: '100%',
   },
-});
+})
 
-export default Dashboard;
+export default Dashboard

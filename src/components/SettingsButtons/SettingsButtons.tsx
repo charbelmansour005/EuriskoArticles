@@ -9,18 +9,18 @@ const SettingsButtons = ({...props}: Props): JSX.Element => {
     <View style={styles.settingsBtns}>
       <TouchableRipple
         style={styles.rippleButton}
-        onPress={props.askLogout}
-        rippleColor={props.chosenRippleColor}>
+        onPress={props?.askLogout}
+        rippleColor={props?.chosenRippleColor}>
         <Text style={styles.rippleText}>
-          {props.language.english ? `Logout` : `Déconnecter`}
+          {props?.language?.english ? `Logout` : `Déconnecter`}
         </Text>
       </TouchableRipple>
       <TouchableRipple
         style={styles.rippleButton}
-        onPress={() => props.navigate('About')}
-        rippleColor={props.chosenRippleColor}>
+        onPress={() => props?.navigate('About')}
+        rippleColor={props?.chosenRippleColor}>
         <Text style={styles.rippleText}>
-          {props.language.english ? `About` : `Technologie`}
+          {props?.language?.english ? `About` : `Technologie`}
         </Text>
       </TouchableRipple>
     </View>

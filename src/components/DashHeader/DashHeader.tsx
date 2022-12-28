@@ -1,8 +1,8 @@
-import React from 'react';
-import {View, StyleSheet} from 'react-native';
-import DashSearchBar from '../DashSearchBar/DashSearchBar';
-import {themeColors} from '../../helpers/themeColors';
-import {SearchProps} from './types';
+import React from 'react'
+import {View, StyleSheet} from 'react-native'
+import DashSearchBar from '../DashSearchBar/DashSearchBar'
+import {themeColors} from '../../helpers/themeColors'
+import {SearchProps} from './types'
 
 const DashHeader = ({...props}: SearchProps): JSX.Element => {
   return (
@@ -12,12 +12,13 @@ const DashHeader = ({...props}: SearchProps): JSX.Element => {
         search={props.search}
         onChangeText={val => props.setSearch(val)}
         onPressClear={() => props.setSearch('')}
+        language={props.language}
       />
     </View>
-  );
-};
+  )
+}
 
-export default DashHeader;
+export default DashHeader
 
 const styles = StyleSheet.create({
   headerContainer: {
@@ -30,4 +31,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 0,
   },
-});
+})

@@ -1,9 +1,9 @@
-import {Navigation} from './src/navigation/Navigation';
-import store from './src/app/store';
-import {Provider} from 'react-redux';
-import {themeColors} from './src/helpers/themeColors';
-import {ToastProvider} from 'react-native-toast-notifications';
-import React from 'react';
+import {Navigation} from './src/navigation/Navigation'
+import store from './src/app/store'
+import {Provider} from 'react-redux'
+import {themeColors} from './src/helpers/themeColors'
+import {ToastProvider} from 'react-native-toast-notifications'
+import React from 'react'
 
 const App = () => {
   return (
@@ -12,7 +12,7 @@ const App = () => {
         <Navigation />
       </ToastProvider>
     </Provider>
-  );
-};
+  )
+}
 
-export default App;
+export default App

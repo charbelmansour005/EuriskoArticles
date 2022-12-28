@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState} from 'react'
 import {
   View,
   Alert,
@@ -6,29 +6,29 @@ import {
   Text,
   KeyboardAvoidingView,
   Pressable,
-} from 'react-native';
-import {TextInput} from 'react-native-paper';
-import {Formik} from 'formik';
-import * as yup from 'yup';
-import {loginUser} from '../../services/login';
-import {useAppDispatch} from '../../app/rtkHooks';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import {storeCurrentUser} from '../../features/user/userSlice';
-import {themeColors} from '../../helpers/themeColors';
-import LottieView from 'lottie-react-native';
-import {useAppSelector} from '../../app/rtkHooks';
+} from 'react-native'
+import {TextInput} from 'react-native-paper'
+import {Formik} from 'formik'
+import * as yup from 'yup'
+import {loginUser} from '../../services/login'
+import {useAppDispatch} from '../../app/rtkHooks'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import {storeCurrentUser} from '../../features/user/userSlice'
+import {themeColors} from '../../helpers/themeColors'
+import LottieView from 'lottie-react-native'
+// import {useAppSelector} from '../../app/rtkHooks'
 import {
   LoginHeader,
   LoginGoogleButton,
   LoginBtnSeperator,
-} from '../../components/index';
+} from '../../components/index'
 
 const Login = (): JSX.Element => {
-  const language = useAppSelector(state => state.language);
-  const [loading, setLoading] = useState<boolean>(false);
-  const dispatch = useAppDispatch();
+  // const language = useAppSelector(state => state?.language)
+  const [loading, setLoading] = useState<boolean>(false)
+  const dispatch = useAppDispatch()
 
-  var usernameRules = new RegExp('^\\w[\\w.]{2,18}\\w$');
+  var usernameRules = new RegExp('^\\w[\\w.]{2,18}\\w$')
 
   const validationShema = yup.object({
     username: yup
@@ -36,17 +36,17 @@ const Login = (): JSX.Element => {
       .matches(usernameRules, {message: 'Invalid Format'})
       .required('Required'),
     password: yup.string().min(5).required('Required'),
-  });
+  })
 
   const submitHandler = (userlogin: {username: string; password: string}) => {
-    setLoading(true);
+    setLoading(true)
     loginUser({userlogin})
       .then(async (response: any) => {
-        await AsyncStorage.setItem('@accessToken', response.accessToken);
-        dispatch(storeCurrentUser({accessToken: response.accessToken}));
+        await AsyncStorage.setItem('@accessToken', response.accessToken)
+        dispatch(storeCurrentUser({accessToken: response.accessToken}))
       })
       .catch(error => {
-        setLoading(false);
+        setLoading(false)
         Alert.alert(
           'There was an issue',
           `${error.data.message}.`,
@@ -57,12 +57,12 @@ const Login = (): JSX.Element => {
             },
           ],
           {cancelable: true},
-        );
+        )
       })
       .finally(() => {
-        setLoading(false);
-      });
-  };
+        setLoading(false)
+      })
+  }
 
   return (
     <KeyboardAvoidingView style={styles.LoginMain}>
@@ -70,8 +70,8 @@ const Login = (): JSX.Element => {
         validationSchema={validationShema}
         initialValues={{username: '', password: ''}}
         onSubmit={(fields, actions) => {
-          submitHandler(fields);
-          actions.resetForm();
+          submitHandler(fields)
+          actions.resetForm()
         }}>
         {({
           handleChange,
@@ -100,9 +100,7 @@ const Login = (): JSX.Element => {
                 mode="outlined"
                 error={Boolean(errors.username && touched.username)}
                 style={styles.UserInput}
-                placeholder={
-                  language.english ? `Username` : `Nom d'utilisateur`
-                }
+                placeholder="Username"
                 outlineColor={themeColors.lightgray}
                 activeOutlineColor={themeColors.lightgreen}
               />
@@ -119,16 +117,11 @@ const Login = (): JSX.Element => {
                 error={Boolean(errors.password && touched.password)}
                 style={styles.UserInputPass}
                 secureTextEntry={true}
-                placeholder={language.english ? `Password` : `Mot de passe`}
+                placeholder="Password"
                 outlineColor={themeColors.lightgray}
                 activeOutlineColor={themeColors.lightgreen}
               />
-              <Text style={styles.ForgotPassword}>
-                {' '}
-                {language.english
-                  ? `Forgot your password?`
-                  : `Mot de passe oublié?`}
-              </Text>
+              <Text style={styles.ForgotPassword}> Forgot your password?</Text>
               <Pressable
                 disabled={Boolean(
                   !values.username ||
@@ -144,9 +137,7 @@ const Login = (): JSX.Element => {
                   borderless: false,
                 }}
                 style={styles.TouchableBtnLogin}>
-                <Text style={styles.TouchableTextLogin}>
-                  {language.english ? `SUBMIT` : `CONNEXION`}
-                </Text>
+                <Text style={styles.TouchableTextLogin}>SUBMIT</Text>
               </Pressable>
               {loading ? null : <LoginBtnSeperator />}
               {loading ? (
@@ -170,10 +161,10 @@ const Login = (): JSX.Element => {
         )}
       </Formik>
     </KeyboardAvoidingView>
-  );
-};
+  )
+}
 
-export default Login;
+export default Login
 
 const styles = StyleSheet.create({
   TouchableBtnLogin: {
@@ -230,4 +221,4 @@ const styles = StyleSheet.create({
     marginLeft: '49%',
     fontSize: 12,
   },
-});
+})
