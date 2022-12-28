@@ -1,54 +1,60 @@
 import {StyleSheet, Text, View, Modal} from 'react-native'
-import {Portal, TouchableRipple} from 'react-native-paper'
+import {
+  Portal,
+  TouchableRipple,
+  Provider as PProvider,
+} from 'react-native-paper'
 import {themeColors} from '../../helpers/themeColors'
 import React from 'react'
 import {Props} from './types'
 
 const SettingsFeatures = ({...props}: Props): JSX.Element => {
   return (
-    <Portal>
-      <Modal visible={props?.isVisible} onDismiss={props?.hideModal}>
-        <View style={styles.featuresInfo}>
-          <Text
-            style={{
-              color: 'gray',
-              ...styles.featureText,
-            }}>
-            Hold an article to read more or visit website
-          </Text>
-          <Text
-            style={{
-              color: 'gray',
-              ...styles.featureText,
-            }}>
-            Press Read more on an article to open more details
-          </Text>
-          <Text
-            style={{
-              color: props?.chosenRippleColor,
-              ...styles.featureText,
-            }}>
-            Dynamic colors
-          </Text>
-          <Text
-            onPress={props?.testToast}
-            style={{
-              color: 'gray',
-              ...styles.featureText,
-            }}>
-            A Welcome Toast (Press to test)
-          </Text>
-        </View>
-        <View style={styles.closeModalButtonContainer}>
-          <TouchableRipple
-            style={styles.rippleButtonModal}
-            onPress={props?.hideModal}
-            rippleColor={props?.chosenRippleColor}>
-            <Text style={styles.rippleText}>Okay</Text>
-          </TouchableRipple>
-        </View>
-      </Modal>
-    </Portal>
+    <PProvider>
+      <Portal>
+        <Modal visible={props?.isVisible} onDismiss={props?.hideModal}>
+          <View style={styles.featuresInfo}>
+            <Text
+              style={{
+                color: 'gray',
+                ...styles.featureText,
+              }}>
+              Hold an article to read more or visit website
+            </Text>
+            <Text
+              style={{
+                color: 'gray',
+                ...styles.featureText,
+              }}>
+              Press Read more on an article to open more details
+            </Text>
+            <Text
+              style={{
+                color: props?.chosenRippleColor,
+                ...styles.featureText,
+              }}>
+              Dynamic colors
+            </Text>
+            <Text
+              onPress={props?.testToast}
+              style={{
+                color: 'gray',
+                ...styles.featureText,
+              }}>
+              A Welcome Toast (Press to test)
+            </Text>
+          </View>
+          <View style={styles.closeModalButtonContainer}>
+            <TouchableRipple
+              style={styles.rippleButtonModal}
+              onPress={props?.hideModal}
+              rippleColor={props?.chosenRippleColor}>
+              <Text style={styles.rippleText}>Okay</Text>
+            </TouchableRipple>
+          </View>
+        </Modal>
+      </Portal>
+    </PProvider>
   )
 }
 

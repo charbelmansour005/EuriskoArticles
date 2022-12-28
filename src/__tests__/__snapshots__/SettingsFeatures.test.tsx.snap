@@ -1,0 +1,160 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<RNCSafeAreaProvider
+  onInsetsChange={[Function]}
+  style={
+    Array [
+      Object {
+        "flex": 1,
+      },
+      undefined,
+    ]
+  }
+>
+  <View
+    collapsable={false}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  />
+  <View
+    collapsable={false}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "bottom": 0,
+        "left": 0,
+        "position": "absolute",
+        "right": 0,
+        "top": 0,
+      }
+    }
+  >
+    <Modal
+      hardwareAccelerated={false}
+      visible={true}
+    >
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "flex": 1,
+            "height": "100%",
+            "justifyContent": "center",
+            "width": "100%",
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "gray",
+              "fontWeight": "bold",
+              "marginVertical": 5,
+              "textAlign": "center",
+            }
+          }
+        >
+          Hold an article to read more or visit website
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "gray",
+              "fontWeight": "bold",
+              "marginVertical": 5,
+              "textAlign": "center",
+            }
+          }
+        >
+          Press Read more on an article to open more details
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": undefined,
+              "fontWeight": "bold",
+              "marginVertical": 5,
+              "textAlign": "center",
+            }
+          }
+        >
+          Dynamic colors
+        </Text>
+        <Text
+          style={
+            Object {
+              "color": "gray",
+              "fontWeight": "bold",
+              "marginVertical": 5,
+              "textAlign": "center",
+            }
+          }
+        >
+          A Welcome Toast (Press to test)
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "alignContent": "center",
+            "display": "flex",
+            "justifyContent": "center",
+            "marginBottom": 25,
+            "width": "100%",
+          }
+        }
+      >
+        <View
+          accessibilityState={
+            Object {
+              "disabled": true,
+            }
+          }
+          accessible={true}
+          collapsable={false}
+          focusable={true}
+          onBlur={[Function]}
+          onClick={[Function]}
+          onFocus={[Function]}
+          onResponderGrant={[Function]}
+          onResponderMove={[Function]}
+          onResponderRelease={[Function]}
+          onResponderTerminate={[Function]}
+          onResponderTerminationRequest={[Function]}
+          onStartShouldSetResponder={[Function]}
+          style={
+            Array [
+              false,
+              false,
+              Object {
+                "backgroundColor": "#565656",
+                "borderRadius": 3,
+                "padding": 4,
+                "width": "100%",
+              },
+            ]
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontWeight": "bold",
+                "letterSpacing": 0,
+                "textAlign": "center",
+              }
+            }
+          >
+            Okay
+          </Text>
+        </View>
+      </View>
+    </Modal>
+  </View>
+</RNCSafeAreaProvider>
+`;
