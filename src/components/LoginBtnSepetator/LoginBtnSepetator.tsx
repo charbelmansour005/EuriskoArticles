@@ -1,19 +1,21 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {StyleSheet, Text, View} from 'react-native'
+import React from 'react'
 
 const LoginBtnSeperator = (): JSX.Element => {
   return (
     <View style={styles.rowflex}>
       <View style={styles.lineDesign} />
       <View>
-        <Text style={styles.middleText}>Or</Text>
+        <Text testID="orText" style={styles.middleText}>
+          Or
+        </Text>
       </View>
       <View style={styles.lineDesign} />
     </View>
-  );
-};
+  )
+}
 
-export default LoginBtnSeperator;
+export default LoginBtnSeperator
 
 const styles = StyleSheet.create({
   rowflex: {
@@ -24,4 +26,4 @@ const styles = StyleSheet.create({
   },
   lineDesign: {height: 1.2, backgroundColor: 'black', width: '35%'},
   middleText: {width: 50, textAlign: 'center', color: 'black'},
-});
+})

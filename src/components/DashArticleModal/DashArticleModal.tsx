@@ -9,22 +9,27 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
   return (
     <View style={styles.modalArticleView}>
       <View style={styles.logoContainer}>
-        <Image source={Logo} style={styles.logoModal} />
+        <Image testID="image" source={Logo} style={styles.logoModal} />
         <TouchableRipple
+          testID="modalBackButton"
           onPress={props?.hideModal}
           rippleColor={themeColors.darkgreen}
           style={styles.modalButton}>
-          <Text style={{color: 'black', fontWeight: 'bold'}}>
+          <Text
+            testID="modalBackText"
+            style={{color: 'black', fontWeight: 'bold'}}>
             {`Return to Dashboard`}
           </Text>
         </TouchableRipple>
       </View>
       <Text
+        testID="modalHeadline"
         selectable={true}
         style={{letterSpacing: 1, ...styles.modalArticleHeadline}}>
         {props?.headline}
       </Text>
       <Text
+        testID="modalAuthor"
         selectable={true}
         style={{
           color: themeColors.pitchblack,
@@ -33,6 +38,7 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
         {props.author}
       </Text>
       <Text
+        testID="modalSection"
         style={{
           color: themeColors.pitchblack,
           ...styles.modalArticleElements,
@@ -40,6 +46,7 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
         {props?.section}
       </Text>
       <Text
+        testID="webLink"
         onPress={() => Linking.openURL(props?.url)}
         style={{
           color: themeColors.darkgreen,
@@ -48,7 +55,10 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
         }}>
         View on Website
       </Text>
-      <Text selectable={true} style={styles.modalArticleParagraph}>
+      <Text
+        testID="leadParagraph"
+        selectable={true}
+        style={styles.modalArticleParagraph}>
         {props?.leadParagraph}
       </Text>
     </View>

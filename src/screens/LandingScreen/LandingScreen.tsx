@@ -34,7 +34,9 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
           />
         </View>
         <Text style={styles.WelcomeMessage}>Providing the latest news</Text>
-        <Text style={{color: themeColors.pitchblack, textAlign: 'center'}}>
+        <Text
+          testID="title"
+          style={{color: themeColors.pitchblack, textAlign: 'center'}}>
           Let's start
         </Text>
         <Pressable
@@ -52,9 +54,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
           android_disableSound={true}
           android_ripple={{color: themeColors.lightskyblue, borderless: false}}
           style={styles.TouchableBtnSignUp}>
-          <Text style={styles.TouchableTextSignUp}>
-            SIGN UP
-          </Text>
+          <Text style={styles.TouchableTextSignUp}>SIGN UP</Text>
         </Pressable>
       </View>
     </KeyboardAvoidingView>

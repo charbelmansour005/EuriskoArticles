@@ -1,14 +1,13 @@
 import {StyleSheet, Text, View} from 'react-native'
 import React from 'react'
 import LottieView from 'lottie-react-native'
-import {themeColors} from '../../helpers/themeColors'
-// import LinearGradient from 'react-native-linear-gradient';
 
 const About = (): JSX.Element => {
   return (
     <View style={{height: '100%', width: '100%'}}>
       <View style={styles.animationContainer}>
         <LottieView
+          testID="lottieAnimation"
           style={{width: '80%', aspectRatio: 1}}
           source={require('../../../assets/lottie/296-react-logo.json')}
           autoPlay={true}
@@ -16,7 +15,7 @@ const About = (): JSX.Element => {
         />
       </View>
       <View>
-        <Text style={styles.title}>
+        <Text testID="aboutTitle" style={styles.title}>
           This app was developed using React Native
         </Text>
       </View>

@@ -2,9 +2,17 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import About from '../screens/About/About'
 
-describe('About screen', () => {
-  test('renders correctly', async () => {
-    const tree = renderer.create(<About />).toJSON()
-    expect(tree).toMatchSnapshot()
-  })
+test('renders correctly', async () => {
+  const tree = renderer.create(<About />).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+test('react native lottie animation shows', async () => {
+  const instance = renderer.create(<About />).root
+  expect(instance.findByProps({testID: 'lottieAnimation'})).toBeTruthy()
+})
+
+test('about screen title shows', async () => {
+  const instance = renderer.create(<About />).root
+  expect(instance.findByProps({testID: 'aboutTitle'})).toBeTruthy()
 })
