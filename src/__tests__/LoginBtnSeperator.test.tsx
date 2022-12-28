@@ -9,5 +9,5 @@ test('renders correctly', async () => {
 
 test('or text shows', async () => {
   const instance = renderer.create(<LoginBtnSeperator />).root
-  expect(instance.findByProps({testID: 'or'})).toBeTruthy()
+  expect(instance.findByProps({testID: 'orText'})).toBeTruthy()
 })
