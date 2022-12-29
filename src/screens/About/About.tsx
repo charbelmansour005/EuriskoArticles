@@ -5,7 +5,7 @@ import LottieView from 'lottie-react-native'
 const About = (): JSX.Element => {
   return (
     <View style={{height: '100%', width: '100%'}} testID="parent">
-      <View style={styles.animationContainer}>
+      <View style={styles.animationContainer} testID="animationContainer">
         <LottieView
           testID="lottieAnimation"
           style={{width: '80%', aspectRatio: 1}}
@@ -14,7 +14,7 @@ const About = (): JSX.Element => {
           loop={true}
         />
       </View>
-      <View>
+      <View testID="titleContainer">
         <Text testID="aboutTitle" style={styles.title}>
           This app was developed using React Native
         </Text>

@@ -10,6 +10,7 @@ exports[`renders correctly 1`] = `
       "marginTop": 25,
     }
   }
+  testID="parent"
 >
   <View
     style={
@@ -19,8 +20,11 @@ exports[`renders correctly 1`] = `
         "width": "35%",
       }
     }
+    testID="line1"
   />
-  <View>
+  <View
+    testID="orTextContainer"
+  >
     <Text
       style={
         Object {
@@ -42,6 +46,7 @@ exports[`renders correctly 1`] = `
         "width": "35%",
       }
     }
+    testID="line2"
   />
 </View>
 `;

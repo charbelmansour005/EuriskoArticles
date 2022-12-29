@@ -12,6 +12,7 @@ exports[`Component should display props 1`] = `
       "top": 0,
     }
   }
+  testID="parent"
 >
   <View
     style={
@@ -21,6 +22,7 @@ exports[`Component should display props 1`] = `
         "justifyContent": "center",
       }
     }
+    testID="logoContainer"
   >
     <Image
       source={

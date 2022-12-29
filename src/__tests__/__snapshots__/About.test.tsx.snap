@@ -17,6 +17,7 @@ exports[`renders correctly 1`] = `
         "justifyContent": "center",
       }
     }
+    testID="animationContainer"
   >
     <View
       style={
@@ -58,7 +59,9 @@ exports[`renders correctly 1`] = `
       />
     </View>
   </View>
-  <View>
+  <View
+    testID="titleContainer"
+  >
     <Text
       style={
         Object {

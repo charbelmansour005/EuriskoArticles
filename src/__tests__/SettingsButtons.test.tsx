@@ -59,3 +59,31 @@ test('about button shows', async () => {
   ).root
   expect(instance.findByProps({testID: 'aboutButton'})).toBeTruthy()
 })
+
+test('logout button text shows', async () => {
+  const instance = renderer.create(
+    <SettingsButtons
+      askLogout={function (): void {
+        throw new Error('Function not implemented.')
+      }}
+      navigate={function (args?: any): void {
+        throw new Error('Function not implemented.')
+      }}
+    />,
+  ).root
+  expect(instance.findByProps({testID: 'logoutText'})).toBeTruthy()
+})
+
+test('about button text shows', async () => {
+  const instance = renderer.create(
+    <SettingsButtons
+      askLogout={function (): void {
+        throw new Error('Function not implemented.')
+      }}
+      navigate={function (args?: any): void {
+        throw new Error('Function not implemented.')
+      }}
+    />,
+  ).root
+  expect(instance.findByProps({testID: 'aboutButtonText'})).toBeTruthy()
+})

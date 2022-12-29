@@ -36,6 +36,7 @@ Array [
           "flexDirection": "row",
         }
       }
+      testID="btnContainer"
     >
       <Image
         source={
@@ -76,6 +77,7 @@ Array [
         "marginTop": 20,
       }
     }
+    testID="signUpContainer"
   >
     <Text
       style={

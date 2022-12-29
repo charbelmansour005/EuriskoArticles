@@ -21,3 +21,13 @@ test('about screen title shows', async () => {
   const instance = renderer.create(<About />).root
   expect(instance.findByProps({testID: 'aboutTitle'})).toBeTruthy()
 })
+
+test('animation container shows', async () => {
+  const instance = renderer.create(<About />).root
+  expect(instance.findByProps({testID: 'animationContainer'})).toBeTruthy()
+})
+
+test('title container shows', async () => {
+  const instance = renderer.create(<About />).root
+  expect(instance.findByProps({testID: 'titleContainer'})).toBeTruthy()
+})

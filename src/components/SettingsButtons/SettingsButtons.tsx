@@ -12,7 +12,7 @@ const SettingsButtons = ({...props}: Props): JSX.Element => {
         style={styles.rippleButton}
         onPress={props?.askLogout}
         rippleColor={props?.chosenRippleColor}>
-        <Text style={styles.rippleText}>
+        <Text style={styles.rippleText} testID="logoutText">
           {props?.language?.english ? `Logout` : `Déconnecter`}
         </Text>
       </TouchableRipple>
@@ -21,7 +21,7 @@ const SettingsButtons = ({...props}: Props): JSX.Element => {
         style={styles.rippleButton}
         onPress={() => props?.navigate('About')}
         rippleColor={props?.chosenRippleColor}>
-        <Text style={styles.rippleText}>
+        <Text style={styles.rippleText} testID="aboutButtonText">
           {props?.language?.english ? `About` : `Technologie`}
         </Text>
       </TouchableRipple>

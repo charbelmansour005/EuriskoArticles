@@ -13,6 +13,7 @@ exports[`renders correctly 1`] = `
       "width": "100%",
     }
   }
+  testID="parent"
 >
   <View
     style={
@@ -22,6 +23,7 @@ exports[`renders correctly 1`] = `
         "marginBottom": "30%",
       }
     }
+    testID="loginContainer"
   >
     <View
       style={
@@ -30,6 +32,7 @@ exports[`renders correctly 1`] = `
           "justifyContent": "center",
         }
       }
+      testID="animationContainer"
     >
       <View
         style={
@@ -64,6 +67,7 @@ exports[`renders correctly 1`] = `
               "width": "80%",
             }
           }
+          testID="animation"
           textFiltersAndroid={Array []}
           textFiltersIOS={Array []}
           useNativeLooping={false}
@@ -93,6 +97,7 @@ exports[`renders correctly 1`] = `
           },
         ]
       }
+      testID="mainTitle"
     >
       Providing the latest news
     </Text>
@@ -146,6 +151,7 @@ exports[`renders correctly 1`] = `
           "width": "80%",
         }
       }
+      testID="loginNav"
     >
       <Text
         style={
@@ -171,6 +177,7 @@ exports[`renders correctly 1`] = `
             },
           ]
         }
+        testID="loginText"
       >
         LOGIN
       </Text>
@@ -198,6 +205,7 @@ exports[`renders correctly 1`] = `
           "width": "80%",
         }
       }
+      testID="signUpBtn"
     >
       <Text
         style={
@@ -223,6 +231,7 @@ exports[`renders correctly 1`] = `
             },
           ]
         }
+        testID="signUpText"
       >
         SIGN UP
       </Text>

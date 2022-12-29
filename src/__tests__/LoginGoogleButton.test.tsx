@@ -31,3 +31,13 @@ test('google sign up text', async () => {
   const instance = renderer.create(<LoginGoogleButton />).root
   expect(instance.findByProps({testID: 'googleSignUp'})).toBeTruthy()
 })
+
+test('google btn container shows', async () => {
+  const instance = renderer.create(<LoginGoogleButton />).root
+  expect(instance.findByProps({testID: 'btnContainer'})).toBeTruthy()
+})
+
+test('google sign up text container shows', async () => {
+  const instance = renderer.create(<LoginGoogleButton />).root
+  expect(instance.findByProps({testID: 'signUpContainer'})).toBeTruthy()
+})

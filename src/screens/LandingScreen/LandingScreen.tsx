@@ -23,23 +23,29 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
     })
   }
   return (
-    <KeyboardAvoidingView style={styles.LandingMain}>
-      <View style={styles.LoginContainer}>
-        <View style={{justifyContent: 'center', alignItems: 'center'}}>
+    <KeyboardAvoidingView style={styles.LandingMain} testID="parent">
+      <View style={styles.LoginContainer} testID="loginContainer">
+        <View
+          style={{justifyContent: 'center', alignItems: 'center'}}
+          testID="animationContainer">
           <LottieView
             style={{width: '80%', aspectRatio: 1}}
             source={require('../../../assets/lottie/99357-news.json')}
             autoPlay={true}
             loop={true}
+            testID="animation"
           />
         </View>
-        <Text style={styles.WelcomeMessage}>Providing the latest news</Text>
+        <Text style={styles.WelcomeMessage} testID="mainTitle">
+          Providing the latest news
+        </Text>
         <Text
           testID="title"
           style={{color: themeColors.pitchblack, textAlign: 'center'}}>
           Let's start
         </Text>
         <Pressable
+          testID="loginNav"
           onPress={() => navigation.navigate('Login')}
           android_disableSound={true}
           android_ripple={{
@@ -47,14 +53,19 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
             borderless: false,
           }}
           style={styles.TouchableBtnLogin}>
-          <Text style={styles.TouchableTextLogin}>LOGIN</Text>
+          <Text style={styles.TouchableTextLogin} testID="loginText">
+            LOGIN
+          </Text>
         </Pressable>
         <Pressable
+          testID="signUpBtn"
           onPress={() => signUpToast()}
           android_disableSound={true}
           android_ripple={{color: themeColors.lightskyblue, borderless: false}}
           style={styles.TouchableBtnSignUp}>
-          <Text style={styles.TouchableTextSignUp}>SIGN UP</Text>
+          <Text style={styles.TouchableTextSignUp} testID="signUpText">
+            SIGN UP
+          </Text>
         </Pressable>
       </View>
     </KeyboardAvoidingView>

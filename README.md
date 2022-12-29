@@ -46,4 +46,4 @@ this project was not tested on iOS (due to some hardware limitations), but a <st
 
 ## tests
 
-10 component tests passed, run ' npm test ' to check results
+12 test suites & 65 tests passed, run ' npm test ' to check results

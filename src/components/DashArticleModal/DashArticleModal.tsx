@@ -7,8 +7,8 @@ import {ArticleCardModalProps} from './types'
 
 const DashArticleModal = ({...props}: ArticleCardModalProps) => {
   return (
-    <View style={styles.modalArticleView}>
-      <View style={styles.logoContainer}>
+    <View style={styles.modalArticleView} testID="parent">
+      <View style={styles.logoContainer} testID="logoContainer">
         <Image testID="image" source={Logo} style={styles.logoModal} />
         <TouchableRipple
           testID="modalBackButton"

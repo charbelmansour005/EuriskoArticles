@@ -3,14 +3,14 @@ import React from 'react'
 
 const LoginBtnSeperator = (): JSX.Element => {
   return (
-    <View style={styles.rowflex}>
-      <View style={styles.lineDesign} />
-      <View>
+    <View style={styles.rowflex} testID="parent">
+      <View style={styles.lineDesign} testID="line1" />
+      <View testID="orTextContainer">
         <Text testID="orText" style={styles.middleText}>
           Or
         </Text>
       </View>
-      <View style={styles.lineDesign} />
+      <View style={styles.lineDesign} testID="line2" />
     </View>
   )
 }

@@ -14,7 +14,7 @@ const LoginGoogleButton = () => {
         android_disableSound={true}
         android_ripple={{color: themeColors.salmon, borderless: false}}
         style={styles.GoogleBtn}>
-        <View style={styles.rowflex}>
+        <View style={styles.rowflex} testID="btnContainer">
           <Image
             source={GoogleLogo}
             style={{width: 30, height: 30}}
@@ -25,7 +25,7 @@ const LoginGoogleButton = () => {
           </Text>
         </View>
       </Pressable>
-      <View style={{marginTop: 20, ...styles.rowflex}}>
+      <View style={{marginTop: 20, ...styles.rowflex}} testID="signUpContainer">
         <Text style={{color: '#131938'}} testID="googleNoAcc">
           Don't have an account?
         </Text>

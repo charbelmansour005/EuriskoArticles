@@ -48,6 +48,16 @@ test('modal paragraph prop text shows', async () => {
   expect(instance.findByProps({testID: 'leadParagraph'})).toBeTruthy()
 })
 
+test('parent shows', async () => {
+  const instance = renderer.create(<DashArticleModal />).root
+  expect(instance.findByProps({testID: 'parent'})).toBeTruthy()
+})
+
+test('logo container shows', async () => {
+  const instance = renderer.create(<DashArticleModal />).root
+  expect(instance.findByProps({testID: 'logoContainer'})).toBeTruthy()
+})
+
 /**
  * @toBeTruthy
  * @Fail
