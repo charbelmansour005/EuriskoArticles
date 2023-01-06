@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   clearButton: {
     color: themeColors.white,
     fontWeight: 'bold',
-    backgroundColor: themeColors.green,
+    backgroundColor: '#5865F2',
     borderRadius: 5,
     marginRight: 5,
     padding: 2,

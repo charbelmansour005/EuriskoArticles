@@ -114,26 +114,26 @@ const Dashboard = ({
     loadArticles() // refetching
   }
 
-  const searchArticles = (): void => {
+  const searchArticles = useCallback((): void => {
     if (search) {
       // introducing the searchRegex var
-      var searchRegex = new RegExp(
+      var regex = new RegExp(
+        // replacing the incorrect search input
         search.replace(/[.,\/#!?$%^&*;:{}=\-_`~()\\]/g, '') + '(\\s|$)',
         'i',
       )
-      // using the searchRegex var
+      // using the regex var
       setSearchedArticles(
         // using the .filter method
         articlesList.filter(
           item =>
-            item.headline.main.match(searchRegex) ||
-            item.lead_paragraph.match(searchRegex),
+            item.headline.main.match(regex) || item.lead_paragraph.match(regex),
         ),
       )
       // after setting the state of searchedArticles, we are then storing it in redux
       dispatch(storeFilteredArticles(searchedArticles))
     }
-  }
+  }, [search])
 
   useEffect(() => {
     searchArticles()
@@ -163,6 +163,8 @@ const Dashboard = ({
           keyExtractor={item => `${item._id}+${Math.random() * 8798789}`}
           /**
            * @data conditionally setting the data: if the user searches, display the filtered data.
+           * @search is used for detecting search input, and bad characters are being replaced by regex
+           * @searchedArticles are the filtered data
            */
           data={search ? searchedArticles : articlesList}
           /**

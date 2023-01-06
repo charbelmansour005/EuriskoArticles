@@ -1,11 +1,19 @@
 import {StyleSheet, Text, View, StatusBar} from 'react-native'
 import React from 'react'
+import LinearGradient from 'react-native-linear-gradient'
 import {themeColors} from '../../helpers/themeColors'
 import LottieView from 'lottie-react-native'
 
 const About = (): JSX.Element => {
   return (
-    <>
+    <LinearGradient
+      colors={[
+        themeColors.skyblue,
+        themeColors.white,
+        themeColors.white,
+        themeColors.white,
+        themeColors.skyblue,
+      ]}>
       <StatusBar
         translucent={false}
         barStyle="light-content"
@@ -27,7 +35,7 @@ const About = (): JSX.Element => {
           </Text>
         </View>
       </View>
-    </>
+    </LinearGradient>
   )
 }
 
@@ -52,6 +60,8 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     marginVertical: 10,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
   },
   animationContainer: {justifyContent: 'center', alignItems: 'center'},
 })
