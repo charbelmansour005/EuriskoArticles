@@ -46,7 +46,17 @@ export const Navigation = (): JSX.Element => {
               name="About"
               component={About}
               options={{
+                title: 'Back',
+                headerShown: true,
+                gestureDirection: 'horizontal',
                 animation: 'slide_from_bottom',
+                headerStyle: {
+                  backgroundColor: '#2C3E50',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                },
               }}
             />
           </Fragment>

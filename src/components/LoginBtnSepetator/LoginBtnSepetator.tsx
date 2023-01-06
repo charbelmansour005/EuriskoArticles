@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginTop: 25,
   },
-  lineDesign: {height: 2, backgroundColor: 'white', width: '20%'},
+  lineDesign: {height: 1.5, backgroundColor: 'white', width: '35%'},
   middleText: {
     width: 50,
     textAlign: 'center',

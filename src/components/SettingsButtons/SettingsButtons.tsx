@@ -46,10 +46,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   rippleButton: {
-    padding: 5,
+    padding: 8,
     backgroundColor: '#5865F2',
-    borderRadius: 5,
-    width: '30%',
+    borderRadius: 3,
+    width: '45%',
     borderWidth: 1,
     borderColor: themeColors.white,
   },
