@@ -158,17 +158,6 @@ const styles = StyleSheet.create({
     opacity: 1,
     top: 10,
   },
-  tabbarImgFocused: {
-    width: 25,
-    height: 25,
-    opacity: 1,
-    top: 0,
-  },
-  tabbarImgNY: {
-    width: 22,
-    height: 22,
-    opacity: 1,
-  },
   tabbarView: {
     alignItems: 'center',
     justifyContent: 'center',
