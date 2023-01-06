@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   rippleButton: {
     padding: 5,
-    backgroundColor: 'seagreen',
+    backgroundColor: '#5865F2',
     borderRadius: 5,
     width: '30%',
     borderWidth: 1,

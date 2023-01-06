@@ -8,7 +8,7 @@ import React from 'react'
 const App = () => {
   return (
     <Provider store={store}>
-      <ToastProvider normalColor={themeColors.green}>
+      <ToastProvider normalColor="#5865F2">
         <Navigation />
       </ToastProvider>
     </Provider>

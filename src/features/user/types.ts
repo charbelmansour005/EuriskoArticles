@@ -1,7 +1,8 @@
 export type User = {
-  accessToken: string | null;
-};
+  accessToken: string | null
+}
 
 export type InitialUserState = {
-  user: User | null;
-};
+  // type User = for when we recieve the token, null = for the initial state
+  user: User | null
+}

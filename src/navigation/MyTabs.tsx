@@ -1,10 +1,10 @@
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
-import {View, StyleSheet, Image} from 'react-native';
-import {themeColors} from '../helpers/themeColors';
-import React from 'react';
-import {Dashboard, Settings} from '../screens/index';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import {View, StyleSheet, Image, Text} from 'react-native'
+import {themeColors} from '../helpers/themeColors'
+import React from 'react'
+import {Dashboard, Settings} from '../screens/index'
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator()
 
 export const MyTabs = (): JSX.Element => {
   return (
@@ -27,12 +27,19 @@ export const MyTabs = (): JSX.Element => {
                 source={require('../../assets/house.png')}
                 resizeMode="contain"
                 style={{
-                  tintColor: focused
-                    ? themeColors.pitchblack
-                    : themeColors.grey,
-                  ...styles.tabbarImgNY,
+                  tintColor: focused ? 'transparent' : 'silver',
+                  ...styles.tabbarImg,
                 }}
               />
+              <Text
+                style={{
+                  color: focused ? themeColors.pitchblack : 'transparent',
+                  fontWeight: 'bold',
+                  fontSize: 12,
+                  bottom: 13,
+                }}>
+                Home
+              </Text>
             </View>
           ),
         }}
@@ -47,19 +54,26 @@ export const MyTabs = (): JSX.Element => {
                 source={require('../../assets/settings.png')}
                 resizeMode="contain"
                 style={{
-                  tintColor: focused
-                    ? themeColors.pitchblack
-                    : themeColors.grey,
+                  tintColor: focused ? 'transparent' : 'silver',
                   ...styles.tabbarImg,
                 }}
               />
+              <Text
+                style={{
+                  color: focused ? themeColors.pitchblack : 'transparent',
+                  fontWeight: 'bold',
+                  fontSize: 12,
+                  bottom: 13,
+                }}>
+                Settings
+              </Text>
             </View>
           ),
         }}
       />
     </Tab.Navigator>
-  );
-};
+  )
+}
 
 const styles = StyleSheet.create({
   shadow: {
@@ -76,6 +90,13 @@ const styles = StyleSheet.create({
     width: 25,
     height: 25,
     opacity: 1,
+    top: 10,
+  },
+  tabbarImgFocused: {
+    width: 25,
+    height: 25,
+    opacity: 1,
+    top: 0,
   },
   tabbarImgNY: {
     width: 22,
@@ -100,4 +121,4 @@ const styles = StyleSheet.create({
     // allowing some article text to be shown
     opacity: 0.9,
   },
-});
+})

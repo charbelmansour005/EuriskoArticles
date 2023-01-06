@@ -5,8 +5,9 @@ import {
   SafeAreaView,
   Alert,
   RefreshControl,
+  StatusBar,
 } from 'react-native'
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
 import {
   storeArticles,
   storeFilteredArticles,
@@ -17,7 +18,7 @@ import {Durations} from '../../helpers/toasts'
 import {getArticles} from '../../services/articles'
 import {themeColors} from '../../helpers/themeColors'
 import {useToast} from 'react-native-toast-notifications'
-import { useAppSelector } from '../../app/rtkHooks'
+import {useAppSelector} from '../../app/rtkHooks'
 import {DashboardProps} from './types'
 import {
   DashHeader,
@@ -62,7 +63,7 @@ const Dashboard = ({
     welcomeToast()
   }, [])
 
-  const loadArticles = async (): Promise<void> => {
+  const loadArticles = useCallback(async (): Promise<void> => {
     if (page == 0) {
       setIsLoading(true)
     }
@@ -93,7 +94,7 @@ const Dashboard = ({
         )
       })
       .finally(() => setIsLoading(false))
-  }
+  }, [page])
 
   useEffect(() => {
     loadArticles()
@@ -115,17 +116,21 @@ const Dashboard = ({
 
   const searchArticles = (): void => {
     if (search) {
+      // introducing the searchRegex var
       var searchRegex = new RegExp(
         search.replace(/[.,\/#!?$%^&*;:{}=\-_`~()\\]/g, '') + '(\\s|$)',
         'i',
       )
+      // using the searchRegex var
       setSearchedArticles(
+        // using the .filter method
         articlesList.filter(
           item =>
             item.headline.main.match(searchRegex) ||
             item.lead_paragraph.match(searchRegex),
         ),
       )
+      // after setting the state of searchedArticles, we are then storing it in redux
       dispatch(storeFilteredArticles(searchedArticles))
     }
   }
@@ -138,6 +143,11 @@ const Dashboard = ({
     <DashTopLoader />
   ) : (
     <SafeAreaView>
+      <StatusBar
+        translucent={false}
+        barStyle="light-content"
+        backgroundColor="#5865F2"
+      />
       <View
         style={{
           backgroundColor: themeColors.transparentGray,
@@ -175,6 +185,7 @@ const Dashboard = ({
            * 0.5 -> the list will update when the user is halfway down the current dataset
            */
           onEndReachedThreshold={0.5}
+          // set new page
           onEndReached={async ({distanceFromEnd}) => {
             if (distanceFromEnd < 0) {
               return

@@ -98,7 +98,7 @@ const Settings = (): JSX.Element => {
 
   return (
     <LinearGradient
-      colors={['white', 'white', 'white', 'forestgreen']}
+      colors={['white', 'white', 'white', '#5865F2']}
       style={{width: '100%', height: '100%'}}>
       <ScrollView>
         <Text style={styles.BoldSmall}>
@@ -111,7 +111,7 @@ const Settings = (): JSX.Element => {
         <View>
           <Snackbar
             style={{
-              backgroundColor: themeColors.green,
+              backgroundColor: '#5865F2',
             }}
             theme={{colors: {inversePrimary: themeColors.white}}}
             visible={snackbarVisible}

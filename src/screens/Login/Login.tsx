@@ -5,14 +5,19 @@ import {
   StyleSheet,
   Text,
   KeyboardAvoidingView,
+  ScrollView,
   Pressable,
+  StatusBar,
 } from 'react-native'
 import {TextInput} from 'react-native-paper'
 import {Formik} from 'formik'
-import * as yup from 'yup'
+// importing everything existant in the yup library as 'yup'
 import {loginUser} from '../../services/login'
 import {useAppDispatch} from '../../app/rtkHooks'
-import AsyncStorage from '@react-native-async-storage/async-storage'
+import {useToast} from 'react-native-toast-notifications'
+import {Durations} from '../../helpers/toasts'
+//Keychain
+import * as Keychain from 'react-native-keychain'
 import {storeCurrentUser} from '../../features/user/userSlice'
 import {themeColors} from '../../helpers/themeColors'
 import LottieView from 'lottie-react-native'
@@ -22,28 +27,23 @@ import {
   LoginGoogleButton,
   LoginBtnSeperator,
 } from '../../components/index'
+// yup validation schema
+import {validationSchema} from '../../validations/loginValdation'
 
 const Login = (): JSX.Element => {
   // const language = useAppSelector(state => state?.language)
   const [loading, setLoading] = useState<boolean>(false)
   const dispatch = useAppDispatch()
 
-  var usernameRules = new RegExp('^\\w[\\w.]{2,18}\\w$')
-
-  const validationShema = yup.object({
-    username: yup
-      .string()
-      .matches(usernameRules, {message: 'Invalid Format'})
-      .required('Required'),
-    password: yup.string().min(5).required('Required'),
-  })
-
   const submitHandler = (userlogin: {username: string; password: string}) => {
     setLoading(true)
     loginUser({userlogin})
       .then(async (response: any) => {
-        await AsyncStorage.setItem('@accessToken', response.accessToken)
-        dispatch(storeCurrentUser({accessToken: response.accessToken}))
+        // await AsyncStorage.setItem('@accessToken', response.accessToken)
+        const token = response?.accessToken
+        const username = userlogin?.username
+        await Keychain.setGenericPassword(username, token)
+        dispatch(storeCurrentUser({accessToken: response?.accessToken}))
       })
       .catch(error => {
         setLoading(false)
@@ -64,13 +64,39 @@ const Login = (): JSX.Element => {
       })
   }
 
+  const toast = useToast()
+
+  const SignInToast = (): void => {
+    toast.show('Google Sign in is currently unavailable!', {
+      type: 'normal',
+      duration: Durations.MEDIUM,
+      animationType: 'zoom-in',
+      placement: 'bottom',
+    })
+  }
+
+  const SignUpToast = (): void => {
+    toast.show('Sign up is currently unavailable!', {
+      type: 'normal',
+      duration: Durations.MEDIUM,
+      animationType: 'zoom-in',
+      placement: 'bottom',
+    })
+  }
+
   return (
-    <KeyboardAvoidingView style={styles.LoginMain} testID="parent">
+    <View style={styles.LoginMain} testID="parent">
+      <StatusBar
+        translucent={true}
+        barStyle="light-content"
+        backgroundColor="#2C3E50"
+      />
       <Formik
-        validationSchema={validationShema}
+        validationSchema={validationSchema}
         initialValues={{username: '', password: ''}}
         onSubmit={(fields, actions) => {
           submitHandler(fields)
+          // resets form after submit
           actions.resetForm()
         }}>
         {({
@@ -87,7 +113,7 @@ const Login = (): JSX.Element => {
             </View>
             <View>
               {errors.username && touched.username && (
-                <Text style={{color: 'black', textAlign: 'center'}}>
+                <Text style={{color: 'red', textAlign: 'center'}}>
                   {errors.username}
                 </Text>
               )}
@@ -102,12 +128,15 @@ const Login = (): JSX.Element => {
                 error={Boolean(errors.username && touched.username)}
                 style={styles.UserInput}
                 placeholder="Username"
-                outlineColor={themeColors.lightgray}
+                outlineColor="#23272A"
+                placeholderTextColor="silver"
+                textColor={themeColors.white}
                 activeOutlineColor={themeColors.lightgreen}
+                autoFocus={true}
               />
               <View>
                 {errors.password && touched.password && (
-                  <Text style={{color: 'black'}}>{errors.password}</Text>
+                  <Text style={{color: 'red'}}>{errors.password}</Text>
                 )}
               </View>
               <TextInput
@@ -120,7 +149,9 @@ const Login = (): JSX.Element => {
                 style={styles.UserInputPass}
                 secureTextEntry={true}
                 placeholder="Password"
-                outlineColor={themeColors.lightgray}
+                placeholderTextColor="silver"
+                outlineColor="#23272A"
+                textColor={themeColors.white}
                 activeOutlineColor={themeColors.lightgreen}
               />
               <Text style={styles.ForgotPassword}> Forgot your password?</Text>
@@ -140,7 +171,7 @@ const Login = (): JSX.Element => {
                   borderless: false,
                 }}
                 style={styles.TouchableBtnLogin}>
-                <Text style={styles.TouchableTextLogin}>SUBMIT</Text>
+                <Text style={styles.TouchableTextLogin}>Log In</Text>
               </Pressable>
               {loading ? null : <LoginBtnSeperator />}
               {loading ? (
@@ -157,13 +188,16 @@ const Login = (): JSX.Element => {
                   />
                 </View>
               ) : (
-                <LoginGoogleButton />
+                <LoginGoogleButton
+                  SignInToast={SignInToast}
+                  SignUpToast={SignUpToast}
+                />
               )}
             </View>
           </View>
         )}
       </Formik>
-    </KeyboardAvoidingView>
+    </View>
   )
 }
 
@@ -172,16 +206,16 @@ export default Login
 const styles = StyleSheet.create({
   TouchableBtnLogin: {
     marginTop: 20,
-    backgroundColor: 'transparent',
-    padding: 13,
-    width: '80%',
-    maxWidth: '80%',
-    borderColor: 'lightgray',
+    backgroundColor: '#5865F2',
+    padding: 10,
+    width: '92%',
+    maxWidth: '92%',
+    borderColor: '#5865F2',
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 3,
   },
   TouchableTextLogin: {
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 15,
     textAlign: 'center',
@@ -198,7 +232,10 @@ const styles = StyleSheet.create({
     height: 50,
     justifyContent: 'center',
     alignContent: 'center',
-    marginVertical: 5,
+    marginVertical: 2,
+    backgroundColor: '#23272A',
+    borderColor: '#23272A',
+    color: 'white',
   },
   UserInputPass: {
     width: '90%',
@@ -207,21 +244,23 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignContent: 'center',
     marginBottom: 10,
-    marginVertical: 5,
+    marginVertical: 2,
+    backgroundColor: '#23272A',
   },
   LoginMain: {
     alignContent: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#2C3E50',
     height: '100%',
     width: '100%',
+    marginBottom: '30%',
   },
   ForgotPassword: {
-    marginTop: 7,
-    marginBottom: 20,
-    color: '#000066',
-    marginLeft: '49%',
+    marginTop: 1,
+    marginBottom: 1,
+    color: themeColors.skyblue,
+    marginRight: '55%',
     fontSize: 12,
   },
 })

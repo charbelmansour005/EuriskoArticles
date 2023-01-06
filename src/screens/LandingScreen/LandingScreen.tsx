@@ -5,6 +5,7 @@ import {
   View,
   StyleSheet,
   KeyboardAvoidingView,
+  StatusBar,
 } from 'react-native'
 import {Text} from 'react-native-paper'
 import {themeColors} from '../../helpers/themeColors'
@@ -15,7 +16,7 @@ import {Durations} from '../../helpers/toasts'
 const LandingScreen = ({navigation}: any): JSX.Element => {
   const toast = useToast()
   const signUpToast = (): void => {
-    toast.show('Sign up is currently unavailable', {
+    toast.show('Our servers are currently full!', {
       type: 'normal',
       duration: Durations.MEDIUM,
       animationType: 'slide-in',
@@ -24,6 +25,11 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
   }
   return (
     <KeyboardAvoidingView style={styles.LandingMain} testID="parent">
+      <StatusBar
+        translucent={true}
+        barStyle="light-content"
+        backgroundColor="#2C3E50"
+      />
       <View style={styles.LoginContainer} testID="loginContainer">
         <View
           style={{justifyContent: 'center', alignItems: 'center'}}
@@ -41,7 +47,11 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
         </Text>
         <Text
           testID="title"
-          style={{color: themeColors.pitchblack, textAlign: 'center'}}>
+          style={{
+            color: themeColors.white,
+            textAlign: 'center',
+            fontWeight: 'bold',
+          }}>
           Let's start
         </Text>
         <Pressable
@@ -49,22 +59,22 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
           onPress={() => navigation.navigate('Login')}
           android_disableSound={true}
           android_ripple={{
-            color: themeColors.darkgreen,
+            color: themeColors.white,
             borderless: false,
           }}
           style={styles.TouchableBtnLogin}>
           <Text style={styles.TouchableTextLogin} testID="loginText">
-            LOGIN
+            Log In
           </Text>
         </Pressable>
         <Pressable
           testID="signUpBtn"
           onPress={() => signUpToast()}
           android_disableSound={true}
-          android_ripple={{color: themeColors.lightskyblue, borderless: false}}
+          android_ripple={{color: themeColors.white, borderless: false}}
           style={styles.TouchableBtnSignUp}>
           <Text style={styles.TouchableTextSignUp} testID="signUpText">
-            SIGN UP
+            Register
           </Text>
         </Pressable>
       </View>
@@ -82,15 +92,16 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    backgroundColor: 'white',
+    backgroundColor: '#2C3E50',
     height: '100%',
     width: '100%',
   },
   WelcomeMessage: {
     fontWeight: 'bold',
     fontSize: 20,
-    color: 'black',
+    color: 'white',
     marginTop: 20,
+    marginBottom: 10,
   },
   LogoCentered: {
     width: width > 350 ? 80 : 60,
@@ -102,15 +113,16 @@ const styles = StyleSheet.create({
   LoginContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-    marginBottom: '30%',
+    bottom: 0,
+    marginTop: '10%',
   },
   TouchableBtnSignUp: {
     marginTop: 15,
-    backgroundColor: 'black',
-    padding: 13,
-    width: '80%',
-    maxWidth: '80%',
-    borderRadius: 5,
+    backgroundColor: '#5865F2',
+    padding: 10,
+    width: '92%',
+    maxWidth: '92%',
+    borderRadius: 3,
   },
   TouchableTextSignUp: {
     color: 'white',
@@ -121,16 +133,16 @@ const styles = StyleSheet.create({
   },
   TouchableBtnLogin: {
     marginTop: 20,
-    backgroundColor: 'transparent',
-    padding: 13,
-    width: '80%',
-    maxWidth: '80%',
-    borderColor: 'lightgray',
+    backgroundColor: themeColors.darkgray,
+    padding: 10,
+    width: '92%',
+    maxWidth: '92%',
+    borderColor: themeColors.darkgray,
     borderWidth: 1,
-    borderRadius: 5,
+    borderRadius: 3,
   },
   TouchableTextLogin: {
-    color: 'black',
+    color: 'white',
     fontWeight: 'bold',
     fontSize: 15,
     textAlign: 'center',

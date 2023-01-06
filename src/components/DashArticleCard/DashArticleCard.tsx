@@ -76,7 +76,7 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
   const chosenRippleColor: string = randomRippleColor
 
   return (
-    <LinearGradient colors={['#2E8B57', '#7FFF00', '#6B8E23', '#2E8B57']}>
+    <LinearGradient colors={['#9B59B6', '#206694', '#206694', '#9B59B6']}>
       <Card
         mode="elevated"
         onPress={handleShowModal}
@@ -177,7 +177,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 15,
-    color: themeColors.pitchblack,
+    color: '#5865F2',
     padding: 1,
     fontWeight: 'bold',
     fontFamily: 'Roboto',

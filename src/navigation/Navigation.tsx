@@ -1,13 +1,13 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useAppSelector} from '../app/rtkHooks';
-import {MyTabs} from './MyTabs';
-import {About, Login, LandingScreen} from '../screens/index';
-import {Fragment} from 'react';
+import {NavigationContainer} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import {useAppSelector} from '../app/rtkHooks'
+import {MyTabs} from './MyTabs'
+import {About, Login, LandingScreen} from '../screens/index'
+import {Fragment} from 'react'
 
 export const Navigation = (): JSX.Element => {
-  const Stack = createNativeStackNavigator();
-  const user = useAppSelector(state => state.user);
+  const Stack = createNativeStackNavigator()
+  const user = useAppSelector(state => state.user)
 
   return (
     <NavigationContainer>
@@ -25,9 +25,17 @@ export const Navigation = (): JSX.Element => {
               name="Login"
               component={Login}
               options={{
-                headerShown: false,
+                title: '',
+                headerShown: true,
                 gestureDirection: 'horizontal',
                 animation: 'slide_from_right',
+                headerStyle: {
+                  backgroundColor: '#2C3E50',
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                },
               }}
             />
           </Fragment>
@@ -45,5 +53,5 @@ export const Navigation = (): JSX.Element => {
         )}
       </Stack.Navigator>
     </NavigationContainer>
-  );
-};
+  )
+}
