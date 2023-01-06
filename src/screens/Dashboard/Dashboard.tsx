@@ -114,6 +114,7 @@ const Dashboard = ({
     loadArticles() // refetching
   }
 
+  // useCallback helps avoiding the rerendering of the searchArticles function
   const searchArticles = useCallback((): void => {
     if (search) {
       // introducing the searchRegex var
@@ -146,7 +147,7 @@ const Dashboard = ({
       <StatusBar
         translucent={false}
         barStyle="light-content"
-        backgroundColor="#5865F2"
+        backgroundColor="#2C3E50"
       />
       <View
         style={{

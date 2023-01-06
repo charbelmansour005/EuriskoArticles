@@ -20,7 +20,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
       type: 'normal',
       duration: Durations.MEDIUM,
       animationType: 'slide-in',
-      placement: 'bottom',
+      placement: 'center',
     })
   }
   return (
@@ -54,6 +54,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
           }}>
           Let's start
         </Text>
+
         <Pressable
           testID="loginNav"
           onPress={() => navigation.navigate('Login')}
@@ -117,7 +118,7 @@ const styles = StyleSheet.create({
     marginTop: '10%',
   },
   TouchableBtnSignUp: {
-    marginTop: 15,
+    marginTop: 8,
     backgroundColor: '#5865F2',
     padding: 10,
     width: '92%',
@@ -132,7 +133,7 @@ const styles = StyleSheet.create({
     letterSpacing: 1,
   },
   TouchableBtnLogin: {
-    marginTop: 20,
+    marginTop: '50%',
     backgroundColor: themeColors.darkgray,
     padding: 10,
     width: '92%',

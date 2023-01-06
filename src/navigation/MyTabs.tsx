@@ -38,6 +38,8 @@ export const MyTabs = (): JSX.Element => {
                     fontWeight: 'bold',
                     fontSize: 12,
                     bottom: 13,
+                    width: 45,
+                    textAlign: 'center',
                   }}>
                   Home
                 </Text>
@@ -78,6 +80,8 @@ export const MyTabs = (): JSX.Element => {
                     fontWeight: 'bold',
                     fontSize: 12,
                     bottom: 13,
+                    width: 45,
+                    textAlign: 'center',
                   }}>
                   Settings
                 </Text>
@@ -118,6 +122,8 @@ export const MyTabs = (): JSX.Element => {
                     fontWeight: 'bold',
                     fontSize: 12,
                     bottom: 13,
+                    width: 45,
+                    textAlign: 'center',
                   }}>
                   More
                 </Text>
@@ -174,6 +180,6 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 10,
     height: 50,
     // allowing some article text to be shown
-    opacity: 0.9,
+    opacity: 1,
   },
 })

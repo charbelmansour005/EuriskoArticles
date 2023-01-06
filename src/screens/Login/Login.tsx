@@ -4,10 +4,9 @@ import {
   Alert,
   StyleSheet,
   Text,
-  KeyboardAvoidingView,
-  ScrollView,
   Pressable,
   StatusBar,
+  KeyboardAvoidingView,
 } from 'react-native'
 import {TextInput} from 'react-native-paper'
 import {Formik} from 'formik'
@@ -31,7 +30,6 @@ import {
 import {validationSchema} from '../../validations/loginValdation'
 
 const Login = (): JSX.Element => {
-  // const language = useAppSelector(state => state?.language)
   const [loading, setLoading] = useState<boolean>(false)
   const dispatch = useAppDispatch()
 
@@ -39,7 +37,6 @@ const Login = (): JSX.Element => {
     setLoading(true)
     loginUser({userlogin})
       .then(async (response: any) => {
-        // await AsyncStorage.setItem('@accessToken', response.accessToken)
         const token = response?.accessToken
         const username = userlogin?.username
         await Keychain.setGenericPassword(username, token)
@@ -85,7 +82,7 @@ const Login = (): JSX.Element => {
   }
 
   return (
-    <View style={styles.LoginMain} testID="parent">
+    <KeyboardAvoidingView style={styles.LoginMain} testID="parent">
       <StatusBar
         translucent={true}
         barStyle="light-content"
@@ -197,7 +194,7 @@ const Login = (): JSX.Element => {
           </View>
         )}
       </Formik>
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
@@ -254,7 +251,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C3E50',
     height: '100%',
     width: '100%',
-    marginBottom: '30%',
+    marginBottom: '50%',
   },
   ForgotPassword: {
     marginTop: 1,
