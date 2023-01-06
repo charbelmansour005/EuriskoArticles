@@ -1,25 +1,33 @@
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View, StatusBar} from 'react-native'
 import React from 'react'
+import {themeColors} from '../../helpers/themeColors'
 import LottieView from 'lottie-react-native'
 
 const About = (): JSX.Element => {
   return (
-    <View style={{height: '100%', width: '100%'}} testID="parent">
-      <View style={styles.animationContainer} testID="animationContainer">
-        <LottieView
-          testID="lottieAnimation"
-          style={{width: '80%', aspectRatio: 1}}
-          source={require('../../../assets/lottie/296-react-logo.json')}
-          autoPlay={true}
-          loop={true}
-        />
+    <>
+      <StatusBar
+        translucent={false}
+        barStyle="light-content"
+        backgroundColor={themeColors.skyblue}
+      />
+      <View style={{height: '100%', width: '100%'}} testID="parent">
+        <View style={styles.animationContainer} testID="animationContainer">
+          <LottieView
+            testID="lottieAnimation"
+            style={{width: '80%', aspectRatio: 1}}
+            source={require('../../../assets/lottie/296-react-logo.json')}
+            autoPlay={true}
+            loop={true}
+          />
+        </View>
+        <View testID="titleContainer">
+          <Text testID="aboutTitle" style={styles.title}>
+            This app was developed using React Native
+          </Text>
+        </View>
       </View>
-      <View testID="titleContainer">
-        <Text testID="aboutTitle" style={styles.title}>
-          This app was developed using React Native
-        </Text>
-      </View>
-    </View>
+    </>
   )
 }
 

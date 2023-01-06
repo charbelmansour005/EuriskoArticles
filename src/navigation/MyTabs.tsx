@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {View, StyleSheet, Image, Text} from 'react-native'
 import {themeColors} from '../helpers/themeColors'
 import React from 'react'
-import {Dashboard, Settings} from '../screens/index'
+import {Dashboard, Settings, More} from '../screens/index'
 
 const Tab = createBottomTabNavigator()
 
@@ -31,15 +31,28 @@ export const MyTabs = (): JSX.Element => {
                   ...styles.tabbarImg,
                 }}
               />
-              <Text
-                style={{
-                  color: focused ? themeColors.pitchblack : 'transparent',
-                  fontWeight: 'bold',
-                  fontSize: 12,
-                  bottom: 13,
-                }}>
-                Home
-              </Text>
+              <View style={{display: 'flex', flexDirection: 'column'}}>
+                <Text
+                  style={{
+                    color: focused ? themeColors.pitchblack : 'transparent',
+                    fontWeight: 'bold',
+                    fontSize: 12,
+                    bottom: 13,
+                  }}>
+                  Home
+                </Text>
+                <Image
+                  source={require('../../assets/dot.png')}
+                  resizeMode="contain"
+                  style={{
+                    tintColor: focused ? 'black' : 'transparent',
+                    height: 5,
+                    width: 5,
+                    bottom: 5,
+                    alignSelf: 'center',
+                  }}
+                />
+              </View>
             </View>
           ),
         }}
@@ -58,15 +71,68 @@ export const MyTabs = (): JSX.Element => {
                   ...styles.tabbarImg,
                 }}
               />
-              <Text
+              <View style={{display: 'flex', flexDirection: 'column'}}>
+                <Text
+                  style={{
+                    color: focused ? themeColors.pitchblack : 'transparent',
+                    fontWeight: 'bold',
+                    fontSize: 12,
+                    bottom: 13,
+                  }}>
+                  Settings
+                </Text>
+                <Image
+                  source={require('../../assets/dot.png')}
+                  resizeMode="contain"
+                  style={{
+                    tintColor: focused ? 'black' : 'transparent',
+                    height: 5,
+                    width: 5,
+                    bottom: 5,
+                    alignSelf: 'center',
+                  }}
+                />
+              </View>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="More"
+        component={More}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <View style={styles.tabbarView}>
+              <Image
+                source={require('../../assets/more.png')}
+                resizeMode="contain"
                 style={{
-                  color: focused ? themeColors.pitchblack : 'transparent',
-                  fontWeight: 'bold',
-                  fontSize: 12,
-                  bottom: 13,
-                }}>
-                Settings
-              </Text>
+                  tintColor: focused ? 'transparent' : 'silver',
+                  ...styles.tabbarImg,
+                }}
+              />
+              <View style={{display: 'flex', flexDirection: 'column'}}>
+                <Text
+                  style={{
+                    color: focused ? themeColors.pitchblack : 'transparent',
+                    fontWeight: 'bold',
+                    fontSize: 12,
+                    bottom: 13,
+                  }}>
+                  More
+                </Text>
+                <Image
+                  source={require('../../assets/dot.png')}
+                  resizeMode="contain"
+                  style={{
+                    tintColor: focused ? 'black' : 'transparent',
+                    height: 5,
+                    width: 5,
+                    bottom: 5,
+                    alignSelf: 'center',
+                  }}
+                />
+              </View>
             </View>
           ),
         }}

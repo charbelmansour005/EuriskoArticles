@@ -46,7 +46,7 @@ export const Navigation = (): JSX.Element => {
               name="About"
               component={About}
               options={{
-                animation: 'slide_from_right',
+                animation: 'slide_from_bottom',
               }}
             />
           </Fragment>
