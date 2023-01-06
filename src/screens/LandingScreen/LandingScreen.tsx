@@ -23,6 +23,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
       placement: 'center',
     })
   }
+
   return (
     <KeyboardAvoidingView style={styles.LandingMain} testID="parent">
       <StatusBar

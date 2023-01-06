@@ -7,12 +7,12 @@ import {Snackbar} from 'react-native-paper'
 import React, {useState} from 'react'
 import {themeColors} from '../../helpers/themeColors'
 import {storeCurrentUser} from '../../features/user/userSlice'
-import AsyncStorage from '@react-native-async-storage/async-storage'
 import {Button, Provider} from 'react-native-paper'
 import {useToast} from 'react-native-toast-notifications'
 import {Durations} from '../../helpers/toasts'
 import {useNavigation} from '@react-navigation/native'
 import LinearGradient from 'react-native-linear-gradient'
+import * as Keychain from 'react-native-keychain'
 import {
   SettingsButtons,
   SettingsFeatures,
@@ -38,7 +38,9 @@ const Settings = (): JSX.Element => {
   }
 
   const logoutHandler = async (): Promise<void> => {
-    await AsyncStorage.clear()
+    // cant use token for fetching data anymore
+    await Keychain.resetGenericPassword()
+    // removing secure screens
     dispatch(storeCurrentUser({accessToken: null}))
   }
 
