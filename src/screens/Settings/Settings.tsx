@@ -9,6 +9,7 @@ import {themeColors} from '../../helpers/themeColors'
 import {storeCurrentUser} from '../../features/user/userSlice'
 import {Button, Provider} from 'react-native-paper'
 import {useToast} from 'react-native-toast-notifications'
+import {TouchableRipple} from 'react-native-paper'
 import {Durations} from '../../helpers/toasts'
 import {useNavigation} from '@react-navigation/native'
 import LinearGradient from 'react-native-linear-gradient'
@@ -38,7 +39,7 @@ const Settings = (): JSX.Element => {
   }
 
   const logoutHandler = async (): Promise<void> => {
-    // cant use token for fetching data anymore
+    // cutting the use of token for fetching data
     await Keychain.resetGenericPassword()
     // removing secure screens
     dispatch(storeCurrentUser({accessToken: null}))
@@ -163,5 +164,21 @@ const styles = StyleSheet.create({
     marginTop: 25,
     fontWeight: 'bold',
     fontSize: 13,
+  },
+  rippleButton: {
+    padding: 8,
+    backgroundColor: '#5865F2',
+    borderRadius: 3,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#5865F2',
+    marginVertical: 1,
+    height: 50,
+  },
+  rippleText: {
+    textAlign: 'center',
+    letterSpacing: 0,
+    color: 'white',
+    fontWeight: 'bold',
   },
 })

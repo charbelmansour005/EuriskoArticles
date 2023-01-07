@@ -76,7 +76,7 @@ const Dashboard = ({
         // keeping the previously fetched articles & concatenating the new ones
         setArticlesList(prev => prev.concat(response.response.docs))
         // storing the response
-        dispatch(storeArticles(response.response.docs))
+        dispatch(storeArticles(response.response))
       })
       .catch(error => {
         setArticleError(true)

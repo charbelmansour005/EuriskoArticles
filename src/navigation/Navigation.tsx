@@ -8,7 +8,7 @@ import {Fragment} from 'react'
 export const Navigation = (): JSX.Element => {
   const Stack = createNativeStackNavigator()
   const user = useAppSelector(state => state.user)
-
+  // https://stackoverflow.com/questions/45309430/how-can-i-replace-screen-with-react-navigation-for-react-native
   return (
     <NavigationContainer>
       <Stack.Navigator
