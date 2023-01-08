@@ -1,11 +1,11 @@
 import {StyleSheet, Text, View} from 'react-native'
 import {Switch} from 'react-native-paper'
-// import {useAppSelector} from '../../app/rtkHooks';
 import React, {Fragment} from 'react'
-import {Props, LangFeature} from './types'
+import {SettingsLangSwitchProps, LangFeature} from './types'
 
-const SettingsLangSwitch = ({...props}: Props): JSX.Element => {
-  // const language = useAppSelector(state => state.language);
+const SettingsLangSwitch = ({
+  ...props
+}: SettingsLangSwitchProps): JSX.Element => {
   const LangFeature: LangFeature = {
     englishDefinition:
       'Changing the language will only affect that of the application and not the language which the articles are displayed in, the change will be system wide.',

@@ -1,9 +1,7 @@
 import {StyleSheet, Text, View, ScrollView} from 'react-native'
 import React from 'react'
 
-type Props = {}
-
-const PrivacyPolicy = (props: Props) => {
+const PrivacyPolicy = (): JSX.Element => {
   return (
     <View>
       <View style={styles.ViewCenter}>

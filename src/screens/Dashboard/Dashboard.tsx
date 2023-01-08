@@ -31,6 +31,8 @@ import {
 // types
 import {DashboardProps} from './types'
 import {Article} from '../../features/article/types'
+// libraries+
+// import {nanoid} from 'nanoid'
 
 const Dashboard = ({
   searchBaseValue = ``,
@@ -145,6 +147,8 @@ const Dashboard = ({
     searchArticles()
   }, [search])
 
+  // const randomID = nanoid()
+
   return loading && !articleError ? (
     <DashTopLoader />
   ) : (
@@ -166,6 +170,7 @@ const Dashboard = ({
            * @keyExtractor using only item._id generates an error
            * @Math must use instead of uuid
            */
+          // keyExtractor={item => `${item._id}+${randomID}`}
           keyExtractor={item => `${item._id}+${Math.random() * 8798789}`}
           /**
            * @data conditionally setting the data: if the user searches, display the filtered data.

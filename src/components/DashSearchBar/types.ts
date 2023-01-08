@@ -3,7 +3,7 @@ export type SearchBarFunctionProps = {
   onPressClear: () => void
 }
 
-export type SearchBarProps = SearchBarFunctionProps & {
+export type DashSearchBarProps = SearchBarFunctionProps & {
   search: string
   language: any
 }

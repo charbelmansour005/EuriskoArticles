@@ -1,9 +1,9 @@
 import {View, TextInput, StyleSheet, Text, Image, Pressable} from 'react-native'
 import {themeColors} from '../../helpers/themeColors'
 import React from 'react'
-import {SearchBarProps} from './types'
+import {DashSearchBarProps} from './types'
 
-const DashSearchBar = ({...props}: SearchBarProps): JSX.Element => {
+const DashSearchBar = ({...props}: DashSearchBarProps): JSX.Element => {
   return (
     <View style={styles.container} testID="parent">
       <Image

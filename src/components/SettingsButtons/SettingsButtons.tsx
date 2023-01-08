@@ -2,9 +2,9 @@ import {View, Text, StyleSheet} from 'react-native'
 import {TouchableRipple} from 'react-native-paper'
 import {themeColors} from '../../helpers/themeColors'
 import React from 'react'
-import {Props} from './types'
+import {SettingsButtonsProps} from './types'
 
-const SettingsButtons = ({...props}: Props): JSX.Element => {
+const SettingsButtons = ({...props}: SettingsButtonsProps): JSX.Element => {
   return (
     <View style={styles.settingsBtns} testID="parent">
       <TouchableRipple

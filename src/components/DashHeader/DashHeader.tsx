@@ -2,9 +2,9 @@ import React from 'react'
 import {View, StyleSheet} from 'react-native'
 import DashSearchBar from '../DashSearchBar/DashSearchBar'
 import {themeColors} from '../../helpers/themeColors'
-import {SearchProps} from './types'
+import {DashHeaderSearchProps} from './types'
 
-const DashHeader = ({...props}: SearchProps): JSX.Element => {
+const DashHeader = ({...props}: DashHeaderSearchProps): JSX.Element => {
   return (
     <View style={styles.headerContainer} testID="parent">
       {/* <View style={styles.headerTitleContainer}></View> */}

@@ -1,13 +1,9 @@
 import {StyleSheet, ScrollView} from 'react-native'
 import React from 'react'
 import {List} from 'react-native-paper'
+import {MoreNewsReportsProps} from './types'
 
-type Props = {
-  expanded?: boolean
-  handlePress?: () => void
-}
-
-const MoreNewsReports = ({...props}: Props) => {
+const MoreNewsReports = ({...props}: MoreNewsReportsProps) => {
   return (
     <ScrollView>
       <List.Section style={{marginBottom: 10}} title="TV News Reports">

@@ -6,9 +6,9 @@ import {
 } from 'react-native-paper'
 import {themeColors} from '../../helpers/themeColors'
 import React from 'react'
-import {Props} from './types'
+import {SettingsFeaturesProps} from './types'
 
-const SettingsFeatures = ({...props}: Props): JSX.Element => {
+const SettingsFeatures = ({...props}: SettingsFeaturesProps): JSX.Element => {
   return (
     <PProvider>
       <Portal>
