@@ -1,3 +1,4 @@
+// react/native imports
 import React from 'react'
 import {
   Dimensions,
@@ -8,10 +9,12 @@ import {
   StatusBar,
 } from 'react-native'
 import {Text} from 'react-native-paper'
+// helpers
+import {Durations} from '../../helpers/toasts'
 import {themeColors} from '../../helpers/themeColors'
+// extra libraries
 import LottieView from 'lottie-react-native'
 import {useToast} from 'react-native-toast-notifications'
-import {Durations} from '../../helpers/toasts'
 
 const LandingScreen = ({navigation}: any): JSX.Element => {
   const toast = useToast()

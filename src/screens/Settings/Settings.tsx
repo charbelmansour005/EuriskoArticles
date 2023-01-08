@@ -1,25 +1,29 @@
-import {StyleSheet, View, ScrollView, Alert} from 'react-native'
-import {Text} from 'react-native-paper'
-import {rippleColors} from '../../helpers/rippleColors'
-import {useAppSelector, useAppDispatch} from '../../app/rtkHooks'
-import {toggleLanguage} from '../../features/language/languageSlice'
-import {Snackbar} from 'react-native-paper'
+// react + paper imports
 import React, {useState} from 'react'
-import {themeColors} from '../../helpers/themeColors'
+import {StyleSheet, View, ScrollView, Alert} from 'react-native'
+import {Button, Provider, Snackbar, Text} from 'react-native-paper'
+// redux
+import {toggleLanguage} from '../../features/language/languageSlice'
 import {storeCurrentUser} from '../../features/user/userSlice'
-import {Button, Provider} from 'react-native-paper'
-import {useToast} from 'react-native-toast-notifications'
-import {TouchableRipple} from 'react-native-paper'
+import {useAppSelector, useAppDispatch} from '../../app/rtkHooks'
+// helpers
+import {themeColors} from '../../helpers/themeColors'
 import {Durations} from '../../helpers/toasts'
-import {useNavigation} from '@react-navigation/native'
+import {rippleColors} from '../../helpers/rippleColors'
+// extra libraries
+import {useToast} from 'react-native-toast-notifications'
 import LinearGradient from 'react-native-linear-gradient'
-import * as Keychain from 'react-native-keychain'
+// components
 import {
   SettingsButtons,
   SettingsFeatures,
   Copyright,
   SettingsLangSwitch,
 } from '../../components/index'
+// navigation
+import {useNavigation} from '@react-navigation/native'
+// keychain
+import * as Keychain from 'react-native-keychain'
 
 type Nav = {
   navigate: (value: string) => void

@@ -1,3 +1,4 @@
+// react/native imports
 import {
   View,
   FlatList,
@@ -8,24 +9,28 @@ import {
   StatusBar,
 } from 'react-native'
 import React, {useEffect, useState, useCallback} from 'react'
+// reduxTK
 import {
   storeArticles,
   storeFilteredArticles,
 } from '../../features/article/articlesSlice'
-import {Article} from '../../features/article/types'
+import {useAppSelector} from '../../app/rtkHooks'
 import {useAppDispatch} from '../../app/rtkHooks'
+// helpers
+import {themeColors} from '../../helpers/themeColors'
 import {Durations} from '../../helpers/toasts'
 import {getArticles} from '../../services/articles'
-import {themeColors} from '../../helpers/themeColors'
 import {useToast} from 'react-native-toast-notifications'
-import {useAppSelector} from '../../app/rtkHooks'
-import {DashboardProps} from './types'
+// components
 import {
   DashHeader,
   DashTopLoader,
   LoadingSpinner,
   DashArticleCard,
 } from '../../components/index'
+// types
+import {DashboardProps} from './types'
+import {Article} from '../../features/article/types'
 
 const Dashboard = ({
   searchBaseValue = ``,

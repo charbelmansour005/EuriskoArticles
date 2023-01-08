@@ -1,7 +1,7 @@
+import React from 'react'
 import {StyleSheet, ScrollView} from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import {PrivacyPolicy, MoreNewsReports} from '../../components/index'
-import React from 'react'
 
 const More = () => {
   const [expanded, setExpanded] = React.useState<boolean>(true)

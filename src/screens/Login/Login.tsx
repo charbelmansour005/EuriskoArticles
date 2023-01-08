@@ -1,3 +1,4 @@
+// react/native imports
 import React, {useState} from 'react'
 import {
   View,
@@ -9,18 +10,18 @@ import {
   KeyboardAvoidingView,
 } from 'react-native'
 import {TextInput} from 'react-native-paper'
+// extra libraries
 import {Formik} from 'formik'
-// importing everything existant in the yup library as 'yup'
-import {loginUser} from '../../services/login'
-import {useAppDispatch} from '../../app/rtkHooks'
-import {useToast} from 'react-native-toast-notifications'
-import {Durations} from '../../helpers/toasts'
-//Keychain
-import * as Keychain from 'react-native-keychain'
-import {storeCurrentUser} from '../../features/user/userSlice'
-import {themeColors} from '../../helpers/themeColors'
 import LottieView from 'lottie-react-native'
-// import {useAppSelector} from '../../app/rtkHooks'
+import {useToast} from 'react-native-toast-notifications'
+// Keychain
+import * as Keychain from 'react-native-keychain'
+// reduxTK
+import {storeCurrentUser} from '../../features/user/userSlice'
+import {useAppDispatch} from '../../app/rtkHooks'
+// helpers
+import {themeColors} from '../../helpers/themeColors'
+import {Durations} from '../../helpers/toasts'
 import {
   LoginHeader,
   LoginGoogleButton,
@@ -28,6 +29,8 @@ import {
 } from '../../components/index'
 // yup validation schema
 import {validationSchema} from '../../validations/loginValdation'
+// services
+import {loginUser} from '../../services/login'
 
 const Login = (): JSX.Element => {
   const [loading, setLoading] = useState<boolean>(false)
