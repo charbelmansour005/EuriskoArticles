@@ -167,11 +167,11 @@ const styles = StyleSheet.create({
   },
   authorImages: {height: 25, width: 25, margin: 5, borderRadius: 20},
   parent: {
-    marginVertical: 5,
-    marginHorizontal: 10,
+    marginVertical: 1,
+    marginHorizontal: 0,
     backgroundColor: 'white',
     height: 160,
-    borderRadius: 5,
+    borderRadius: 0,
   },
   cardContainer: {
     borderRadius: 2,
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 15,
-    color: '#5865F2',
+    color: '#2C3E50',
     padding: 1,
     fontWeight: 'bold',
     fontFamily: 'Roboto',
@@ -195,9 +195,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
   },
   cardDescription: {
-    marginTop: 10,
+    marginTop: 5,
     fontFamily: 'Roboto',
-    padding: 5,
+    padding: 1,
   },
   cardTextDesc: {
     color: themeColors.pitchblack,

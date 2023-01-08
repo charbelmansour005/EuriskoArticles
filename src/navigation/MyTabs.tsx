@@ -178,7 +178,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderTopRightRadius: 1,
     borderTopLeftRadius: 1,
-    height: 50,
+    height: '10%',
     // allowing some article text to be shown
     opacity: 1,
   },
