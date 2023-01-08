@@ -105,7 +105,7 @@ const Settings = (): JSX.Element => {
 
   return (
     <LinearGradient
-      colors={['white', 'white', 'white', '#5865F2']}
+      colors={['white', 'white', 'white', '#2C3E50']}
       style={{width: '100%', height: '100%'}}>
       <ScrollView>
         <Text style={styles.BoldSmall}>

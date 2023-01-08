@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   scrollViewCenter: {
     height: 290,
     width: '90%',
-    backgroundColor: 'gray',
+    backgroundColor: '#2C3E50',
     borderRadius: 5,
   },
   contentContainerCenter: {

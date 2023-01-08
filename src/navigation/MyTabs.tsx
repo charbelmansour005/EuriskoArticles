@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {View, StyleSheet, Image, Text} from 'react-native'
 import {themeColors} from '../helpers/themeColors'
 import React from 'react'
-import {Dashboard, Settings, More} from '../screens/index'
+import {Dashboard, Settings, More, FindUs} from '../screens/index'
 
 const Tab = createBottomTabNavigator()
 
@@ -41,7 +41,7 @@ export const MyTabs = (): JSX.Element => {
                     width: 45,
                     textAlign: 'center',
                   }}>
-                  Home
+                  News
                 </Text>
                 <Image
                   source={require('../../assets/dot.png')}
@@ -126,6 +126,48 @@ export const MyTabs = (): JSX.Element => {
                     textAlign: 'center',
                   }}>
                   More
+                </Text>
+                <Image
+                  source={require('../../assets/dot.png')}
+                  resizeMode="contain"
+                  style={{
+                    tintColor: focused ? 'black' : 'transparent',
+                    height: 5,
+                    width: 5,
+                    bottom: 5,
+                    alignSelf: 'center',
+                  }}
+                />
+              </View>
+            </View>
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="FindUs"
+        component={FindUs}
+        options={{
+          tabBarIcon: ({focused}) => (
+            <View style={styles.tabbarView}>
+              <Image
+                source={require('../../assets/find.png')}
+                resizeMode="contain"
+                style={{
+                  tintColor: focused ? 'transparent' : 'silver',
+                  ...styles.tabbarImg,
+                }}
+              />
+              <View style={{display: 'flex', flexDirection: 'column'}}>
+                <Text
+                  style={{
+                    color: focused ? themeColors.pitchblack : 'transparent',
+                    fontWeight: 'bold',
+                    fontSize: 12,
+                    bottom: 13,
+                    width: 45,
+                    textAlign: 'center',
+                  }}>
+                  Find
                 </Text>
                 <Image
                   source={require('../../assets/dot.png')}

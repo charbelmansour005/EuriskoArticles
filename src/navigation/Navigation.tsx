@@ -25,7 +25,7 @@ export const Navigation = (): JSX.Element => {
               name="Login"
               component={Login}
               options={{
-                title: '',
+                title: 'Back',
                 headerShown: true,
                 gestureDirection: 'horizontal',
                 animation: 'slide_from_right',

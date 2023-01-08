@@ -9,7 +9,7 @@ const SettingsButtons = ({...props}: SettingsButtonsProps): JSX.Element => {
     <View style={styles.settingsBtns} testID="parent">
       <TouchableRipple
         testID="logoutButton"
-        style={styles.rippleButton}
+        style={styles.rippleButtonLogout}
         onPress={props?.askLogout}
         rippleColor={props?.chosenRippleColor}>
         <Text style={styles.rippleText} testID="logoutText">
@@ -47,7 +47,15 @@ const styles = StyleSheet.create({
   },
   rippleButton: {
     padding: 8,
-    backgroundColor: '#5865F2',
+    backgroundColor: '#2C3E50',
+    borderRadius: 3,
+    width: '45%',
+    borderWidth: 1,
+    borderColor: themeColors.white,
+  },
+  rippleButtonLogout: {
+    padding: 8,
+    backgroundColor: themeColors.salmon,
     borderRadius: 3,
     width: '45%',
     borderWidth: 1,

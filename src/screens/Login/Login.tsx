@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C3E50',
     height: '100%',
     width: '100%',
-    marginBottom: '50%',
+    marginBottom: '1%',
   },
   ForgotPassword: {
     marginTop: 1,

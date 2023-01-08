@@ -8,7 +8,7 @@ const More = () => {
   const handlePress = () => setExpanded(!expanded)
   return (
     <LinearGradient
-      colors={['white', 'white', 'white', '#5865F2']}
+      colors={['white', 'white', 'white', '#2C3E50']}
       style={styles.gradientStyle}>
       <ScrollView>
         <PrivacyPolicy />
