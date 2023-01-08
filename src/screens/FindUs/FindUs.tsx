@@ -1,15 +1,21 @@
-import {StyleSheet, Text, View, Image, Linking} from 'react-native'
+import {StyleSheet, StatusBar, View, Image, Linking} from 'react-native'
 import Insta from '../../../assets/insta.png'
 import Twitter from '../../../assets/twitter.png'
 import FB from '../../../assets/facebook.png'
 import {Pressable} from 'react-native'
 import React from 'react'
+import {themeColors} from '../../helpers/themeColors'
 
 type Props = {}
 
 const FindUs = (props: Props) => {
   return (
     <View style={styles.main}>
+      <StatusBar
+        translucent={false}
+        barStyle="dark-content"
+        backgroundColor="silver"
+      />
       <Pressable
         onPress={() =>
           Linking.openURL('https://www.instagram.com/nytimes/?hl=en')
@@ -17,8 +23,9 @@ const FindUs = (props: Props) => {
         <Image
           source={Insta}
           style={{
-            height: 50,
-            width: 50,
+            height: 70,
+            width: 70,
+            marginBottom: 30,
           }}
         />
       </Pressable>
@@ -31,10 +38,10 @@ const FindUs = (props: Props) => {
         <Image
           source={Twitter}
           style={{
-            height: 50,
-            width: 50,
+            height: 70,
+            width: 70,
             borderRadius: 10,
-            marginVertical: 10,
+            marginBottom: 30,
           }}
         />
       </Pressable>
@@ -43,10 +50,9 @@ const FindUs = (props: Props) => {
         <Image
           source={FB}
           style={{
-            height: 50,
-            width: 50,
+            height: 70,
+            width: 70,
             borderRadius: 10,
-            marginVertical: 0,
           }}
         />
       </Pressable>

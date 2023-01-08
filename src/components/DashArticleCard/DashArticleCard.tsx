@@ -125,8 +125,7 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
           <View style={styles.cardDescription}>
             <Text
               style={
-                props?.leadParagraph ===
-                'To see this article, please hold your finger here'
+                props?.leadParagraph === 'To see this article, hold here'
                   ? styles.cardTextDescEmpty
                   : styles.cardTextDesc
               }

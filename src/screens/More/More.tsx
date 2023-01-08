@@ -1,5 +1,5 @@
 import React from 'react'
-import {StyleSheet, ScrollView} from 'react-native'
+import {StyleSheet, ScrollView, StatusBar} from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import {PrivacyPolicy, MoreNewsReports} from '../../components/index'
 
@@ -10,6 +10,11 @@ const More = () => {
     <LinearGradient
       colors={['white', 'white', 'white', '#2C3E50']}
       style={styles.gradientStyle}>
+      <StatusBar
+        translucent={false}
+        barStyle="dark-content"
+        backgroundColor="silver"
+      />
       <ScrollView>
         <PrivacyPolicy />
         <MoreNewsReports expanded={expanded} handlePress={handlePress} />

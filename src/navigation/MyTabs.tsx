@@ -167,7 +167,7 @@ export const MyTabs = (): JSX.Element => {
                     width: 45,
                     textAlign: 'center',
                   }}>
-                  Find
+                  Find Us
                 </Text>
                 <Image
                   source={require('../../assets/dot.png')}
