@@ -1,3 +1,4 @@
+// react / native
 import {
   View,
   Text,
@@ -9,11 +10,15 @@ import {
 } from 'react-native'
 import {Card, ActivityIndicator, Portal, Provider} from 'react-native-paper'
 import {useEffect, useState} from 'react'
+// helpers
 import {themeColors} from '../../helpers/themeColors'
 import {Authors, AuthorImages} from '../../helpers/authors'
 import {rippleColors} from '../../helpers/rippleColors'
-import DashArticleModal from '../DashArticleModal/DashArticleModal'
+// libraries +
 import LinearGradient from 'react-native-linear-gradient'
+// components
+import {DashArticleModal} from '../index'
+// types
 import {ArticleCardAllProps} from './types'
 
 const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {

@@ -12,7 +12,7 @@ import {Text} from 'react-native-paper'
 // helpers
 import {Durations} from '../../helpers/toasts'
 import {themeColors} from '../../helpers/themeColors'
-// extra libraries
+// libraries+
 import LottieView from 'lottie-react-native'
 import {useToast} from 'react-native-toast-notifications'
 

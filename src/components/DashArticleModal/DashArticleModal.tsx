@@ -1,8 +1,10 @@
-import {StyleSheet, Text, View, Linking, Image} from 'react-native'
+// react / native
 import React from 'react'
-import Logo from '../../../assets/eurisko.jpg'
-import {themeColors} from '../../helpers/themeColors'
+import {StyleSheet, Text, View, Linking, Image} from 'react-native'
 import {TouchableRipple} from 'react-native-paper'
+// logo + types + helper
+import {themeColors} from '../../helpers/themeColors'
+import Logo from '../../../assets/eurisko.jpg'
 import {ArticleCardModalProps} from './types'
 
 const DashArticleModal = ({...props}: ArticleCardModalProps) => {

@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native'
+import {Text} from 'react-native'
 import {themeColors} from '../../helpers/themeColors'
 import React from 'react'
 

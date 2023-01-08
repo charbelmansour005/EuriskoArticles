@@ -1,4 +1,4 @@
-// react/native imports
+// react/native
 import React, {useState} from 'react'
 import {
   View,
@@ -10,7 +10,7 @@ import {
   KeyboardAvoidingView,
 } from 'react-native'
 import {TextInput} from 'react-native-paper'
-// extra libraries
+// libraries+
 import {Formik} from 'formik'
 import LottieView from 'lottie-react-native'
 import {useToast} from 'react-native-toast-notifications'
@@ -27,7 +27,7 @@ import {
   LoginGoogleButton,
   LoginBtnSeperator,
 } from '../../components/index'
-// yup validation schema
+// yup schema
 import {validationSchema} from '../../validations/loginValdation'
 // services
 import {loginUser} from '../../services/login'
