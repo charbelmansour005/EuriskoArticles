@@ -1,4 +1,12 @@
-import {StyleSheet, StatusBar, View, Image, Linking} from 'react-native'
+import {
+  StyleSheet,
+  StatusBar,
+  View,
+  Image,
+  Linking,
+  Dimensions,
+} from 'react-native'
+import MapView from 'react-native-maps'
 import Insta from '../../../assets/insta.png'
 import Twitter from '../../../assets/twitter.png'
 import FB from '../../../assets/facebook.png'
@@ -10,11 +18,11 @@ type Props = {}
 
 const FindUs = (props: Props) => {
   return (
-    <View style={styles.main}>
-      <StatusBar
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      {/* <StatusBar
         translucent={false}
         barStyle="dark-content"
-        backgroundColor="silver"
+        backgroundColor="white"
       />
       <Pressable
         onPress={() =>
@@ -55,7 +63,21 @@ const FindUs = (props: Props) => {
             borderRadius: 10,
           }}
         />
-      </Pressable>
+      </Pressable> */}
+      <MapView
+        style={{
+          width: Dimensions.get('window').width,
+          height: Dimensions.get('window').height,
+        }}
+        initialRegion={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.0922,
+          longitudeDelta: 0.0421,
+        }}
+        mapType="standard"
+        provider="google"
+      />
     </View>
   )
 }

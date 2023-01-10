@@ -19,7 +19,10 @@ export const Navigation = (): JSX.Element => {
             <Stack.Screen
               name="LandingScreen"
               component={LandingScreen}
-              options={{headerShown: false, gestureDirection: 'horizontal'}}
+              options={{
+                headerShown: false,
+                gestureDirection: 'horizontal',
+              }}
             />
             <Stack.Screen
               name="Login"

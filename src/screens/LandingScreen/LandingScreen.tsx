@@ -31,8 +31,8 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
     <KeyboardAvoidingView style={styles.LandingMain} testID="parent">
       <StatusBar
         translucent={true}
-        barStyle="light-content"
-        backgroundColor="#2C3E50"
+        barStyle="dark-content"
+        backgroundColor="lightgreen"
       />
       <View style={styles.LoginContainer} testID="loginContainer">
         <View

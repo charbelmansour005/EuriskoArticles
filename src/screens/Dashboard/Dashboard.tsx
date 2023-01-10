@@ -33,6 +33,7 @@ import {DashboardProps} from './types'
 import {Article} from '../../features/article/types'
 // libraries+
 // import {nanoid} from 'nanoid'
+// https://www.nytimes.com/images/2008/11/05/world/1105-REACTS-B.JPG
 
 const Dashboard = ({
   searchBaseValue = ``,
@@ -82,6 +83,7 @@ const Dashboard = ({
         }
         // keeping the previously fetched articles & concatenating the new ones
         setArticlesList(prev => prev.concat(response.response.docs))
+        // console.log(articlesList)
         // storing the response
         dispatch(storeArticles(response.response))
       })
@@ -156,7 +158,7 @@ const Dashboard = ({
       <StatusBar
         translucent={false}
         barStyle="dark-content"
-        backgroundColor="silver"
+        backgroundColor="white"
       />
       <View
         style={{
@@ -189,7 +191,9 @@ const Dashboard = ({
               onRefresh={async () => {
                 handleOnRefresh()
               }}
-              tintColor="red"
+              tintColor="blue"
+              colors={['white', 'white']}
+              progressBackgroundColor="blue"
             />
           }
           /**
@@ -227,6 +231,7 @@ const Dashboard = ({
               }
               url={item?.web_url ? item?.web_url : null}
               section={item?.section_name ? item.section_name : 'No section'}
+              multimedia={item?.multimedia}
             />
           )}
           ListFooterComponent={

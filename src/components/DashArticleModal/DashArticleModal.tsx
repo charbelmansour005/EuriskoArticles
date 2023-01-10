@@ -8,21 +8,32 @@ import Logo from '../../../assets/eurisko.jpg'
 import {ArticleCardModalProps} from './types'
 
 const DashArticleModal = ({...props}: ArticleCardModalProps) => {
+  console.log(props.multimedia)
+
+  const IMG_URL = 'https://static01.nyt.com/'
+
   return (
     <View style={styles.modalArticleView} testID="parent">
+      <TouchableRipple
+        testID="modalBackButton"
+        onPress={props?.hideModal}
+        rippleColor={themeColors.lightgray}
+        style={styles.modalButton}>
+        <Text
+          testID="modalBackText"
+          style={{color: 'black', fontWeight: 'bold'}}>
+          Return
+        </Text>
+      </TouchableRipple>
       <View style={styles.logoContainer} testID="logoContainer">
-        <Image testID="image" source={Logo} style={styles.logoModal} />
-        <TouchableRipple
-          testID="modalBackButton"
-          onPress={props?.hideModal}
-          rippleColor={themeColors.darkgreen}
-          style={styles.modalButton}>
-          <Text
-            testID="modalBackText"
-            style={{color: 'black', fontWeight: 'bold'}}>
-            {`Return to Dashboard`}
-          </Text>
-        </TouchableRipple>
+        {props?.multimedia[0]?.url?.length ? (
+          <Image
+            source={{uri: IMG_URL + props.multimedia[0].url}}
+            style={styles.ImageModal}
+          />
+        ) : (
+          <Image testID="image" source={Logo} style={styles.logoModal} />
+        )}
       </View>
       <Text
         testID="modalHeadline"
@@ -51,7 +62,7 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
         testID="webLink"
         onPress={() => Linking.openURL(props?.url)}
         style={{
-          color: themeColors.darkgreen,
+          color: themeColors.darkgray,
           fontWeight: 'bold',
           ...styles.modalArticleElements,
         }}>
@@ -63,6 +74,7 @@ const DashArticleModal = ({...props}: ArticleCardModalProps) => {
         style={styles.modalArticleParagraph}>
         {props?.leadParagraph}
       </Text>
+      {/* <Image source={{uri: `https://www.nytimes.com/${props.image}`}} /> */}
     </View>
   )
 }
@@ -84,15 +96,24 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   logoModal: {
-    height: 120,
-    width: 110,
+    height: 110,
+    width: 105,
     borderRadius: 3,
     borderWidth: 0,
     borderColor: 'black',
+    marginBottom: 20,
+  },
+  ImageModal: {
+    height: 150,
+    width: 150,
+    borderRadius: 3,
+    borderWidth: 0,
+    borderColor: 'black',
+    marginBottom: 20,
   },
   modalArticleHeadline: {
     fontWeight: 'bold',
-    color: themeColors.darkgreen,
+    color: themeColors.darkgray,
     padding: 10,
     fontSize: 15,
     borderTopWidth: 1,
@@ -119,7 +140,7 @@ const styles = StyleSheet.create({
   modalButton: {
     padding: 10,
     alignItems: 'center',
-    marginVertical: 20,
+    marginBottom: 20,
     borderRadius: 5,
   },
 })

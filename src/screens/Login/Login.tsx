@@ -88,8 +88,8 @@ const Login = (): JSX.Element => {
     <KeyboardAvoidingView style={styles.LoginMain} testID="parent">
       <StatusBar
         translucent={true}
-        barStyle="light-content"
-        backgroundColor="#2C3E50"
+        barStyle="dark-content"
+        backgroundColor="lightgreen"
       />
       <Formik
         validationSchema={validationSchema}
@@ -131,7 +131,7 @@ const Login = (): JSX.Element => {
                 outlineColor="#23272A"
                 placeholderTextColor="silver"
                 textColor={themeColors.white}
-                activeOutlineColor="silver"
+                activeOutlineColor={themeColors.lightgreen}
                 autoFocus={true}
               />
               <View>
@@ -152,7 +152,7 @@ const Login = (): JSX.Element => {
                 placeholderTextColor="silver"
                 outlineColor="#23272A"
                 textColor={themeColors.white}
-                activeOutlineColor="silver"
+                activeOutlineColor={themeColors.lightgreen}
               />
               <Text style={styles.ForgotPassword}> Forgot your password?</Text>
               <Pressable
@@ -254,7 +254,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#2C3E50',
     height: '100%',
     width: '100%',
-    marginBottom: '1%',
+    marginBottom: '35%',
   },
   ForgotPassword: {
     marginTop: 1,

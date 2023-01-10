@@ -34,7 +34,7 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
     setTimeout(() => {
       setIsVisible(true) // only to show some minimal feedback
       setModalLoading(false)
-    }, 100)
+    }, 50)
   }
 
   const hideModal = (): void => {
@@ -79,20 +79,21 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
 
   const randomRippleColor = rippleColors[Math.floor(Math.random() * 10)]
   const chosenRippleColor: string = randomRippleColor
-
+  const IMG_URL = 'https://static01.nyt.com/'
   return (
     <View>
       <Card
         mode="elevated"
         onPress={handleShowModal}
-        onLongPress={() => Linking.openURL(props?.url)}
-        style={styles.parent}>
+        style={
+          props?.multimedia[0]?.url?.length ? styles.parentImage : styles.parent
+        }>
         <View style={styles.cardContainer}>
           <View style={{display: 'flex', flexDirection: 'row'}}>
             <Text style={styles.cardTitle} numberOfLines={1}>
               {props?.headline?.trim()}
             </Text>
-            <Image
+            {/* <Image
               source={require('../../../assets/plant.jpg')}
               style={{
                 height: 20,
@@ -101,7 +102,7 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
                 top: 0,
                 position: 'absolute',
               }}
-            />
+            /> */}
           </View>
           <View style={{display: 'flex', flexDirection: 'row'}}>
             <Image source={{uri: authorImage}} style={styles.authorImages} />
@@ -116,13 +117,22 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
               />
             )}
           </View>
-          {/* <View
-            style={{
-              height: 1,
-              backgroundColor: themeColors.lightgray,
-              width: '50%',
-            }}></View> */}
           <View style={styles.cardDescription}>
+            {props?.multimedia[0]?.url?.length ? (
+              <View style={styles.logoContainer}>
+                <Image
+                  source={{uri: IMG_URL + props.multimedia[0].url}}
+                  style={styles.ImageModal}
+                />
+                <View
+                  style={{
+                    height: 1,
+                    backgroundColor: themeColors.lightgray,
+                    width: '50%',
+                    marginVertical: 10,
+                  }}></View>
+              </View>
+            ) : null}
             <Text
               style={
                 props?.leadParagraph === 'To see this article, hold here'
@@ -144,6 +154,7 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
                     section={props.section}
                     url={props.url}
                     leadParagraph={props.leadParagraph}
+                    multimedia={props.multimedia}
                     hideModal={hideModal}
                   />
                 </ScrollView>
@@ -159,6 +170,13 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
 export default DashArticleCard
 
 const styles = StyleSheet.create({
+  ImageModal: {
+    height: 100,
+    width: 100,
+    borderRadius: 3,
+    borderWidth: 0,
+    borderColor: 'black',
+  },
   logoContainer: {
     display: 'flex',
     justifyContent: 'center',
@@ -166,11 +184,18 @@ const styles = StyleSheet.create({
   },
   authorImages: {height: 25, width: 25, margin: 5, borderRadius: 20},
   parent: {
-    marginVertical: 0.5,
-    marginHorizontal: 0,
+    marginVertical: 2,
+    marginHorizontal: 5,
     backgroundColor: 'white',
     height: 160,
-    borderRadius: 0,
+    borderRadius: 5,
+  },
+  parentImage: {
+    marginVertical: 2,
+    marginHorizontal: 5,
+    backgroundColor: 'white',
+    height: 290,
+    borderRadius: 5,
   },
   cardContainer: {
     borderRadius: 2,

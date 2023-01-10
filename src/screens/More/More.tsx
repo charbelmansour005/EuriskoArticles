@@ -13,7 +13,7 @@ const More = () => {
       <StatusBar
         translucent={false}
         barStyle="dark-content"
-        backgroundColor="silver"
+        backgroundColor="white"
       />
       <ScrollView>
         <PrivacyPolicy />
