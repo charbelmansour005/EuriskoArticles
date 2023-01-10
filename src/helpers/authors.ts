@@ -47,9 +47,9 @@ export const AuthorImages: AuthorImage = {
   Frank_Pic: `https://i.ibb.co/YN6RfgQ/frank.jpg`,
   Jennifer_Pic: `https://i.ibb.co/kgd3Jv8/jennifer.png`,
   Floyd_Pic: `https://i.ibb.co/8Ddx9PQ/floyd.jpg`,
-  NY_Pic: `https://i.ibb.co/thGVgxv/unknown.jpg`,
-  Tom_Pic: `https://i.ibb.co/k4g2PD7/Screen-Shot-2022-12-18-at-11-04-48-PM.png`,
-  Unknown_Pic: `https://i.ibb.co/thGVgxv/unknown.jpg`,
+  NY_Pic: `https://i.ibb.co/VDJKYMJ/unknown.jpg`,
+  Tom_Pic: `https://i.ibb.co/VDJKYMJ/unknown.jpg`,
+  Unknown_Pic: `https://i.ibb.co/VDJKYMJ/unknown.jpg`,
   Anahad_Pic: `https://i.ibb.co/YX9WJkw/anahad.png`,
   RNS_Pic: `https://religionnews.com/wp-content/uploads/2015/11/featuregiftguide.jpg`,
 };
