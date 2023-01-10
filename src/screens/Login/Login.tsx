@@ -131,7 +131,7 @@ const Login = (): JSX.Element => {
                 outlineColor="#23272A"
                 placeholderTextColor="silver"
                 textColor={themeColors.white}
-                activeOutlineColor={themeColors.lightgreen}
+                activeOutlineColor="#5865F2"
                 autoFocus={true}
               />
               <View>
@@ -152,7 +152,7 @@ const Login = (): JSX.Element => {
                 placeholderTextColor="silver"
                 outlineColor="#23272A"
                 textColor={themeColors.white}
-                activeOutlineColor={themeColors.lightgreen}
+                activeOutlineColor="#5865F2"
               />
               <Text style={styles.ForgotPassword}> Forgot your password?</Text>
               <Pressable

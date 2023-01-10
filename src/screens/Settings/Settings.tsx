@@ -17,7 +17,6 @@ import LinearGradient from 'react-native-linear-gradient'
 import {
   SettingsButtons,
   SettingsFeatures,
-  Copyright,
   SettingsLangSwitch,
 } from '../../components/index'
 // navigation
@@ -105,7 +104,7 @@ const Settings = (): JSX.Element => {
 
   return (
     <LinearGradient
-      colors={['white', 'white', 'white', '#2C3E50']}
+      colors={['white', 'white', 'white', themeColors.transparentGray]}
       style={{width: '100%', height: '100%'}}>
       <ScrollView>
         <Text style={styles.BoldSmall}>
@@ -147,13 +146,18 @@ const Settings = (): JSX.Element => {
               chosenRippleColor={chosenRippleColor}
               isVisible={isVisible}
             />
-            <Button onPress={showModal}>
-              <Text style={{color: themeColors.pitchblack}}>
-                Latest Update Features
+            <Button
+              style={{
+                backgroundColor: themeColors.darkblue,
+                marginHorizontal: '20%',
+                borderRadius: 5,
+              }}
+              onPress={showModal}>
+              <Text style={{color: themeColors.white, fontWeight: 'bold'}}>
+                Update Notes
               </Text>
             </Button>
           </Provider>
-          <Copyright />
         </View>
       </ScrollView>
     </LinearGradient>

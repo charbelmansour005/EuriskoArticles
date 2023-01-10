@@ -51,9 +51,9 @@ export default LoginGoogleButton
 
 const styles = StyleSheet.create({
   GoogleBtn: {
-    backgroundColor: '#5865F2',
+    backgroundColor: 'white',
     borderWidth: 1,
-    borderColor: '#5865F2',
+    borderColor: 'white',
     padding: 5,
     width: '92%',
     maxWidth: '100%',
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   GoogleText: {
-    color: 'white',
+    color: '#5865F2',
     fontWeight: 'bold',
     fontSize: 15,
     textAlign: 'center',

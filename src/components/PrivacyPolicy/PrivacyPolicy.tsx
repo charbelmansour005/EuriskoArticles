@@ -1,5 +1,6 @@
 import {StyleSheet, Text, View, ScrollView} from 'react-native'
 import React from 'react'
+import {themeColors} from '../../helpers/themeColors'
 
 const PrivacyPolicy = (): JSX.Element => {
   return (
@@ -63,7 +64,7 @@ const styles = StyleSheet.create({
   scrollViewCenter: {
     height: 290,
     width: '90%',
-    backgroundColor: '#2C3E50',
+    backgroundColor: themeColors.darkgray,
     borderRadius: 5,
   },
   contentContainerCenter: {

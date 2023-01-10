@@ -19,7 +19,7 @@ type Props = {}
 const FindUs = (props: Props) => {
   return (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      {/* <StatusBar
+      <StatusBar
         translucent={false}
         barStyle="dark-content"
         backgroundColor="white"
@@ -63,21 +63,7 @@ const FindUs = (props: Props) => {
             borderRadius: 10,
           }}
         />
-      </Pressable> */}
-      <MapView
-        style={{
-          width: Dimensions.get('window').width,
-          height: Dimensions.get('window').height,
-        }}
-        initialRegion={{
-          latitude: 37.78825,
-          longitude: -122.4324,
-          latitudeDelta: 0.0922,
-          longitudeDelta: 0.0421,
-        }}
-        mapType="standard"
-        provider="google"
-      />
+      </Pressable>
     </View>
   )
 }

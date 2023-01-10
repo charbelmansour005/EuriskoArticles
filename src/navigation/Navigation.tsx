@@ -4,6 +4,7 @@ import {useAppSelector} from '../app/rtkHooks'
 import {MyTabs} from './MyTabs'
 import {About, Login, LandingScreen} from '../screens/index'
 import {Fragment} from 'react'
+import {themeColors} from '../helpers/themeColors'
 
 export const Navigation = (): JSX.Element => {
   const Stack = createNativeStackNavigator()
@@ -54,7 +55,7 @@ export const Navigation = (): JSX.Element => {
                 gestureDirection: 'horizontal',
                 animation: 'slide_from_bottom',
                 headerStyle: {
-                  backgroundColor: '#2C3E50',
+                  backgroundColor: themeColors.darkgray,
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {

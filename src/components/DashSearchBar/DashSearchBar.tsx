@@ -17,12 +17,24 @@ const DashSearchBar = ({...props}: DashSearchBarProps): JSX.Element => {
           props?.language?.english ? `Search Articles` : `Chercher des Articles`
         }
         placeholderTextColor="gray"
+        cursorColor={themeColors.darkblue}
         onChangeText={props?.onChangeText}
         value={props?.search}
         style={styles.searchInput}
       />
       {props?.search ? (
-        <Pressable style={{marginRight: 10}} onPress={props?.onPressClear}>
+        <Pressable
+          style={{
+            alignItems: 'center',
+            justifyContent: 'center',
+            backgroundColor: 'transparent',
+          }}
+          onPress={props?.onPressClear}
+          android_ripple={{
+            color: themeColors.lightgray,
+            borderless: true,
+            radius: 17,
+          }}>
           <Text style={styles.clearButton}>
             {props?.language.english ? `Clear` : `Annuler`}
           </Text>
@@ -36,7 +48,7 @@ export default DashSearchBar
 
 const styles = StyleSheet.create({
   container: {
-    width: '95%',
+    width: '100%',
     backgroundColor: themeColors.white,
     borderRadius: 0,
     alignSelf: 'center',
@@ -52,17 +64,20 @@ const styles = StyleSheet.create({
     color: themeColors.pitchblack,
   },
   clearButton: {
-    color: themeColors.white,
+    color: 'gray',
     fontWeight: 'bold',
-    backgroundColor: '#5865F2',
+    backgroundColor: 'transparent',
     borderRadius: 5,
-    marginRight: 5,
-    padding: 2,
+    // padding: 2,
+    textAlign: 'center',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   searchIcon: {
-    height: 16,
-    width: 16,
+    height: 22,
+    width: 22,
     marginLeft: 5,
     marginRight: 5,
+    tintColor: themeColors.darkblue,
   },
 })

@@ -128,14 +128,14 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
                   style={{
                     height: 1,
                     backgroundColor: themeColors.lightgray,
-                    width: '50%',
+                    width: '100%',
                     marginVertical: 10,
                   }}></View>
               </View>
             ) : null}
             <Text
               style={
-                props?.leadParagraph === 'To see this article, hold here'
+                props?.leadParagraph === 'To see this article, press here'
                   ? styles.cardTextDescEmpty
                   : styles.cardTextDesc
               }
@@ -184,18 +184,18 @@ const styles = StyleSheet.create({
   },
   authorImages: {height: 25, width: 25, margin: 5, borderRadius: 20},
   parent: {
-    marginVertical: 2,
-    marginHorizontal: 5,
+    marginVertical: 1,
+    marginHorizontal: 0,
     backgroundColor: 'white',
     height: 160,
-    borderRadius: 5,
+    borderRadius: 0,
   },
   parentImage: {
-    marginVertical: 2,
-    marginHorizontal: 5,
+    marginVertical: 7,
+    marginHorizontal: 7,
     backgroundColor: 'white',
     height: 290,
-    borderRadius: 5,
+    borderRadius: 1,
   },
   cardContainer: {
     borderRadius: 2,
@@ -224,7 +224,7 @@ const styles = StyleSheet.create({
     padding: 1,
   },
   cardTextDesc: {
-    color: themeColors.pitchblack,
+    color: 'gray',
     fontSize: 15,
     fontFamily: 'sans-serif-condensed',
   },

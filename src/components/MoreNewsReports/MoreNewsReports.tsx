@@ -16,7 +16,7 @@ const MoreNewsReports = ({...props}: MoreNewsReportsProps) => {
               }}
             />
           )}
-          title="We report live"
+          title="Live Reporting"
           expanded={props?.expanded}
           onPress={props?.handlePress}>
           <List.Item title="Mon to Fri 8:00PM till 9:00PM" />

@@ -2,13 +2,14 @@ import React from 'react'
 import {StyleSheet, ScrollView, StatusBar} from 'react-native'
 import LinearGradient from 'react-native-linear-gradient'
 import {PrivacyPolicy, MoreNewsReports} from '../../components/index'
+import {themeColors} from '../../helpers/themeColors'
 
 const More = () => {
   const [expanded, setExpanded] = React.useState<boolean>(true)
   const handlePress = () => setExpanded(!expanded)
   return (
     <LinearGradient
-      colors={['white', 'white', 'white', '#2C3E50']}
+      colors={['white', 'white', 'white', themeColors.darkblue]}
       style={styles.gradientStyle}>
       <StatusBar
         translucent={false}

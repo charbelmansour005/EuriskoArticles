@@ -10,17 +10,17 @@ const About = (): JSX.Element => {
     <LinearGradient
       style={{width: '100%', height: '100%'}}
       colors={[
-        '#2C3E50',
+        themeColors.darkgray,
         themeColors.white,
         themeColors.white,
         themeColors.white,
-        '#2C3E50',
+        themeColors.darkgray,
       ]}>
       <ScrollView>
         <StatusBar
           translucent={false}
           barStyle="light-content"
-          backgroundColor="#2C3E50"
+          backgroundColor={themeColors.darkgray}
         />
         <View style={{height: '100%', width: '100%'}} testID="parent">
           <View style={styles.animationContainer} testID="animationContainer">

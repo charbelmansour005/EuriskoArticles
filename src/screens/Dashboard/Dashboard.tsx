@@ -7,6 +7,8 @@ import {
   Alert,
   RefreshControl,
   StatusBar,
+  Text,
+  Image,
 } from 'react-native'
 import React, {useEffect, useState, useCallback} from 'react'
 // reduxTK
@@ -21,13 +23,15 @@ import {themeColors} from '../../helpers/themeColors'
 import {Durations} from '../../helpers/toasts'
 import {getArticles} from '../../services/articles'
 import {useToast} from 'react-native-toast-notifications'
-// components
+// components+
 import {
   DashHeader,
   DashTopLoader,
   LoadingSpinner,
   DashArticleCard,
 } from '../../components/index'
+import Logo from '../../../assets/eurisko.jpg'
+import NY from '../../../assets/ny.png'
 // types
 import {DashboardProps} from './types'
 import {Article} from '../../features/article/types'
@@ -168,6 +172,25 @@ const Dashboard = ({
         {/* handling the search in the header */}
         <DashHeader search={search} setSearch={setSearch} language={language} />
         <FlatList
+          ListHeaderComponent={
+            <View style={styles.listHeaderParent}>
+              <View
+                style={{
+                  height: 0.5,
+                  backgroundColor: 'darkgray',
+                  width: '16%',
+                }}></View>
+              <Text style={styles.listHeaderText}>Eurisko</Text>
+              <Image source={Logo} style={{width: 40, height: 40}} />
+              <Text style={styles.listHeaderText}>Articles</Text>
+              <View
+                style={{
+                  height: 0.5,
+                  backgroundColor: 'darkgray',
+                  width: '16%',
+                }}></View>
+            </View>
+          }
           /**
            * @keyExtractor using only item._id generates an error
            * @Math must use instead of uuid
@@ -226,7 +249,7 @@ const Dashboard = ({
                 item?.lead_paragraph.includes('{') ||
                 item?.lead_paragraph.includes('}') ||
                 !item?.lead_paragraph
-                  ? 'To see this article, hold here'
+                  ? 'To see this article, press here'
                   : item?.lead_paragraph
               }
               url={item?.web_url ? item?.web_url : null}
@@ -235,7 +258,11 @@ const Dashboard = ({
             />
           )}
           ListFooterComponent={
-            !dataFound && !search ? <LoadingSpinner /> : null
+            !dataFound && !search ? (
+              <LoadingSpinner />
+            ) : (
+              <View style={{marginVertical: 50}}></View>
+            )
           }
         />
       </View>
@@ -247,6 +274,24 @@ const styles = StyleSheet.create({
   maxWidth: {
     height: '100%',
     width: '100%',
+  },
+  listHeaderParent: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#e3e5e5',
+    paddingVertical: 7,
+    marginHorizontal: 0,
+    borderRadius: 0,
+  },
+  listHeaderText: {
+    color: 'darkgray',
+    fontWeight: 'bold',
+    textTransform: 'uppercase',
+    letterSpacing: 1,
+    marginHorizontal: 10,
   },
 })
 
