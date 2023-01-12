@@ -23,18 +23,12 @@ import {ArticleCardAllProps} from './types'
 
 const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
-  const [modalLoading, setModalLoading] = useState<boolean>(false)
   const [authorImage, setAuthorImage] = useState<string>(
     'https://i.ibb.co/y40w40C/ny.png',
   )
 
   const handleShowModal = (): void => {
-    setModalLoading(true)
-
-    setTimeout(() => {
-      setIsVisible(true) // only to show some minimal feedback
-      setModalLoading(false)
-    }, 50)
+    setIsVisible(true) // only to show some minimal feedback
   }
 
   const hideModal = (): void => {
@@ -93,29 +87,36 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
             <Text style={styles.cardTitle} numberOfLines={1}>
               {props?.headline?.trim()}
             </Text>
-            {/* <Image
-              source={require('../../../assets/plant.jpg')}
-              style={{
-                height: 20,
-                width: 20,
-                right: 0,
-                top: 0,
-                position: 'absolute',
-              }}
-            /> */}
+            {props?.multimedia[0]?.url?.length ? (
+              <Image
+                source={require('../../../assets/camera.png')}
+                style={{
+                  height: 12,
+                  width: 15,
+                  right: 0,
+                  top: 0,
+                  position: 'absolute',
+                  tintColor: themeColors.darkblue,
+                }}
+              />
+            ) : (
+              <Image
+                source={require('../../../assets/plant.jpg')}
+                style={{
+                  height: 15,
+                  width: 15,
+                  right: 0,
+                  top: 0,
+                  position: 'absolute',
+                }}
+              />
+            )}
           </View>
           <View style={{display: 'flex', flexDirection: 'row'}}>
             <Image source={{uri: authorImage}} style={styles.authorImages} />
             <Text style={styles.cardAuthor} numberOfLines={1}>
               {props?.author?.trim()}
             </Text>
-            {modalLoading && (
-              <ActivityIndicator
-                style={{marginLeft: 10}}
-                size="small"
-                color={chosenRippleColor}
-              />
-            )}
           </View>
           <View style={styles.cardDescription}>
             {props?.multimedia[0]?.url?.length ? (
@@ -184,18 +185,18 @@ const styles = StyleSheet.create({
   },
   authorImages: {height: 25, width: 25, margin: 5, borderRadius: 20},
   parent: {
-    marginVertical: 1,
+    marginVertical: 0.5,
     marginHorizontal: 0,
     backgroundColor: 'white',
     height: 160,
     borderRadius: 0,
   },
   parentImage: {
-    marginVertical: 7,
-    marginHorizontal: 7,
+    marginVertical: 0.5,
+    marginHorizontal: 0,
     backgroundColor: 'white',
     height: 290,
-    borderRadius: 1,
+    borderRadius: 0,
   },
   cardContainer: {
     borderRadius: 2,
@@ -208,7 +209,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     color: '#2C3E50',
     padding: 1,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     fontFamily: 'Roboto',
   },
   cardAuthor: {
@@ -225,7 +226,7 @@ const styles = StyleSheet.create({
   },
   cardTextDesc: {
     color: 'gray',
-    fontSize: 15,
+    fontSize: 14,
     fontFamily: 'sans-serif-condensed',
   },
   cardTextDescEmpty: {

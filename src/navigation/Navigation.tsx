@@ -34,7 +34,7 @@ export const Navigation = (): JSX.Element => {
                 gestureDirection: 'horizontal',
                 animation: 'slide_from_right',
                 headerStyle: {
-                  backgroundColor: '#2C3E50',
+                  backgroundColor: themeColors.pitchblack,
                 },
                 headerTintColor: '#fff',
                 headerTitleStyle: {

@@ -1,25 +1,26 @@
 type themeColorsTypes = {
-  grey: string;
-  purple: string;
-  salmon: string;
-  skyblue: string;
-  lightskyblue: string;
-  darkblue: string;
-  lightpink: string;
-  red: string;
-  transparentRed: string;
-  transparentBlue: string;
-  transparentGray: string;
-  darkgreen: string;
-  lightgreen: string;
-  pitchblack: string;
-  lightgray: string;
-  green: string;
-  white: string;
-  orange: string;
-  darkOrange: string;
-  darkgray: string;
-};
+  grey: string
+  purple: string
+  salmon: string
+  skyblue: string
+  lightskyblue: string
+  darkblue: string
+  lightpink: string
+  red: string
+  transparentRed: string
+  transparentBlue: string
+  transparentGray: string
+  darkgreen: string
+  lightgreen: string
+  pitchblack: string
+  lightgray: string
+  green: string
+  white: string
+  orange: string
+  darkOrange: string
+  darkgray: string
+  yellow: string
+}
 
 export const themeColors: themeColorsTypes = {
   grey: '#748c94',
@@ -42,4 +43,5 @@ export const themeColors: themeColorsTypes = {
   orange: `orange`,
   darkOrange: `darkorange`,
   darkgray: `#565656`,
-};
+  yellow: 'yellow',
+}

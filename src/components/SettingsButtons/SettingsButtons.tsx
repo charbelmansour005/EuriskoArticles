@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet} from 'react-native'
+import {View, Text, StyleSheet, Pressable} from 'react-native'
 import {TouchableRipple} from 'react-native-paper'
 import {themeColors} from '../../helpers/themeColors'
 import React from 'react'
@@ -7,24 +7,32 @@ import {SettingsButtonsProps} from './types'
 const SettingsButtons = ({...props}: SettingsButtonsProps): JSX.Element => {
   return (
     <View style={styles.settingsBtns} testID="parent">
-      <TouchableRipple
+      <Pressable
         testID="logoutButton"
         style={styles.rippleButtonLogout}
         onPress={props?.askLogout}
-        rippleColor={props?.chosenRippleColor}>
+        android_ripple={{
+          color: themeColors.lightgray,
+          borderless: false,
+          foreground: false,
+        }}>
         <Text style={styles.rippleText} testID="logoutText">
           {props?.language?.english ? `Logout` : `Déconnecter`}
         </Text>
-      </TouchableRipple>
-      <TouchableRipple
+      </Pressable>
+      <Pressable
         testID="aboutButton"
         style={styles.rippleButton}
         onPress={() => props?.navigate('About')}
-        rippleColor={props?.chosenRippleColor}>
+        android_ripple={{
+          color: themeColors.lightgray,
+          borderless: false,
+          foreground: false,
+        }}>
         <Text style={styles.rippleText} testID="aboutButtonText">
           {props?.language?.english ? `About` : `Technologie`}
         </Text>
-      </TouchableRipple>
+      </Pressable>
     </View>
   )
 }
@@ -47,11 +55,11 @@ const styles = StyleSheet.create({
   },
   rippleButton: {
     padding: 8,
-    backgroundColor: 'white',
+    backgroundColor: themeColors.pitchblack,
     borderRadius: 3,
     width: '45%',
     borderWidth: 1,
-    borderColor: themeColors.transparentGray,
+    borderColor: themeColors.pitchblack,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -63,11 +71,11 @@ const styles = StyleSheet.create({
   },
   rippleButtonLogout: {
     padding: 8,
-    backgroundColor: 'white',
+    backgroundColor: themeColors.pitchblack,
     borderRadius: 3,
     width: '45%',
     borderWidth: 1,
-    borderColor: themeColors.transparentGray,
+    borderColor: themeColors.pitchblack,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,
@@ -80,8 +88,8 @@ const styles = StyleSheet.create({
   rippleText: {
     textAlign: 'center',
     letterSpacing: 1,
-    color: themeColors.darkblue,
-    fontWeight: 'bold',
+    color: themeColors.white,
+    fontWeight: 'normal',
     textTransform: 'uppercase',
   },
 })

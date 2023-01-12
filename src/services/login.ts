@@ -22,7 +22,6 @@ export const loginUser = ({userlogin}: any) =>
     } catch (error) {
       if (error instanceof AxiosError) {
         reject(error.response)
-        console.log(error)
       }
     }
   })

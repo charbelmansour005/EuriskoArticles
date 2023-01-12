@@ -31,8 +31,8 @@ const FindUs = (props: Props) => {
         <Image
           source={Insta}
           style={{
-            height: 70,
-            width: 70,
+            height: 50,
+            width: 50,
             marginBottom: 30,
           }}
         />
@@ -46,8 +46,8 @@ const FindUs = (props: Props) => {
         <Image
           source={Twitter}
           style={{
-            height: 70,
-            width: 70,
+            height: 50,
+            width: 50,
             borderRadius: 10,
             marginBottom: 30,
           }}
@@ -58,8 +58,8 @@ const FindUs = (props: Props) => {
         <Image
           source={FB}
           style={{
-            height: 70,
-            width: 70,
+            height: 50,
+            width: 50,
             borderRadius: 10,
           }}
         />

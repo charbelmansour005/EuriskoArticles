@@ -32,7 +32,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
       <StatusBar
         translucent={true}
         barStyle="dark-content"
-        backgroundColor="lightgreen"
+        backgroundColor="lightgray"
       />
       <View style={styles.LoginContainer} testID="loginContainer">
         <View
@@ -52,7 +52,7 @@ const LandingScreen = ({navigation}: any): JSX.Element => {
         <Text
           testID="title"
           style={{
-            color: themeColors.white,
+            color: themeColors.pitchblack,
             textAlign: 'center',
             fontWeight: 'bold',
           }}>
@@ -97,14 +97,15 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    backgroundColor: '#2C3E50',
+    // backgroundColor: '#2C3E50',
+    backgroundColor: 'lightgray',
     height: '100%',
     width: '100%',
   },
   WelcomeMessage: {
     fontWeight: 'bold',
     fontSize: 20,
-    color: 'white',
+    color: 'black',
     marginTop: 20,
     marginBottom: 10,
   },
@@ -123,14 +124,15 @@ const styles = StyleSheet.create({
   },
   TouchableBtnSignUp: {
     marginTop: 8,
-    backgroundColor: '#5865F2',
+    // backgroundColor: '#5865F2',
+    backgroundColor: themeColors.white,
     padding: 10,
     width: '92%',
     maxWidth: '92%',
-    borderRadius: 3,
+    borderRadius: 5,
   },
   TouchableTextSignUp: {
-    color: 'white',
+    color: 'black',
     fontWeight: 'bold',
     fontSize: 15,
     textAlign: 'center',
@@ -138,13 +140,13 @@ const styles = StyleSheet.create({
   },
   TouchableBtnLogin: {
     marginTop: '50%',
-    backgroundColor: themeColors.darkgray,
+    backgroundColor: themeColors.pitchblack,
     padding: 10,
     width: '92%',
     maxWidth: '92%',
-    borderColor: themeColors.darkgray,
+    borderColor: themeColors.pitchblack,
     borderWidth: 1,
-    borderRadius: 3,
+    borderRadius: 5,
   },
   TouchableTextLogin: {
     color: 'white',

@@ -88,8 +88,8 @@ const Login = (): JSX.Element => {
     <KeyboardAvoidingView style={styles.LoginMain} testID="parent">
       <StatusBar
         translucent={true}
-        barStyle="dark-content"
-        backgroundColor="lightgreen"
+        barStyle="light-content"
+        backgroundColor={themeColors.pitchblack}
       />
       <Formik
         validationSchema={validationSchema}
@@ -131,7 +131,7 @@ const Login = (): JSX.Element => {
                 outlineColor="#23272A"
                 placeholderTextColor="silver"
                 textColor={themeColors.white}
-                activeOutlineColor="#5865F2"
+                activeOutlineColor={themeColors.darkblue}
                 autoFocus={true}
               />
               <View>
@@ -152,7 +152,7 @@ const Login = (): JSX.Element => {
                 placeholderTextColor="silver"
                 outlineColor="#23272A"
                 textColor={themeColors.white}
-                activeOutlineColor="#5865F2"
+                activeOutlineColor={themeColors.darkblue}
               />
               <Text style={styles.ForgotPassword}> Forgot your password?</Text>
               <Pressable
@@ -173,7 +173,7 @@ const Login = (): JSX.Element => {
                 style={styles.TouchableBtnLogin}>
                 <Text style={styles.TouchableTextLogin}>Log In</Text>
               </Pressable>
-              {loading ? null : <LoginBtnSeperator />}
+              {/* {loading ? null : <LoginBtnSeperator />} */}
               {loading ? (
                 <View
                   style={{
@@ -187,12 +187,11 @@ const Login = (): JSX.Element => {
                     loop={true}
                   />
                 </View>
-              ) : (
-                <LoginGoogleButton
-                  SignInToast={SignInToast}
-                  SignUpToast={SignUpToast}
-                />
-              )}
+              ) : // <LoginGoogleButton
+              //   SignInToast={SignInToast}
+              //   SignUpToast={SignUpToast}
+              // />
+              null}
             </View>
           </View>
         )}
@@ -206,13 +205,13 @@ export default Login
 const styles = StyleSheet.create({
   TouchableBtnLogin: {
     marginTop: 20,
-    backgroundColor: '#5865F2',
+    backgroundColor: themeColors.pitchblack,
     padding: 10,
     width: '92%',
     maxWidth: '92%',
-    borderColor: '#5865F2',
+    borderColor: themeColors.pitchblack,
     borderWidth: 1,
-    borderRadius: 3,
+    borderRadius: 5,
   },
   TouchableTextLogin: {
     color: 'white',
@@ -227,9 +226,9 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   UserInput: {
-    width: '90%',
-    maxWidth: '90%',
-    height: 50,
+    width: '93%',
+    maxWidth: '93%',
+    height: 45,
     justifyContent: 'center',
     alignContent: 'center',
     marginVertical: 2,
@@ -238,9 +237,9 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   UserInputPass: {
-    width: '90%',
-    maxWidth: '90%',
-    height: 50,
+    width: '93%',
+    maxWidth: '93%',
+    height: 45,
     justifyContent: 'center',
     alignContent: 'center',
     marginBottom: 10,
@@ -251,10 +250,10 @@ const styles = StyleSheet.create({
     alignContent: 'center',
     justifyContent: 'center',
     textAlign: 'center',
-    backgroundColor: '#2C3E50',
+    backgroundColor: 'lightgray',
     height: '100%',
     width: '100%',
-    marginBottom: '35%',
+    marginBottom: '70%',
   },
   ForgotPassword: {
     marginTop: 1,

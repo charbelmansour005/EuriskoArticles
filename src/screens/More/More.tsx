@@ -9,7 +9,7 @@ const More = () => {
   const handlePress = () => setExpanded(!expanded)
   return (
     <LinearGradient
-      colors={['white', 'white', 'white', themeColors.darkblue]}
+      colors={['white', 'white', 'white', 'magenta']}
       style={styles.gradientStyle}>
       <StatusBar
         translucent={false}

@@ -117,7 +117,7 @@ const Settings = (): JSX.Element => {
         <View>
           <Snackbar
             style={{
-              backgroundColor: '#5865F2',
+              backgroundColor: themeColors.pitchblack,
             }}
             theme={{colors: {inversePrimary: themeColors.white}}}
             visible={snackbarVisible}
@@ -148,12 +148,12 @@ const Settings = (): JSX.Element => {
             />
             <Button
               style={{
-                backgroundColor: themeColors.darkblue,
-                marginHorizontal: '20%',
+                backgroundColor: themeColors.pitchblack,
+                marginHorizontal: '30%',
                 borderRadius: 5,
               }}
               onPress={showModal}>
-              <Text style={{color: themeColors.white, fontWeight: 'bold'}}>
+              <Text style={{color: themeColors.white, fontWeight: '300'}}>
                 Update Notes
               </Text>
             </Button>

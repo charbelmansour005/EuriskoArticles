@@ -8,7 +8,7 @@ const DashSearchBar = ({...props}: DashSearchBarProps): JSX.Element => {
     <View style={styles.container} testID="parent">
       <Image
         testID="image"
-        source={require('../../../assets/srh.png')}
+        source={require('../../../assets/srh2.png')}
         style={styles.searchIcon}
       />
       <TextInput
@@ -35,9 +35,14 @@ const DashSearchBar = ({...props}: DashSearchBarProps): JSX.Element => {
             borderless: true,
             radius: 17,
           }}>
-          <Text style={styles.clearButton}>
+          {/* <Text style={styles.clearButton}>
             {props?.language.english ? `Clear` : `Annuler`}
-          </Text>
+          </Text> */}
+          <Image
+            testID="image"
+            source={require('../../../assets/x.png')}
+            style={styles.xIcon}
+          />
         </Pressable>
       ) : null}
     </View>
@@ -60,12 +65,13 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     backgroundColor: themeColors.white,
-    width: '80%',
+    width: '75%',
     color: themeColors.pitchblack,
+    marginBottom: 5,
   },
   clearButton: {
-    color: 'gray',
-    fontWeight: 'bold',
+    color: themeColors.darkblue,
+    fontWeight: 'normal',
     backgroundColor: 'transparent',
     borderRadius: 5,
     // padding: 2,
@@ -79,5 +85,10 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     marginRight: 5,
     tintColor: themeColors.darkblue,
+  },
+  xIcon: {
+    height: 14,
+    width: 14,
+    marginHorizontal: 10,
   },
 })

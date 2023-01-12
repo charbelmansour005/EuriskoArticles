@@ -7,8 +7,6 @@ import {
   Alert,
   RefreshControl,
   StatusBar,
-  Text,
-  Image,
 } from 'react-native'
 import React, {useEffect, useState, useCallback} from 'react'
 // reduxTK
@@ -29,15 +27,13 @@ import {
   DashTopLoader,
   LoadingSpinner,
   DashArticleCard,
+  DashListHeader,
 } from '../../components/index'
-import Logo from '../../../assets/eurisko.jpg'
-import NY from '../../../assets/ny.png'
 // types
 import {DashboardProps} from './types'
 import {Article} from '../../features/article/types'
 // libraries+
-// import {nanoid} from 'nanoid'
-// https://www.nytimes.com/images/2008/11/05/world/1105-REACTS-B.JPG
+import LottieView from 'lottie-react-native'
 
 const Dashboard = ({
   searchBaseValue = ``,
@@ -63,7 +59,7 @@ const Dashboard = ({
   const toast = useToast()
 
   const welcomeToast = (): void => {
-    toast.show('To view an article, press on one, or long press for website', {
+    toast.show('Welcome back', {
       type: 'normal',
       duration: Durations.MEDIUM,
       animationType: 'zoom-in',
@@ -81,14 +77,10 @@ const Dashboard = ({
     }
     getArticles(page)
       .then(async (response: any) => {
-        // avoid showing the loading indicator when there is no new data
         if (response.response.docs.length < 10) {
           setDataFound(true)
         }
-        // keeping the previously fetched articles & concatenating the new ones
         setArticlesList(prev => prev.concat(response.response.docs))
-        // console.log(articlesList)
-        // storing the response
         dispatch(storeArticles(response.response))
       })
       .catch(error => {
@@ -98,7 +90,6 @@ const Dashboard = ({
           `${error.data.message}.`,
           [
             {
-              // no function passed = cancel behavior
               text: 'Okay',
               style: 'default',
             },
@@ -153,8 +144,6 @@ const Dashboard = ({
     searchArticles()
   }, [search])
 
-  // const randomID = nanoid()
-
   return loading && !articleError ? (
     <DashTopLoader />
   ) : (
@@ -169,28 +158,9 @@ const Dashboard = ({
           backgroundColor: themeColors.transparentGray,
           ...styles.maxWidth,
         }}>
-        {/* handling the search in the header */}
         <DashHeader search={search} setSearch={setSearch} language={language} />
         <FlatList
-          ListHeaderComponent={
-            <View style={styles.listHeaderParent}>
-              <View
-                style={{
-                  height: 0.5,
-                  backgroundColor: 'darkgray',
-                  width: '16%',
-                }}></View>
-              <Text style={styles.listHeaderText}>Eurisko</Text>
-              <Image source={Logo} style={{width: 40, height: 40}} />
-              <Text style={styles.listHeaderText}>Articles</Text>
-              <View
-                style={{
-                  height: 0.5,
-                  backgroundColor: 'darkgray',
-                  width: '16%',
-                }}></View>
-            </View>
-          }
+          ListHeaderComponent={<DashListHeader />}
           /**
            * @keyExtractor using only item._id generates an error
            * @Math must use instead of uuid
@@ -211,12 +181,12 @@ const Dashboard = ({
             <RefreshControl
               enabled={!search} // can't fetch new data if searching
               refreshing={loading}
+              progressViewOffset={350}
               onRefresh={async () => {
                 handleOnRefresh()
               }}
-              tintColor="blue"
-              colors={['white', 'white']}
-              progressBackgroundColor="blue"
+              colors={[themeColors.pitchblack, themeColors.pitchblack]}
+              progressBackgroundColor={themeColors.purple}
             />
           }
           /**
@@ -264,6 +234,22 @@ const Dashboard = ({
               <View style={{marginVertical: 50}}></View>
             )
           }
+          ListEmptyComponent={
+            <View
+              style={{
+                marginTop: 20,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <LottieView
+                style={{width: '100%', aspectRatio: 1}}
+                source={require('../../../assets/lottie/76706-404-error-page.json')}
+                autoPlay={true}
+                loop={true}
+              />
+            </View>
+          }
+          endFillColor="silver"
         />
       </View>
     </SafeAreaView>
@@ -276,22 +262,18 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   listHeaderParent: {
-    display: 'flex',
-    flexDirection: 'row',
-    marginBottom: 5,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#e3e5e5',
-    paddingVertical: 7,
-    marginHorizontal: 0,
-    borderRadius: 0,
+    backgroundColor: 'transparent',
+    // paddingVertical: '30%',
   },
   listHeaderText: {
-    color: 'darkgray',
-    fontWeight: 'bold',
-    textTransform: 'uppercase',
+    color: themeColors.pitchblack,
+    textTransform: 'capitalize',
     letterSpacing: 1,
-    marginHorizontal: 10,
+    textAlign: 'center',
+    fontWeight: '300',
+    marginVertical: 5,
   },
 })
 

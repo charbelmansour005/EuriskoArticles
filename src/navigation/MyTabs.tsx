@@ -13,7 +13,7 @@ type Nav = {
 export const MyTabs = (): JSX.Element => {
   const {navigate} = useNavigation<Nav>()
   // hacky way - since focused prop isn't available for tabBarButton
-  const [dashColor, setDashColor] = useState<string>('gray')
+  const [dashColor, setDashColor] = useState<string>(themeColors.darkblue)
   const [settingsColor, setSettingsColor] = useState<string>('gray')
   const [moreColor, setMoreColor] = useState<string>('gray')
   const [findColor, setFindColor] = useState<string>('gray')
@@ -59,6 +59,10 @@ export const MyTabs = (): JSX.Element => {
         name="Dashboard"
         component={Dashboard}
         options={{
+          tabBarAccessibilityLabel: 'Feed',
+          tabBarLabel: 'Feed',
+          tabBarBadge: 'Feed',
+          tabBarInactiveBackgroundColor: 'gray',
           tabBarButton: () => (
             <Pressable
               onPress={navigateDashboard}
@@ -66,6 +70,7 @@ export const MyTabs = (): JSX.Element => {
                 color: themeColors.lightgray,
                 borderless: true,
                 radius: 50,
+                foreground: true,
               }}
               android_disableSound={false}
               style={{
@@ -109,6 +114,7 @@ export const MyTabs = (): JSX.Element => {
                 color: themeColors.lightgray,
                 borderless: true,
                 radius: 50,
+                foreground: true,
               }}
               style={{
                 width: '25%',
@@ -149,6 +155,7 @@ export const MyTabs = (): JSX.Element => {
                 color: themeColors.lightgray,
                 borderless: true,
                 radius: 50,
+                foreground: true,
               }}
               android_disableSound={false}
               style={{
@@ -192,6 +199,7 @@ export const MyTabs = (): JSX.Element => {
                 color: themeColors.lightgray,
                 borderless: true,
                 radius: 50,
+                foreground: true,
               }}
               style={{
                 width: '25%',
@@ -263,7 +271,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff',
     borderTopRightRadius: 1,
     borderTopLeftRadius: 1,
-    height: 70,
+    height: 60,
     // allowing some article text to be shown
     opacity: 1,
   },
