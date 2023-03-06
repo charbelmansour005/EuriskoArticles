@@ -1,14 +1,15 @@
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {useAppSelector} from '../app/rtkHooks';
-import {MyTabs} from './MyTabs';
-import {About, Login, LandingScreen} from '../screens/index';
-import {Fragment} from 'react';
+import {NavigationContainer} from '@react-navigation/native'
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+import {useAppSelector} from '../app/rtkHooks'
+import {MyTabs} from './MyTabs'
+import {About, Login, LandingScreen} from '../screens/index'
+import {Fragment} from 'react'
+import {themeColors} from '../helpers/themeColors'
 
 export const Navigation = (): JSX.Element => {
-  const Stack = createNativeStackNavigator();
-  const user = useAppSelector(state => state.user);
-
+  const Stack = createNativeStackNavigator()
+  const user = useAppSelector(state => state.user)
+  // https://stackoverflow.com/questions/45309430/how-can-i-replace-screen-with-react-navigation-for-react-native
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -19,15 +20,26 @@ export const Navigation = (): JSX.Element => {
             <Stack.Screen
               name="LandingScreen"
               component={LandingScreen}
-              options={{headerShown: false, gestureDirection: 'horizontal'}}
+              options={{
+                headerShown: false,
+                gestureDirection: 'horizontal',
+              }}
             />
             <Stack.Screen
               name="Login"
               component={Login}
               options={{
-                headerShown: false,
+                title: 'Back',
+                headerShown: true,
                 gestureDirection: 'horizontal',
                 animation: 'slide_from_right',
+                headerStyle: {
+                  backgroundColor: themeColors.pitchblack,
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                },
               }}
             />
           </Fragment>
@@ -38,12 +50,22 @@ export const Navigation = (): JSX.Element => {
               name="About"
               component={About}
               options={{
-                animation: 'slide_from_right',
+                title: 'Back',
+                headerShown: true,
+                gestureDirection: 'horizontal',
+                animation: 'slide_from_bottom',
+                headerStyle: {
+                  backgroundColor: themeColors.darkgray,
+                },
+                headerTintColor: '#fff',
+                headerTitleStyle: {
+                  fontWeight: 'bold',
+                },
               }}
             />
           </Fragment>
         )}
       </Stack.Navigator>
     </NavigationContainer>
-  );
-};
+  )
+}

@@ -1,24 +1,28 @@
-import {StyleSheet, View, ScrollView, Alert} from 'react-native'
-import {Text} from 'react-native-paper'
-import {rippleColors} from '../../helpers/rippleColors'
-import {useAppSelector, useAppDispatch} from '../../app/rtkHooks'
-import {toggleLanguage} from '../../features/language/languageSlice'
-import {Snackbar} from 'react-native-paper'
+// react + paper imports
 import React, {useState} from 'react'
-import {themeColors} from '../../helpers/themeColors'
+import {StyleSheet, View, ScrollView, Alert} from 'react-native'
+import {Button, Provider, Snackbar, Text} from 'react-native-paper'
+// redux
+import {toggleLanguage} from '../../features/language/languageSlice'
 import {storeCurrentUser} from '../../features/user/userSlice'
-import AsyncStorage from '@react-native-async-storage/async-storage'
-import {Button, Provider} from 'react-native-paper'
-import {useToast} from 'react-native-toast-notifications'
+import {useAppSelector, useAppDispatch} from '../../app/rtkHooks'
+// helpers
+import {themeColors} from '../../helpers/themeColors'
 import {Durations} from '../../helpers/toasts'
-import {useNavigation} from '@react-navigation/native'
+import {rippleColors} from '../../helpers/rippleColors'
+// extra libraries
+import {useToast} from 'react-native-toast-notifications'
 import LinearGradient from 'react-native-linear-gradient'
+// components
 import {
   SettingsButtons,
   SettingsFeatures,
-  Copyright,
   SettingsLangSwitch,
 } from '../../components/index'
+// navigation
+import {useNavigation} from '@react-navigation/native'
+// keychain
+import * as Keychain from 'react-native-keychain'
 
 type Nav = {
   navigate: (value: string) => void
@@ -38,7 +42,9 @@ const Settings = (): JSX.Element => {
   }
 
   const logoutHandler = async (): Promise<void> => {
-    await AsyncStorage.clear()
+    // cutting the use of token for fetching data
+    await Keychain.resetGenericPassword()
+    // removing secure screens
     dispatch(storeCurrentUser({accessToken: null}))
   }
 
@@ -98,7 +104,7 @@ const Settings = (): JSX.Element => {
 
   return (
     <LinearGradient
-      colors={['white', 'white', 'white', 'forestgreen']}
+      colors={['white', 'white', 'white', themeColors.transparentGray]}
       style={{width: '100%', height: '100%'}}>
       <ScrollView>
         <Text style={styles.BoldSmall}>
@@ -111,7 +117,7 @@ const Settings = (): JSX.Element => {
         <View>
           <Snackbar
             style={{
-              backgroundColor: themeColors.green,
+              backgroundColor: themeColors.pitchblack,
             }}
             theme={{colors: {inversePrimary: themeColors.white}}}
             visible={snackbarVisible}
@@ -140,13 +146,18 @@ const Settings = (): JSX.Element => {
               chosenRippleColor={chosenRippleColor}
               isVisible={isVisible}
             />
-            <Button onPress={showModal}>
-              <Text style={{color: themeColors.pitchblack}}>
-                Latest Update Features
+            <Button
+              style={{
+                backgroundColor: themeColors.pitchblack,
+                marginHorizontal: '30%',
+                borderRadius: 5,
+              }}
+              onPress={showModal}>
+              <Text style={{color: themeColors.white, fontWeight: '300'}}>
+                Update Notes
               </Text>
             </Button>
           </Provider>
-          <Copyright />
         </View>
       </ScrollView>
     </LinearGradient>
@@ -161,5 +172,21 @@ const styles = StyleSheet.create({
     marginTop: 25,
     fontWeight: 'bold',
     fontSize: 13,
+  },
+  rippleButton: {
+    padding: 8,
+    backgroundColor: '#5865F2',
+    borderRadius: 3,
+    width: '100%',
+    borderWidth: 1,
+    borderColor: '#5865F2',
+    marginVertical: 1,
+    height: 50,
+  },
+  rippleText: {
+    textAlign: 'center',
+    letterSpacing: 0,
+    color: 'white',
+    fontWeight: 'bold',
   },
 })

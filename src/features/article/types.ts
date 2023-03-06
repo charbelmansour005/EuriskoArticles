@@ -1,17 +1,18 @@
 export type Article = {
-  lead_paragraph: string;
+  lead_paragraph: string
   headline: {
-    main: string;
-  };
+    main: string
+  }
   byline: {
-    original: string | null;
-  };
-  _id: string | null;
-  web_url: string | null;
-  section_name: string | null;
-};
+    original: string | null
+  }
+  _id: string | null
+  web_url: string | null
+  section_name: string | null
+  multimedia: {url: string}[] | any
+}
 
 export type InitialArticleState = {
-  articles: Article[];
-  filteredArticles: Article[];
-};
+  articles: Article[]
+  filteredArticles: Article[]
+}

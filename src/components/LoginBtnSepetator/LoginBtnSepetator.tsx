@@ -24,6 +24,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
     marginTop: 25,
   },
-  lineDesign: {height: 1.2, backgroundColor: 'black', width: '35%'},
-  middleText: {width: 50, textAlign: 'center', color: 'black'},
+  lineDesign: {height: 1.5, backgroundColor: 'white', width: '35%'},
+  middleText: {
+    width: 50,
+    textAlign: 'center',
+    color: 'white',
+    fontWeight: 'bold',
+  },
 })

@@ -1,3 +1,4 @@
+// react / native
 import {
   View,
   Text,
@@ -9,27 +10,25 @@ import {
 } from 'react-native'
 import {Card, ActivityIndicator, Portal, Provider} from 'react-native-paper'
 import {useEffect, useState} from 'react'
+// helpers
 import {themeColors} from '../../helpers/themeColors'
 import {Authors, AuthorImages} from '../../helpers/authors'
 import {rippleColors} from '../../helpers/rippleColors'
-import DashArticleModal from '../DashArticleModal/DashArticleModal'
+// libraries +
 import LinearGradient from 'react-native-linear-gradient'
+// components
+import {DashArticleModal} from '../index'
+// types
 import {ArticleCardAllProps} from './types'
 
 const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
   const [isVisible, setIsVisible] = useState<boolean>(false)
-  const [modalLoading, setModalLoading] = useState<boolean>(false)
   const [authorImage, setAuthorImage] = useState<string>(
     'https://i.ibb.co/y40w40C/ny.png',
   )
 
   const handleShowModal = (): void => {
-    setModalLoading(true)
-
-    setTimeout(() => {
-      setIsVisible(true) // only to show some minimal feedback
-      setModalLoading(false)
-    }, 100)
+    setIsVisible(true) // only to show some minimal feedback
   }
 
   const hideModal = (): void => {
@@ -74,54 +73,70 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
 
   const randomRippleColor = rippleColors[Math.floor(Math.random() * 10)]
   const chosenRippleColor: string = randomRippleColor
-
+  const IMG_URL = 'https://static01.nyt.com/'
   return (
-    <LinearGradient colors={['#2E8B57', '#7FFF00', '#6B8E23', '#2E8B57']}>
+    <View>
       <Card
         mode="elevated"
         onPress={handleShowModal}
-        onLongPress={() => Linking.openURL(props?.url)}
-        style={styles.parent}>
+        style={
+          props?.multimedia[0]?.url?.length ? styles.parentImage : styles.parent
+        }>
         <View style={styles.cardContainer}>
           <View style={{display: 'flex', flexDirection: 'row'}}>
             <Text style={styles.cardTitle} numberOfLines={1}>
               {props?.headline?.trim()}
             </Text>
-            <Image
-              source={require('../../../assets/plant.jpg')}
-              style={{
-                height: 20,
-                width: 20,
-                right: 0,
-                top: 0,
-                position: 'absolute',
-              }}
-            />
+            {props?.multimedia[0]?.url?.length ? (
+              <Image
+                source={require('../../../assets/camera.png')}
+                style={{
+                  height: 12,
+                  width: 15,
+                  right: 0,
+                  top: 0,
+                  position: 'absolute',
+                  tintColor: themeColors.darkblue,
+                }}
+              />
+            ) : (
+              <Image
+                source={require('../../../assets/plant.jpg')}
+                style={{
+                  height: 15,
+                  width: 15,
+                  right: 0,
+                  top: 0,
+                  position: 'absolute',
+                }}
+              />
+            )}
           </View>
           <View style={{display: 'flex', flexDirection: 'row'}}>
             <Image source={{uri: authorImage}} style={styles.authorImages} />
             <Text style={styles.cardAuthor} numberOfLines={1}>
               {props?.author?.trim()}
             </Text>
-            {modalLoading && (
-              <ActivityIndicator
-                style={{marginLeft: 10}}
-                size="small"
-                color={chosenRippleColor}
-              />
-            )}
           </View>
-          <View
-            style={{
-              height: 1,
-              backgroundColor: themeColors.lightgray,
-              width: '100%',
-            }}></View>
           <View style={styles.cardDescription}>
+            {props?.multimedia[0]?.url?.length ? (
+              <View style={styles.logoContainer}>
+                <Image
+                  source={{uri: IMG_URL + props.multimedia[0].url}}
+                  style={styles.ImageModal}
+                />
+                <View
+                  style={{
+                    height: 1,
+                    backgroundColor: themeColors.lightgray,
+                    width: '100%',
+                    marginVertical: 10,
+                  }}></View>
+              </View>
+            ) : null}
             <Text
               style={
-                props?.leadParagraph ===
-                'To see this article, please hold your finger here'
+                props?.leadParagraph === 'To see this article, press here'
                   ? styles.cardTextDescEmpty
                   : styles.cardTextDesc
               }
@@ -140,6 +155,7 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
                     section={props.section}
                     url={props.url}
                     leadParagraph={props.leadParagraph}
+                    multimedia={props.multimedia}
                     hideModal={hideModal}
                   />
                 </ScrollView>
@@ -148,13 +164,20 @@ const DashArticleCard = ({...props}: ArticleCardAllProps): JSX.Element => {
           </Provider>
         </View>
       </Card>
-    </LinearGradient>
+    </View>
   )
 }
 
 export default DashArticleCard
 
 const styles = StyleSheet.create({
+  ImageModal: {
+    height: 100,
+    width: 100,
+    borderRadius: 3,
+    borderWidth: 0,
+    borderColor: 'black',
+  },
   logoContainer: {
     display: 'flex',
     justifyContent: 'center',
@@ -162,11 +185,18 @@ const styles = StyleSheet.create({
   },
   authorImages: {height: 25, width: 25, margin: 5, borderRadius: 20},
   parent: {
-    marginVertical: 5,
-    marginHorizontal: 10,
+    marginVertical: 0.5,
+    marginHorizontal: 0,
     backgroundColor: 'white',
     height: 160,
-    borderRadius: 5,
+    borderRadius: 0,
+  },
+  parentImage: {
+    marginVertical: 0.5,
+    marginHorizontal: 0,
+    backgroundColor: 'white',
+    height: 290,
+    borderRadius: 0,
   },
   cardContainer: {
     borderRadius: 2,
@@ -177,9 +207,9 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 15,
-    color: themeColors.pitchblack,
+    color: '#2C3E50',
     padding: 1,
-    fontWeight: 'bold',
+    // fontWeight: 'bold',
     fontFamily: 'Roboto',
   },
   cardAuthor: {
@@ -190,13 +220,13 @@ const styles = StyleSheet.create({
     fontFamily: 'Roboto',
   },
   cardDescription: {
-    marginTop: 10,
+    marginTop: 5,
     fontFamily: 'Roboto',
-    padding: 5,
+    padding: 1,
   },
   cardTextDesc: {
-    color: themeColors.pitchblack,
-    fontSize: 15,
+    color: 'gray',
+    fontSize: 14,
     fontFamily: 'sans-serif-condensed',
   },
   cardTextDescEmpty: {

@@ -1,4 +1,4 @@
-export type Props = {
+export type SettingsLangSwitchProps = {
   onToggleSwitch: () => void
   language: any
 }

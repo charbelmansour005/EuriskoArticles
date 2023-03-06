@@ -5,14 +5,20 @@ import React from 'react'
 // import {useAppSelector} from '../../app/rtkHooks'
 import {Fragment} from 'react'
 
-const LoginGoogleButton = () => {
+interface Props {
+  SignInToast: () => void
+  SignUpToast: () => void
+}
+
+const LoginGoogleButton = ({...props}: Props) => {
   // const language = useAppSelector(state => state.language)
   return (
     <Fragment>
       <Pressable
+        onPress={props.SignInToast}
         testID="googlePressable"
         android_disableSound={true}
-        android_ripple={{color: themeColors.salmon, borderless: false}}
+        android_ripple={{color: themeColors.white, borderless: false}}
         style={styles.GoogleBtn}>
         <View style={styles.rowflex} testID="btnContainer">
           <Image
@@ -26,12 +32,14 @@ const LoginGoogleButton = () => {
         </View>
       </Pressable>
       <View style={{marginTop: 20, ...styles.rowflex}} testID="signUpContainer">
-        <Text style={{color: '#131938'}} testID="googleNoAcc">
+        <Text style={{color: 'white'}} testID="googleNoAcc">
           Don't have an account?
         </Text>
         <Text
-          style={{color: '#131938', fontWeight: 'bold'}}
+          onPress={props.SignUpToast}
+          style={{color: themeColors.skyblue, fontWeight: 'bold'}}
           testID="googleSignUp">
+          {' '}
           Sign up
         </Text>
       </View>
@@ -43,21 +51,22 @@ export default LoginGoogleButton
 
 const styles = StyleSheet.create({
   GoogleBtn: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'white',
     borderWidth: 1,
-    borderColor: 'lightgray',
-    padding: 8,
-    width: 'auto',
+    borderColor: 'white',
+    padding: 5,
+    width: '92%',
     maxWidth: '100%',
     marginTop: 25,
-    borderRadius: 5,
+    borderRadius: 3,
+    alignItems: 'center',
   },
   rowflex: {
     flexDirection: 'row',
     alignItems: 'center',
   },
   GoogleText: {
-    color: 'black',
+    color: '#5865F2',
     fontWeight: 'bold',
     fontSize: 15,
     textAlign: 'center',

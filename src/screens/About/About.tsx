@@ -1,25 +1,60 @@
-import {StyleSheet, Text, View} from 'react-native'
+import {StyleSheet, Text, View, StatusBar, ScrollView} from 'react-native'
 import React from 'react'
+import LinearGradient from 'react-native-linear-gradient'
+import {themeColors} from '../../helpers/themeColors'
 import LottieView from 'lottie-react-native'
+import {Copyright} from '../../components'
 
 const About = (): JSX.Element => {
   return (
-    <View style={{height: '100%', width: '100%'}} testID="parent">
-      <View style={styles.animationContainer} testID="animationContainer">
-        <LottieView
-          testID="lottieAnimation"
-          style={{width: '80%', aspectRatio: 1}}
-          source={require('../../../assets/lottie/296-react-logo.json')}
-          autoPlay={true}
-          loop={true}
+    <LinearGradient
+      style={{width: '100%', height: '100%'}}
+      colors={[
+        themeColors.darkgray,
+        themeColors.white,
+        themeColors.white,
+        themeColors.white,
+        themeColors.darkgray,
+      ]}>
+      <ScrollView>
+        <StatusBar
+          translucent={false}
+          barStyle="light-content"
+          backgroundColor={themeColors.darkgray}
         />
-      </View>
-      <View testID="titleContainer">
-        <Text testID="aboutTitle" style={styles.title}>
-          This app was developed using React Native
-        </Text>
-      </View>
-    </View>
+        <View style={{height: '100%', width: '100%'}} testID="parent">
+          <View style={styles.animationContainer} testID="animationContainer">
+            <LottieView
+              testID="lottieAnimation"
+              style={{width: '80%', aspectRatio: 1}}
+              source={require('../../../assets/lottie/296-react-logo.json')}
+              autoPlay={true}
+              loop={true}
+            />
+          </View>
+          <View testID="titleContainer">
+            <Text testID="aboutTitle" style={styles.title}>
+              This app was developed using React Native
+            </Text>
+          </View>
+          <Copyright />
+          <View
+            style={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}>
+            <LottieView
+              testID="lottieAnimation"
+              style={{width: '80%', aspectRatio: 1}}
+              source={require('../../../assets/lottie/86101-flying-hearts.json')}
+              autoPlay={true}
+              loop={true}
+            />
+          </View>
+        </View>
+      </ScrollView>
+    </LinearGradient>
   )
 }
 
@@ -44,6 +79,8 @@ const styles = StyleSheet.create({
     color: 'black',
     textAlign: 'center',
     marginVertical: 10,
+    fontWeight: 'bold',
+    fontStyle: 'italic',
   },
   animationContainer: {justifyContent: 'center', alignItems: 'center'},
 })

@@ -1,3 +1,4 @@
+// react/native imports
 import {
   View,
   FlatList,
@@ -5,26 +6,34 @@ import {
   SafeAreaView,
   Alert,
   RefreshControl,
+  StatusBar,
 } from 'react-native'
-import React, {useEffect, useState} from 'react'
+import React, {useEffect, useState, useCallback} from 'react'
+// reduxTK
 import {
   storeArticles,
   storeFilteredArticles,
 } from '../../features/article/articlesSlice'
-import {Article} from '../../features/article/types'
+import {useAppSelector} from '../../app/rtkHooks'
 import {useAppDispatch} from '../../app/rtkHooks'
+// helpers
+import {themeColors} from '../../helpers/themeColors'
 import {Durations} from '../../helpers/toasts'
 import {getArticles} from '../../services/articles'
-import {themeColors} from '../../helpers/themeColors'
 import {useToast} from 'react-native-toast-notifications'
-import { useAppSelector } from '../../app/rtkHooks'
-import {DashboardProps} from './types'
+// components+
 import {
   DashHeader,
   DashTopLoader,
   LoadingSpinner,
   DashArticleCard,
+  DashListHeader,
 } from '../../components/index'
+// types
+import {DashboardProps} from './types'
+import {Article} from '../../features/article/types'
+// libraries+
+import LottieView from 'lottie-react-native'
 
 const Dashboard = ({
   searchBaseValue = ``,
@@ -50,7 +59,7 @@ const Dashboard = ({
   const toast = useToast()
 
   const welcomeToast = (): void => {
-    toast.show('To view an article, press on one, or long press for website', {
+    toast.show('Welcome back', {
       type: 'normal',
       duration: Durations.MEDIUM,
       animationType: 'zoom-in',
@@ -62,20 +71,17 @@ const Dashboard = ({
     welcomeToast()
   }, [])
 
-  const loadArticles = async (): Promise<void> => {
+  const loadArticles = useCallback(async (): Promise<void> => {
     if (page == 0) {
       setIsLoading(true)
     }
     getArticles(page)
       .then(async (response: any) => {
-        // avoid showing the loading indicator when there is no new data
         if (response.response.docs.length < 10) {
           setDataFound(true)
         }
-        // keeping the previously fetched articles & concatenating the new ones
         setArticlesList(prev => prev.concat(response.response.docs))
-        // storing the response
-        dispatch(storeArticles(response.response.docs))
+        dispatch(storeArticles(response.response))
       })
       .catch(error => {
         setArticleError(true)
@@ -84,7 +90,6 @@ const Dashboard = ({
           `${error.data.message}.`,
           [
             {
-              // no function passed = cancel behavior
               text: 'Okay',
               style: 'default',
             },
@@ -93,7 +98,7 @@ const Dashboard = ({
         )
       })
       .finally(() => setIsLoading(false))
-  }
+  }, [page])
 
   useEffect(() => {
     loadArticles()
@@ -113,22 +118,27 @@ const Dashboard = ({
     loadArticles() // refetching
   }
 
-  const searchArticles = (): void => {
+  // useCallback helps avoiding the rerendering of the searchArticles function
+  const searchArticles = useCallback((): void => {
     if (search) {
-      var searchRegex = new RegExp(
+      // introducing the searchRegex var
+      var regex = new RegExp(
+        // replacing the incorrect search input
         search.replace(/[.,\/#!?$%^&*;:{}=\-_`~()\\]/g, '') + '(\\s|$)',
         'i',
       )
+      // using the regex var
       setSearchedArticles(
+        // using the .filter method
         articlesList.filter(
           item =>
-            item.headline.main.match(searchRegex) ||
-            item.lead_paragraph.match(searchRegex),
+            item.headline.main.match(regex) || item.lead_paragraph.match(regex),
         ),
       )
+      // after setting the state of searchedArticles, we are then storing it in redux
       dispatch(storeFilteredArticles(searchedArticles))
     }
-  }
+  }, [search])
 
   useEffect(() => {
     searchArticles()
@@ -138,21 +148,29 @@ const Dashboard = ({
     <DashTopLoader />
   ) : (
     <SafeAreaView>
+      <StatusBar
+        translucent={false}
+        barStyle="dark-content"
+        backgroundColor="white"
+      />
       <View
         style={{
           backgroundColor: themeColors.transparentGray,
           ...styles.maxWidth,
         }}>
-        {/* handling the search in the header */}
         <DashHeader search={search} setSearch={setSearch} language={language} />
         <FlatList
+          ListHeaderComponent={<DashListHeader />}
           /**
            * @keyExtractor using only item._id generates an error
            * @Math must use instead of uuid
            */
+          // keyExtractor={item => `${item._id}+${randomID}`}
           keyExtractor={item => `${item._id}+${Math.random() * 8798789}`}
           /**
            * @data conditionally setting the data: if the user searches, display the filtered data.
+           * @search is used for detecting search input, and bad characters are being replaced by regex
+           * @searchedArticles are the filtered data
            */
           data={search ? searchedArticles : articlesList}
           /**
@@ -163,10 +181,12 @@ const Dashboard = ({
             <RefreshControl
               enabled={!search} // can't fetch new data if searching
               refreshing={loading}
+              progressViewOffset={350}
               onRefresh={async () => {
                 handleOnRefresh()
               }}
-              tintColor="red"
+              colors={[themeColors.pitchblack, themeColors.pitchblack]}
+              progressBackgroundColor={themeColors.purple}
             />
           }
           /**
@@ -175,6 +195,7 @@ const Dashboard = ({
            * 0.5 -> the list will update when the user is halfway down the current dataset
            */
           onEndReachedThreshold={0.5}
+          // set new page
           onEndReached={async ({distanceFromEnd}) => {
             if (distanceFromEnd < 0) {
               return
@@ -198,16 +219,37 @@ const Dashboard = ({
                 item?.lead_paragraph.includes('{') ||
                 item?.lead_paragraph.includes('}') ||
                 !item?.lead_paragraph
-                  ? 'To see this article, please hold your finger here'
+                  ? 'To see this article, press here'
                   : item?.lead_paragraph
               }
               url={item?.web_url ? item?.web_url : null}
               section={item?.section_name ? item.section_name : 'No section'}
+              multimedia={item?.multimedia}
             />
           )}
           ListFooterComponent={
-            !dataFound && !search ? <LoadingSpinner /> : null
+            !dataFound && !search ? (
+              <LoadingSpinner />
+            ) : (
+              <View style={{marginVertical: 50}}></View>
+            )
           }
+          ListEmptyComponent={
+            <View
+              style={{
+                marginTop: 20,
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}>
+              <LottieView
+                style={{width: '100%', aspectRatio: 1}}
+                source={require('../../../assets/lottie/76706-404-error-page.json')}
+                autoPlay={true}
+                loop={true}
+              />
+            </View>
+          }
+          endFillColor="silver"
         />
       </View>
     </SafeAreaView>
@@ -218,6 +260,20 @@ const styles = StyleSheet.create({
   maxWidth: {
     height: '100%',
     width: '100%',
+  },
+  listHeaderParent: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent',
+    // paddingVertical: '30%',
+  },
+  listHeaderText: {
+    color: themeColors.pitchblack,
+    textTransform: 'capitalize',
+    letterSpacing: 1,
+    textAlign: 'center',
+    fontWeight: '300',
+    marginVertical: 5,
   },
 })
 

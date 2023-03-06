@@ -1,11 +1,12 @@
 import {StyleSheet, Text, View} from 'react-native'
 import {Switch} from 'react-native-paper'
-// import {useAppSelector} from '../../app/rtkHooks';
 import React, {Fragment} from 'react'
-import {Props, LangFeature} from './types'
+import {SettingsLangSwitchProps, LangFeature} from './types'
+import {themeColors} from '../../helpers/themeColors'
 
-const SettingsLangSwitch = ({...props}: Props): JSX.Element => {
-  // const language = useAppSelector(state => state.language);
+const SettingsLangSwitch = ({
+  ...props
+}: SettingsLangSwitchProps): JSX.Element => {
   const LangFeature: LangFeature = {
     englishDefinition:
       'Changing the language will only affect that of the application and not the language which the articles are displayed in, the change will be system wide.',
@@ -51,7 +52,7 @@ const styles = StyleSheet.create({
   BoldSmallNoMargin: {
     fontWeight: 'bold',
     fontSize: 13,
-    color: 'black',
+    color: themeColors.darkblue,
   },
   paperContainerFlex: {
     display: 'flex',
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     borderRadius: 10,
-    borderWidth: 1,
+    borderWidth: 0.5,
     borderColor: 'lightgray',
     flexDirection: 'row',
   },

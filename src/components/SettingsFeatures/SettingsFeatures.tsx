@@ -6,9 +6,9 @@ import {
 } from 'react-native-paper'
 import {themeColors} from '../../helpers/themeColors'
 import React from 'react'
-import {Props} from './types'
+import {SettingsFeaturesProps} from './types'
 
-const SettingsFeatures = ({...props}: Props): JSX.Element => {
+const SettingsFeatures = ({...props}: SettingsFeaturesProps): JSX.Element => {
   return (
     <PProvider>
       <Portal>
@@ -19,14 +19,14 @@ const SettingsFeatures = ({...props}: Props): JSX.Element => {
                 color: 'gray',
                 ...styles.featureText,
               }}>
-              Hold an article to read more or visit website
+              Hold an article to visit website
             </Text>
             <Text
               style={{
                 color: 'gray',
                 ...styles.featureText,
               }}>
-              Press Read more on an article to open more details
+              Press on an article to see more details
             </Text>
             <Text
               style={{
@@ -64,14 +64,14 @@ const styles = StyleSheet.create({
   closeModalButtonContainer: {
     marginBottom: 25,
     display: 'flex',
-    alignContent: 'center',
     justifyContent: 'center',
     width: '100%',
+    alignItems: 'center',
   },
   rippleButtonModal: {
-    padding: 4,
+    padding: 8,
     borderRadius: 3,
-    width: '100%',
+    width: '50%',
     backgroundColor: themeColors.darkgray,
   },
   rippleText: {
